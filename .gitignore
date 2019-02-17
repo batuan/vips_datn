@@ -13,9 +13,6 @@ yarn-error.log*
 bower_components/
 node_modules/
 
-package-lock.json
-yarn.lock
-
 # Optional eslint cache
 .eslintcache
 
