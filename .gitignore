@@ -1,5 +1,66 @@
-target/
+### Node ###
+
+# Logs
+logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional npm cache directory
+.npm
+
+# Dependency directories
+bower_components/
+node_modules/
+
+package-lock.json
+yarn.lock
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env
+
+#Build generated
+dist/
+build/
+
+### VisualStudioCode ###
+.vscode
+
+### System Files ###
 .DS_Store
+.DS_Store?
+
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Python
+*.egg-info
+
+
+target/
 launch.test.json
 .settings
 .classpath
