@@ -58,6 +58,8 @@ public class VipsBlock {
 	private int _textLen = 0;
 	//length of text in links in node
 	private int _linkTextLen = 0;
+	
+	private String _xpath = "";
 
 	public VipsBlock() {
 		this._children = new ArrayList<VipsBlock>();
@@ -129,6 +131,26 @@ public class VipsBlock {
 
 		for (VipsBlock childVipsBlock : vipsBlock.getChildren())
 			checkContainImg(childVipsBlock);
+	}
+	
+	/**
+	 *  getXpath visual structure node
+	 *  @return string is xpath
+	 */
+	public String xPath(Node node) {
+		if (node != null) {
+			Node parent = node.getParentNode();
+		    if (parent == null) {
+		        return "/" + node.getNodeName();
+		    }
+		    return xPath(parent) + "/" + node.getNodeName();
+		}
+		return "";
+	}
+	
+	public String getXPath() {
+		_xpath = xPath(_box.getNode());
+		return _xpath;
 	}
 
 	/**

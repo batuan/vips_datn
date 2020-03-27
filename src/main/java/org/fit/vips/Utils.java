@@ -198,7 +198,7 @@ public class Utils {
 			Set<String> evincedIds = new HashSet<>();
 			extractAllEvincedIds(htmlDoc.getDocumentElement(), evincedIds);
 			String evincedIdsStr = String.join(";", evincedIds);
-			String evincedScript = Files.readString(Paths.get("src/main/resources/evinced-mark-VIPS-blocks.js"));
+			String evincedScript = new String(Files.readAllBytes(Paths.get("src/main/resources/evinced-mark-VIPS-blocks.js")));
 			evincedScript = evincedScript.replace("<put-blocks-ids-here>", evincedIdsStr);
 			System.out.println("STR = " + evincedScript);
 			out = new PrintStream(new FileOutputStream(fileName));

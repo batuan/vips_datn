@@ -122,7 +122,7 @@ public class VipsParser {
 	private void constructVipsBlockTree(Box element, VipsBlock node)
 	{
 		node.setBox(element);
-
+		String xpath = node.getXPath();
 		if (! (element instanceof TextBox))
 		{
 			for (Box box: ((ElementBox) element).getSubBoxList())

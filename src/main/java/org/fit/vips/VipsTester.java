@@ -31,6 +31,8 @@ public class VipsTester {
 		try
 		{
 			Vips vips = new Vips();
+			vips.setOutputDirectoryName("data");
+			vips.setOutputFileName("test");
 			// disable graphics output
 			vips.enableGraphicsOutput(false);
 			// disable output to separate folder (no necessary, it's default value is false)

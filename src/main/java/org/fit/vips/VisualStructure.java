@@ -37,7 +37,8 @@ public class VisualStructure {
 	private int _tmpSrcIndex = 0;
 	private int _srcIndex = 0;
 	private int _minimalDoC = 0;
-
+	private String _xPath = "";
+	
 	public VisualStructure()
 	{
 		_nestedBlocks = new ArrayList<VipsBlock>();
@@ -428,6 +429,15 @@ public class VisualStructure {
 		}
 
 		return _containTable;
+	}
+	
+	/**
+	 *  getXpath visual structure node
+	 *  @return string is xpath
+	 */
+	public String getXPath() {
+		_xPath = _nestedBlocks.get(0).getXPath();
+		return _xPath;
 	}
 
 	/**
