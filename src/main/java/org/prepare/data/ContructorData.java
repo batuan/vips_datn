@@ -68,9 +68,6 @@ public class ContructorData {
         pagesRoot.setBlockBody(blockBody);
         pagesRoot.setElements(blocksData(nodeLayOutBody));
 
-
-        System.out.println(pagesRoot);
-
     }
 
     public ArrayList<DataBlock> blocksData(Node node) {

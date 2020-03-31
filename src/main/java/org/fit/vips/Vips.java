@@ -47,6 +47,8 @@ public class Vips {
 	private String _dirName = "";
 	private	int sizeTresholdWidth = 350;
 	private	int sizeTresholdHeight = 400;
+	private int sizeDimensionWidth = 1000;
+	private int sizeDimensionHeight = 600;
 
 	private PrintStream originalOut = null;
 	long startTime = 0;
@@ -154,7 +156,7 @@ public class Vips {
 	private void getViewport()
 	{
 		_browserCanvas = new BrowserCanvas(_domAnalyzer.getRoot(),
-				_domAnalyzer, new java.awt.Dimension(1000, 600), _url);
+				_domAnalyzer, new java.awt.Dimension(sizeDimensionWidth, sizeDimensionHeight), _url);
 		_viewport = _browserCanvas.getViewport();
 	}
 
@@ -404,6 +406,22 @@ public class Vips {
 			System.err.println("Something's wrong!");
 			e.printStackTrace();
 		}
+	}
+
+	public void setSizeTresholdWidth(int width) {
+		this.sizeTresholdWidth = width;
+	}
+
+	public void setSizeTresholdHeight(int height) {
+		this.sizeTresholdHeight = height;
+	}
+
+	public void setSizeDimensionWidth(int width) {
+		this.sizeDimensionWidth = width;
+	}
+
+	public void setSizeDimensionHeight(int height) {
+		this.sizeDimensionHeight = height;
 	}
 
 	public void setOutputFileName(String filename)
