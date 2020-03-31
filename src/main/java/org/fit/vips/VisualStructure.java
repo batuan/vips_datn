@@ -7,7 +7,9 @@
 package org.fit.vips;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.w3c.dom.Node;
 
@@ -31,6 +33,7 @@ public class VisualStructure {
 	private int _containP = -1;
 	private int _textLength = -1;
 	private int _linkTextLength = -1;
+	private int _linkNum = -1;
 	private int _order;
 	private boolean _containTable = false;
 	private String _id = null;
@@ -435,9 +438,15 @@ public class VisualStructure {
 	 *  getXpath visual structure node
 	 *  @return string is xpath
 	 */
-	public String getXPath() {
-		_xPath = _nestedBlocks.get(0).getXPath();
-		return _xPath;
+	public String getXPath(Node node) {
+		if (node != null) {
+			Node parent = node.getParentNode();
+			if (parent == null) {
+				return "/" + node.getNodeName();
+			}
+			return getXPath(parent) + "/" + node.getNodeName();
+		}
+		return "";
 	}
 
 	/**
@@ -486,6 +495,20 @@ public class VisualStructure {
 		}
 
 		return _linkTextLength;
+	}
+
+	/**
+	 * Return length of num link in visual structure
+	 * @return LinkNum
+	 */
+	public int getLinkNum() {
+		if (_linkNum != -1)
+			return _linkNum;
+		_linkNum = 0;
+		for (VipsBlock vipsBlock: _nestedBlocks) {
+			_linkNum += vipsBlock.getLinkNum();
+		}
+		return _linkNum;
 	}
 
 	/**

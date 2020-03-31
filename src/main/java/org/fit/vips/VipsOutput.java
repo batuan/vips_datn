@@ -85,7 +85,7 @@ public final class VipsOutput {
 		layoutNode.setAttribute("ContainP", String.valueOf(visualStructure.containP()));
 		layoutNode.setAttribute("TextLen", String.valueOf(visualStructure.getTextLength()));
 		layoutNode.setAttribute("LinkTextLen", String.valueOf(visualStructure.getLinkTextLength()));
-		String xpath = visualStructure.getXPath();
+		layoutNode.setAttribute("LinkNum", String.valueOf(visualStructure.getLinkNum()));
 		Box parentBox = visualStructure.getNestedBlocks().get(0).getBox().getParent();
 		layoutNode.setAttribute("DOMCldNum", String.valueOf(parentBox.getNode().getChildNodes().getLength()));
 		layoutNode.setAttribute("FontSize", String.valueOf(visualStructure.getFontSize()));
@@ -130,9 +130,10 @@ public final class VipsOutput {
 					layoutNode.setAttribute("SRC", src);
 					layoutNode.setAttribute("Content", content);
 					layoutNode.setAttribute("EvincedId", originalNodeIds);
+					String xPath = visualStructure.getNestedBlocks().get(0).getXPath();
+					layoutNode.setAttribute("xPath", String.valueOf(xPath));
 				}
 			}
-
 			parentNode.appendChild(layoutNode);
 
 			for (VisualStructure child : visualStructure.getChildrenVisualStructures())
@@ -166,8 +167,9 @@ public final class VipsOutput {
 				layoutNode.setAttribute("SRC", src);
 				layoutNode.setAttribute("Content", content);
 				layoutNode.setAttribute("EvincedId", originalNodeIds);
+				String xPath = visualStructure.getNestedBlocks().get(0).getXPath();
+				layoutNode.setAttribute("xPath", String.valueOf(xPath));
 			}
-
 			parentNode.appendChild(layoutNode);
 		}
 	}

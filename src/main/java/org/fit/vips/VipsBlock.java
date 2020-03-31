@@ -58,7 +58,9 @@ public class VipsBlock {
 	private int _textLen = 0;
 	//length of text in links in node
 	private int _linkTextLen = 0;
-	
+	// LinkNum of
+	private int LinkNum = 0;
+
 	private String _xpath = "";
 
 	public VipsBlock() {
@@ -97,12 +99,17 @@ public class VipsBlock {
 	{
 		checkIsImg();
 		checkContainImg(this);
+		/* new custom */
+		updateXPath(this);
+		/*---------------*/
 		checkContainTable(this);
 		checkContainP(this);
 		_linkTextLen = 0;
+		LinkNum = 0;
 		_textLen = 0;
 		countTextLength(this);
 		countLinkTextLength(this);
+		countLinkNum(this);
 		setSourceIndex(this.getBox().getNode().getOwnerDocument());
 	}
 
@@ -147,9 +154,16 @@ public class VipsBlock {
 		}
 		return "";
 	}
+
+	public void updateXPath(VipsBlock vipsBlock) {
+		if (vipsBlock.getBox().getNode() != null) {
+			this._xpath = this.xPath(vipsBlock.getBox().getNode());
+		}
+		for (VipsBlock chVipsBlock: vipsBlock.getChildren())
+			updateXPath(chVipsBlock);
+	}
 	
 	public String getXPath() {
-		_xpath = xPath(_box.getNode());
 		return _xpath;
 	}
 
@@ -161,7 +175,16 @@ public class VipsBlock {
 	{
 		if (vipsBlock.getBox().getNode().getNodeName().equals("table"))
 			this._containTable = true;
-
+		else {
+			if (vipsBlock.getBox().getNode().getAttributes() != null && vipsBlock.getBox().getNode().getAttributes().getNamedItem("class") != null) {
+				String _class = vipsBlock.getBox().getNode().getAttributes().getNamedItem("class").getNodeValue();
+				if (_class.contains("table") || _class.contains("bang")) {
+					/*System.out.println(_class);*/
+					this._containTable = true;
+//					System.out.println(this._containTable);
+				}
+			}
+		}
 		for (VipsBlock childVipsBlock : vipsBlock.getChildren())
 			checkContainTable(childVipsBlock);
 	}
@@ -193,6 +216,18 @@ public class VipsBlock {
 
 		for (VipsBlock childVipsBlock : vipsBlock.getChildren())
 			countLinkTextLength(childVipsBlock);
+	}
+
+	/**
+	 * counts number link of block
+	 * @param vipsBlock Visualblock
+	 */
+	private void countLinkNum(VipsBlock vipsBlock) {
+		if (vipsBlock.getBox().getNode().getNodeName().equals("a")) {
+			LinkNum += 1;
+		}
+		for (VipsBlock childVipsBlock: vipsBlock.getChildren())
+			countLinkNum(childVipsBlock);
 	}
 
 	/**
@@ -367,6 +402,10 @@ public class VipsBlock {
 	public int getLinkTextLength()
 	{
 		return _linkTextLen;
+	}
+
+	public int getLinkNum() {
+		return LinkNum;
 	}
 
 	/**
