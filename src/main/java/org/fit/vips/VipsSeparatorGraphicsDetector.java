@@ -979,7 +979,7 @@ public class VipsSeparatorGraphicsDetector extends JPanel implements VipsSeparat
 	 */
 	public void saveToImage(String filename)
 	{
-		filename = System.getProperty("user.dir") + "/" + filename + ".png";
+		filename = System.getProperty("user.dir") + "/images/" + filename + ".png";
 		try
 		{
 			ImageIO.write(_image, "png", new File(filename));

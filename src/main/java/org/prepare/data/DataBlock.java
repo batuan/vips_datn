@@ -5,6 +5,7 @@ public class DataBlock {
     Double fontsize;
     Double linkTextLen;
     Double linkNum;
+    String src;
 //    Double PageRectHeight;
 //    Double PageRectLeft;
 //    Double PageRectTop;
@@ -32,7 +33,7 @@ public class DataBlock {
                      Double linkNum, Double containImg, Double containP,
                      Double objectRectLeft, Double objectRectTop, Double objectRectHeight,
                      Double objectRectWidth, Double fontWeight, Double textLen, Double isImage,
-                     String content, String label) {
+                     String content, String src, String label) {
         this.xpath = xpath;
         this.fontsize = fontsize;
         this.linkTextLen = linkTextLen;
@@ -47,6 +48,7 @@ public class DataBlock {
         this.textLen = textLen;
         this.isImage = isImage;
         this.content = content;
+        this.src = src;
         this.label = label;
     }
 
@@ -170,6 +172,14 @@ public class DataBlock {
         return this.label;
     }
 
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
+    }
+
     @Override
     public String toString() {
         return "DataBlock{" +
@@ -190,4 +200,5 @@ public class DataBlock {
                 ", label='" + label + '\'' +
                 '}';
     }
+
 }

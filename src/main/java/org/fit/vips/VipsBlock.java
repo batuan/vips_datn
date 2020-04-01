@@ -486,17 +486,18 @@ public class VipsBlock {
 	public String getFontWeight()
 	{
 		String fontWeight = "";
-
 		if (this.getBox() instanceof TextBox)
 		{
 			return fontWeight;
 		}
-
+		if (this.getElementBox().getStyle().getProperty("font-weight") != null) {
+			fontWeight = this.getElementBox().getStyle().getProperty("font-weight").toString();
+			return fontWeight;
+		}
 		if (this.getElementBox().getStylePropertyValue("font-weight") == null)
 			return fontWeight;
 
 		fontWeight = this.getElementBox().getStylePropertyValue("font-weight");
-
 		if (fontWeight.isEmpty())
 			fontWeight = "normal";
 

@@ -63,8 +63,9 @@ public class ContructorData {
         }
         Double textLen = Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("TextLen").getNodeValue());
         Double isImage = Boolean.valueOf(nodeLayOutBody.getAttributes().getNamedItem("TextLen").getNodeValue()) ? 1.0 : 0.0;
+        String src = nodeLayOutBody.getAttributes().getNamedItem("SRC").getNodeValue();
         DataBlock blockBody = new DataBlock("", fontSize, linkTextLen, linkNum, containImg, containP, objectRectLeft,
-                    objectRectTop, objectRectHeight, objectRectWidth, fontWeight, textLen, isImage, "", "");
+                    objectRectTop, objectRectHeight, objectRectWidth, fontWeight, textLen, isImage, "", src, "");
         pagesRoot.setBlockBody(blockBody);
         pagesRoot.setElements(blocksData(nodeLayOutBody));
 
@@ -114,8 +115,9 @@ public class ContructorData {
         Double textLen = Double.valueOf(node.getAttributes().getNamedItem("TextLen").getNodeValue());
         Double isImage = Boolean.valueOf(node.getAttributes().getNamedItem("TextLen").getNodeValue()) ? 1.0 : 0.0;
         String content = node.getAttributes().getNamedItem("Content").getNodeValue();
+        String src = node.getAttributes().getNamedItem("SRC").getNodeValue();
         DataBlock block = new DataBlock(xpath, fontSize, linkTextLen, linkNum, containImg, containP, objectRectLeft,
-                objectRectTop, objectRectHeight, objectRectWidth, fontWeight, textLen, isImage, content, "");
+                objectRectTop, objectRectHeight, objectRectWidth, fontWeight, textLen, isImage, content, src, "");
 
         return block;
     }

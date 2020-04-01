@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class PagesRoot {
 
+    public static final double HEADER_HEIGHT = 131.4;
+    public static final double FOOTER_HEIGHT = 452.4;
+
     Double PageRectHeight;
     Double PageRectLeft;
     Double PageRectTop;
@@ -14,6 +17,7 @@ public class PagesRoot {
     Double WindowWidth;
     DataBlock blockBody;
     ArrayList<DataBlock> elements;
+    ArrayList<DataStandard> elementStandard;
 
     public PagesRoot() {
     }
@@ -35,7 +39,37 @@ public class PagesRoot {
 
     }
 
+    public void properties() {
 
+    }
+
+    public ArrayList<DataStandard> calculatorDataStandara(ArrayList<DataBlock> elements) {
+        ArrayList<DataStandard> dataStandards = new ArrayList<>();
+        for (DataBlock it: elements) {
+            DataStandard data = new DataStandard();
+            Double blockCenterX = (it.getObjectRectLeft() + it.getObjectRectWidth())/(2 * blockBody.getObjectRectWidth());
+            Double blockRectWidth = it.getObjectRectWidth() / blockBody.getObjectRectWidth();
+            Double blockRectHeigh = it.getObjectRectHeight() / WindowHeight;
+            Double blockCenterY = (it.getObjectRectTop() + it.getObjectRectHeight())/(2 * blockBody.getObjectRectHeight());;
+            if (blockCenterY < HEADER_HEIGHT) {
+                blockCenterY = blockCenterY / (2 * HEADER_HEIGHT);
+            } else if ((HEADER_HEIGHT < blockCenterY) &&
+                    (blockCenterY < (blockBody.getObjectRectHeight() - FOOTER_HEIGHT))) {
+                blockCenterY = 0.5;
+            } else {
+                blockCenterY = 1 - (blockBody.getObjectRectHeight() - blockCenterY) / (2 * FOOTER_HEIGHT);
+            }
+            Double fontSize = it.getFontsize() / blockBody.getFontsize();
+            Double linkNum = it.getLinkNum() / blockBody.getLinkNum();
+            Double interactionSize = (it.getObjectRectHeight() * it.getObjectRectWidth()) * (blockBody.getObjectRectHeight() * blockBody.getObjectRectWidth());
+            Double innerTextLength = it.getTextLen();
+            Double imgSize = it.getIsImage() == 1.0 ? (it.getObjectRectHeight() * it.getObjectRectWidth())/(PageRectHeight * PageRectWidth) : 0.0;
+            Double imgNum = it.getContainImg();
+            Double fontWeight = it.getFontWeight();
+
+        }
+        return dataStandards;
+    }
 
     public Double getPageRectHeight() {
         return PageRectHeight;
@@ -116,6 +150,7 @@ public class PagesRoot {
     public void setUrl(String url) {
         this.url = url;
     }
+
 
     @Override
     public String toString() {

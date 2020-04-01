@@ -7,16 +7,15 @@
 package org.fit.vips;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.imageio.ImageIO;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.fit.cssbox.css.CSSNorm;
 import org.fit.cssbox.css.DOMAnalyzer;
@@ -27,6 +26,8 @@ import org.fit.cssbox.io.DocumentSource;
 import org.fit.cssbox.layout.BrowserCanvas;
 import org.fit.cssbox.layout.Viewport;
 import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 /**
  * Vision-based Page Segmentation algorithm
@@ -43,13 +44,14 @@ public class Vips {
 	private boolean _outputToFolder = false;
 	private boolean _outputEscaping = true;
 	private int _pDoC = 11;
+	private int numberOfIterations = 10;
 	private String _filename = "";
 	private String _dirName = "";
 	private	int sizeTresholdWidth = 350;
 	private	int sizeTresholdHeight = 400;
 	private int sizeDimensionWidth = 1000;
 	private int sizeDimensionHeight = 600;
-
+	private PhantomJS phantomJS;
 	private PrintStream originalOut = null;
 	long startTime = 0;
 	long endTime = 0;
@@ -59,6 +61,7 @@ public class Vips {
 	 */
 	public Vips()
 	{
+		this.phantomJS = new PhantomJS();
 	}
 
 	/**
@@ -151,6 +154,25 @@ public class Vips {
 	}
 
 	/**
+	 * Parses a builds DOM tree from page source
+	 * @param html String Input with phantomJS
+	 */
+	private void getDomTree(String html) {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		try {
+			Document domTree = factory.newDocumentBuilder().parse(
+							new InputSource(new StringReader(html)));
+			_domAnalyzer = new DOMAnalyzer(domTree, _url);
+			_domAnalyzer.attributesToStyles();
+			_domAnalyzer.addStyleSheet(null, CSSNorm.stdStyleSheet(), DOMAnalyzer.Origin.AGENT);
+			_domAnalyzer.addStyleSheet(null, CSSNorm.userStyleSheet(), DOMAnalyzer.Origin.AGENT);
+			_domAnalyzer.getStyleSheets();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+	}
+
+	/**
 	 * Gets page's viewport
 	 */
 	private void getViewport()
@@ -194,6 +216,10 @@ public class Vips {
 		return outputFolder;
 	}
 
+	public void setNumberOfIterations(int numberOfIterations) {
+		this.numberOfIterations = numberOfIterations;
+	}
+
 	/**
 	 * Performs page segmentation.
 	 */
@@ -201,7 +227,7 @@ public class Vips {
 	{
 
 		startTime = System.nanoTime();
-		int numberOfIterations = 10;
+		int numberOfIterations = this.numberOfIterations;
 		int pageWidth = _viewport.getWidth();
 		int pageHeight = _viewport.getHeight();
 
@@ -357,49 +383,49 @@ public class Vips {
 			_url.openConnection();
 
 			redirectOut();
-
-			getDomTree(_url);
-			startTime = System.nanoTime();
-			getViewport();
-			restoreOut();
-
-			Utils.setEvincedIds(_domAnalyzer.getBody());
-			Utils.writeHtmlToFile(_domAnalyzer.getRoot(), _dirName + "/" + "html-with-evinced-ids.html");
-
-			String outputFolder = "";
-			String oldWorkingDirectory = "";
-			String newWorkingDirectory = "";
-
-			if (_outputToFolder)
-			{
-				outputFolder = generateFolderName();
-
-				if (!new File(outputFolder).mkdir())
-				{
-					System.err.println("Something goes wrong during directory creation!");
-				}
-				else
-				{
-					oldWorkingDirectory = System.getProperty("user.dir");
-					newWorkingDirectory += oldWorkingDirectory + "/" + outputFolder + "/";
-					System.setProperty("user.dir", newWorkingDirectory);
-				}
-			}
-
-			performSegmentation();
-
-			if (_outputToFolder)
-				System.setProperty("user.dir", oldWorkingDirectory);
-
-			System.out.println("Writing results as HTML");
-			Document xmlDoc = Utils.loadXmlDocumentFromFile(_dirName + "/" + _filename + ".xml");
-			Document htmlDoc = Utils.xmlToHtml(xmlDoc);
-			Utils.writeHtmlToFile(htmlDoc.getDocumentElement(), _dirName + "/" + _filename + ".html");
-			System.out.println("DONE writing results as HTML");
-
-			System.out.println("Generating evinced script: " + _dirName + "/evinced-mark-VIPS-blocks.js");
-			Utils.generateEvincedScript(htmlDoc, _dirName + "/evinced-mark-VIPS-blocks.js");
-			System.out.println("DONE writing EvincedIDs to file");
+			getDomTree(phantomJS.readStringHTML(_url.toString()));
+//			getDomTree(_url);
+//			startTime = System.nanoTime();
+//			getViewport();
+//			restoreOut();
+//
+//			Utils.setEvincedIds(_domAnalyzer.getBody());
+//			Utils.writeHtmlToFile(_domAnalyzer.getRoot(), _dirName + "/" + "html-with-evinced-ids.html");
+//
+//			String outputFolder = "";
+//			String oldWorkingDirectory = "";
+//			String newWorkingDirectory = "";
+//
+//			if (_outputToFolder)
+//			{
+//				outputFolder = generateFolderName();
+//
+//				if (!new File(outputFolder).mkdir())
+//				{
+//					System.err.println("Something goes wrong during directory creation!");
+//				}
+//				else
+//				{
+//					oldWorkingDirectory = System.getProperty("user.dir");
+//					newWorkingDirectory += oldWorkingDirectory + "/" + outputFolder + "/";
+//					System.setProperty("user.dir", newWorkingDirectory);
+//				}
+//			}
+//
+//			performSegmentation();
+//
+//			if (_outputToFolder)
+//				System.setProperty("user.dir", oldWorkingDirectory);
+//
+//			System.out.println("Writing results as HTML");
+//			Document xmlDoc = Utils.loadXmlDocumentFromFile(_dirName + "/" + _filename + ".xml");
+//			Document htmlDoc = Utils.xmlToHtml(xmlDoc);
+//			Utils.writeHtmlToFile(htmlDoc.getDocumentElement(), _dirName + "/" + _filename + ".html");
+//			System.out.println("DONE writing results as HTML");
+//
+//			System.out.println("Generating evinced script: " + _dirName + "/evinced-mark-VIPS-blocks.js");
+//			Utils.generateEvincedScript(htmlDoc, _dirName + "/evinced-mark-VIPS-blocks.js");
+//			System.out.println("DONE writing EvincedIDs to file");
 		}
 		catch (Exception e)
 		{

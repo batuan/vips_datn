@@ -32,13 +32,16 @@ public class VipsTester {
 		{
 			Vips vips = new Vips();
 			vips.setOutputDirectoryName("data1");
-			vips.setOutputFileName("test");
+			vips.setOutputFileName("muabannhadat");
 			// disable graphics output
-			vips.enableGraphicsOutput(false);
+			vips.setSizeDimensionWidth(1920);
+			vips.setSizeDimensionHeight(980);
+			vips.enableGraphicsOutput(true);
 			// disable output to separate folder (no necessary, it's default value is false)
 			vips.enableOutputToFolder(false);
 			// set permitted degree of coherence
 			vips.setPredefinedDoC(6);
+			vips.setNumberOfIterations(5);
 			// start segmentation on page
 			vips.startSegmentation(url);
 		} catch (Exception e)

@@ -40,6 +40,67 @@
      <version>${junit.jupiter.version}</version>
      <scope>test</scope>
     </dependency>
+      <!-- https://mvnrepository.com/artifact/com.codeborne/phantomjsdriver -->
+      <dependency>
+          <groupId>com.codeborne</groupId>
+          <artifactId>phantomjsdriver</artifactId>
+          <version>1.2.1</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+      <dependency>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.0</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>1.5.5</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-htmlunit-driver -->
+      <!--<dependency>
+          <groupId>org.seleniumhq.selenium</groupId>
+          <artifactId>selenium-htmlunit-driver</artifactId>
+          <version>2.52.0</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>org.slf4j</groupId>
+                  <artifactId>slf4j-nop</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>-->
+     <!-- <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>1.6.6</version>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-simple</artifactId>
+          <version>1.6.6</version>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <version>1.6.6</version>
+      </dependency>-->
+     <!-- <dependency>
+          <groupId>net.sf.dozer</groupId>
+          <artifactId>dozer</artifactId>
+          <version>5.5.1</version>
+          <exclusions>
+              <exclusion>
+                  <artifactId>jcl-over-slf4j</artifactId>
+                  <groupId>org.slf4j</groupId>
+              </exclusion>
+              <exclusion>
+                  <artifactId>slf4j-api</artifactId>
+                  <groupId>org.slf4j</groupId>
+              </exclusion>
+          </exclusions>
+      </dependency>-->
   </dependencies>
 
  <build>
