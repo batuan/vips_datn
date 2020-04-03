@@ -34,7 +34,7 @@ public class VipsTester {
 			vips.setOutputDirectoryName("data1");
 			vips.setOutputFileName("muabannhadat");
 			// disable graphics output
-			vips.setSizeDimensionWidth(1920);
+			vips.setSizeDimensionWidth(1420);
 			vips.setSizeDimensionHeight(980);
 			vips.enableGraphicsOutput(true);
 			// disable output to separate folder (no necessary, it's default value is false)

@@ -47,7 +47,13 @@ public class VipsSeparatorGraphicsDetector extends JPanel implements VipsSeparat
 	 * @param height Pools height
 	 */
 	public VipsSeparatorGraphicsDetector(int width, int height) {
-		this._image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR);
+
+//		this._image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR);
+		try {
+			this._image = ImageIO.read(new File("page.png"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		this._horizontalSeparators = new ArrayList<Separator>();
 		this._verticalSeparators = new ArrayList<Separator>();
 		this._visualBlocks = new ArrayList<VipsBlock>();
@@ -69,7 +75,7 @@ public class VipsSeparatorGraphicsDetector extends JPanel implements VipsSeparat
 				elementBox.getContentHeight());
 
 		_pool.draw(rect);
-		_pool.fill(rect);
+		//_pool.fill(rect);
 	}
 
 	@Override
@@ -120,10 +126,10 @@ public class VipsSeparatorGraphicsDetector extends JPanel implements VipsSeparat
 	{
 		// set black as pool background color
 		_pool = _image.createGraphics();
-		_pool.setColor(Color.white);
-		_pool.fillRect(0, 0, _image.getWidth(), _image.getHeight());
+//		_pool.setColor(Color.white);
+//		_pool.fillRect(0, 0, _image.getWidth(), _image.getHeight());
 		// set drawing color back to white
-		_pool.setColor(Color.black);
+		_pool.setColor(Color.red);
 	}
 
 	/**
