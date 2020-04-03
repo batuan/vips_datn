@@ -164,3 +164,518 @@
 [INFO  - 2020-04-01T11:01:03.064Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 13e53410-7408-11ea-9123-dfdd472bd88d
 [INFO  - 2020-04-01T11:01:04.724Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
 [INFO  - 2020-04-01T11:01:47.726Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2020-04-01T11:03:37.165Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2020-04-03T01:46:49.517Z] GhostDriver - Main - running on port 8144
+[INFO  - 2020-04-03T01:46:49.969Z] Session [fc55b0e0-754c-11ea-9e56-6f42cd9934f4] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T01:46:49.969Z] Session [fc55b0e0-754c-11ea-9e56-6f42cd9934f4] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T01:46:49.969Z] Session [fc55b0e0-754c-11ea-9e56-6f42cd9934f4] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T01:46:49.969Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: fc55b0e0-754c-11ea-9e56-6f42cd9934f4
+[INFO  - 2020-04-03T01:46:52.988Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T01:48:19.645Z] GhostDriver - Main - running on port 4071
+[INFO  - 2020-04-03T01:48:20.193Z] Session [321cc7e0-754d-11ea-96f0-1b7ff44581b3] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T01:48:20.193Z] Session [321cc7e0-754d-11ea-96f0-1b7ff44581b3] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T01:48:20.194Z] Session [321cc7e0-754d-11ea-96f0-1b7ff44581b3] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T01:48:20.194Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 321cc7e0-754d-11ea-96f0-1b7ff44581b3
+[INFO  - 2020-04-03T01:48:28.086Z] GhostDriver - Main - running on port 16713
+[INFO  - 2020-04-03T01:48:28.665Z] Session [37298160-754d-11ea-9fe5-6ffa29b7a22c] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T01:48:28.665Z] Session [37298160-754d-11ea-9fe5-6ffa29b7a22c] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T01:48:28.665Z] Session [37298160-754d-11ea-9fe5-6ffa29b7a22c] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T01:48:28.665Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 37298160-754d-11ea-9fe5-6ffa29b7a22c
+[INFO  - 2020-04-03T01:48:30.900Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T01:49:25.172Z] GhostDriver - Main - running on port 32485
+[INFO  - 2020-04-03T01:49:25.774Z] Session [5933ccc0-754d-11ea-9c96-1974b93b3140] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T01:49:25.774Z] Session [5933ccc0-754d-11ea-9c96-1974b93b3140] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T01:49:25.774Z] Session [5933ccc0-754d-11ea-9c96-1974b93b3140] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T01:49:25.775Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 5933ccc0-754d-11ea-9c96-1974b93b3140
+[INFO  - 2020-04-03T01:51:32.065Z] GhostDriver - Main - running on port 13317
+[INFO  - 2020-04-03T01:51:32.646Z] Session [a4d2ee40-754d-11ea-ba59-ab83e5a18605] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T01:51:32.646Z] Session [a4d2ee40-754d-11ea-ba59-ab83e5a18605] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T01:51:32.646Z] Session [a4d2ee40-754d-11ea-ba59-ab83e5a18605] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T01:51:32.646Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: a4d2ee40-754d-11ea-ba59-ab83e5a18605
+[INFO  - 2020-04-03T01:52:01.584Z] GhostDriver - Main - running on port 19630
+[INFO  - 2020-04-03T01:52:02.137Z] Session [b666e670-754d-11ea-a489-6f10af603fa7] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T01:52:02.137Z] Session [b666e670-754d-11ea-a489-6f10af603fa7] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T01:52:02.138Z] Session [b666e670-754d-11ea-a489-6f10af603fa7] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T01:52:02.138Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: b666e670-754d-11ea-a489-6f10af603fa7
+[INFO  - 2020-04-03T01:52:05.871Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T01:56:08.331Z] GhostDriver - Main - running on port 23706
+[INFO  - 2020-04-03T01:56:08.900Z] Session [497bf220-754e-11ea-a6fe-9d754bc13b64] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T01:56:08.900Z] Session [497bf220-754e-11ea-a6fe-9d754bc13b64] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T01:56:08.900Z] Session [497bf220-754e-11ea-a6fe-9d754bc13b64] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T01:56:08.900Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 497bf220-754e-11ea-a6fe-9d754bc13b64
+[INFO  - 2020-04-03T01:56:11.624Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T01:56:32.064Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2020-04-03T02:01:32.065Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2020-04-03T02:06:32.064Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2020-04-03T02:11:32.064Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2020-04-03T02:16:32.064Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2020-04-03T02:21:32.064Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2020-04-03T02:21:51.429Z] GhostDriver - Main - running on port 22795
+[INFO  - 2020-04-03T02:21:52.035Z] Session [e143a910-7551-11ea-a27b-2571ac67b563] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T02:21:52.036Z] Session [e143a910-7551-11ea-a27b-2571ac67b563] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T02:21:52.036Z] Session [e143a910-7551-11ea-a27b-2571ac67b563] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T02:21:52.036Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: e143a910-7551-11ea-a27b-2571ac67b563
+[INFO  - 2020-04-03T02:21:55.291Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T02:22:57.212Z] GhostDriver - Main - running on port 31019
+[INFO  - 2020-04-03T02:22:57.748Z] Session [086e8410-7552-11ea-818f-159c55fc0b6d] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T02:22:57.749Z] Session [086e8410-7552-11ea-818f-159c55fc0b6d] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T02:22:57.749Z] Session [086e8410-7552-11ea-818f-159c55fc0b6d] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T02:22:57.749Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 086e8410-7552-11ea-818f-159c55fc0b6d
+[INFO  - 2020-04-03T02:23:02.487Z] GhostDriver - Main - running on port 26102
+[INFO  - 2020-04-03T02:23:03.020Z] Session [0b92f590-7552-11ea-a802-ffd14a00bc94] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T02:23:03.020Z] Session [0b92f590-7552-11ea-a802-ffd14a00bc94] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T02:23:03.020Z] Session [0b92f590-7552-11ea-a802-ffd14a00bc94] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T02:23:03.020Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 0b92f590-7552-11ea-a802-ffd14a00bc94
+[INFO  - 2020-04-03T02:23:05.312Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T02:26:04.437Z] GhostDriver - Main - running on port 3713
+[INFO  - 2020-04-03T02:26:04.971Z] Session [7806a190-7552-11ea-82ce-11d4833ac79b] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T02:26:04.971Z] Session [7806a190-7552-11ea-82ce-11d4833ac79b] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T02:26:04.971Z] Session [7806a190-7552-11ea-82ce-11d4833ac79b] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T02:26:04.971Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 7806a190-7552-11ea-82ce-11d4833ac79b
+[INFO  - 2020-04-03T02:26:07.492Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T03:48:15.740Z] GhostDriver - Main - running on port 27247
+[INFO  - 2020-04-03T03:48:16.280Z] Session [f3508450-755d-11ea-ad98-7d988504baef] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T03:48:16.281Z] Session [f3508450-755d-11ea-ad98-7d988504baef] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T03:48:16.281Z] Session [f3508450-755d-11ea-ad98-7d988504baef] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T03:48:16.281Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: f3508450-755d-11ea-ad98-7d988504baef
+[INFO  - 2020-04-03T03:48:22.371Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T03:49:13.155Z] GhostDriver - Main - running on port 15933
+[INFO  - 2020-04-03T03:49:13.732Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T03:49:13.732Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T03:49:13.732Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T03:49:13.732Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 158eff10-755e-11ea-9bc8-e349789d04c9
+[ERROR - 2020-04-03T03:49:15.386Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - msg: TypeError: undefined is not an object (evaluating 'navigator.languages.length')
+[ERROR - 2020-04-03T03:49:15.386Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - stack:
+  Kt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  Bt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  dispatchEvent (:0)
+  mn (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  success (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+[ERROR - 2020-04-03T03:49:15.713Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T03:49:15.713Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T03:49:16.714Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T03:49:16.714Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T03:49:17.714Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T03:49:17.714Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T03:49:18.713Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T03:49:18.713Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T03:49:19.187Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - msg: TypeError: Attempting to configurable attribute of unconfigurable property.
+[ERROR - 2020-04-03T03:49:19.187Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - stack:
+  defineProperty (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  handler (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  dispatchEvent (:0)
+  dispatch (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  getUserEventData (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  _sendRequests (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  unifyUser (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  initialize (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  initializeHitAPI (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (:0)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (:0)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (:0)
+[ERROR - 2020-04-03T03:49:19.196Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - msg: TypeError: Attempting to configurable attribute of unconfigurable property.
+[ERROR - 2020-04-03T03:49:19.196Z] Session [158eff10-755e-11ea-9bc8-e349789d04c9] - page.onError - stack:
+  defineProperty (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  handler (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  dispatchEvent (:0)
+  dispatch (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+[INFO  - 2020-04-03T03:49:21.334Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T03:50:29.309Z] GhostDriver - Main - running on port 25267
+[INFO  - 2020-04-03T03:50:29.854Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T03:50:29.854Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T03:50:29.854Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T03:50:29.855Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 42ee23a0-755e-11ea-bcfd-b53165c57eee
+[ERROR - 2020-04-03T03:50:31.182Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - msg: TypeError: undefined is not an object (evaluating 'navigator.languages.length')
+[ERROR - 2020-04-03T03:50:31.182Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - stack:
+  Kt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  Bt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  dispatchEvent (:0)
+  mn (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  success (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+[ERROR - 2020-04-03T03:50:31.856Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T03:50:31.856Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T03:50:32.813Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T03:50:32.813Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T03:50:33.813Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T03:50:33.813Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T03:50:34.815Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T03:50:34.815Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T03:50:34.978Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - msg: TypeError: Attempting to configurable attribute of unconfigurable property.
+[ERROR - 2020-04-03T03:50:34.978Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - stack:
+  defineProperty (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  handler (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  dispatchEvent (:0)
+  dispatch (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  getUserEventData (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  _sendRequests (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  unifyUser (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  initialize (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  initializeHitAPI (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (:0)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (:0)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (:0)
+[ERROR - 2020-04-03T03:50:34.987Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - msg: TypeError: Attempting to configurable attribute of unconfigurable property.
+[ERROR - 2020-04-03T03:50:34.987Z] Session [42ee23a0-755e-11ea-bcfd-b53165c57eee] - page.onError - stack:
+  defineProperty (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  handler (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  dispatchEvent (:0)
+  dispatch (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+[INFO  - 2020-04-03T03:50:35.052Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T03:50:41.222Z] GhostDriver - Main - running on port 6552
+[INFO  - 2020-04-03T03:50:41.754Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T03:50:41.754Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T03:50:41.755Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T03:50:41.755Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 4a063d80-755e-11ea-9fc4-0db056883229
+[ERROR - 2020-04-03T03:50:42.824Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - msg: TypeError: undefined is not an object (evaluating 'navigator.languages.length')
+[ERROR - 2020-04-03T03:50:42.824Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - stack:
+  Kt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  Bt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  dispatchEvent (:0)
+  mn (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  success (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+[ERROR - 2020-04-03T03:50:43.559Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T03:50:43.559Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T03:50:44.560Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T03:50:44.560Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T03:50:45.560Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T03:50:45.560Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T03:50:46.560Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T03:50:46.560Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T03:50:46.783Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - msg: TypeError: Attempting to configurable attribute of unconfigurable property.
+[ERROR - 2020-04-03T03:50:46.783Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - stack:
+  defineProperty (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  handler (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  dispatchEvent (:0)
+  dispatch (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  getUserEventData (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  _sendRequests (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  unifyUser (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  initialize (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  initializeHitAPI (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (:0)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (:0)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (:0)
+[ERROR - 2020-04-03T03:50:46.792Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - msg: TypeError: Attempting to configurable attribute of unconfigurable property.
+[ERROR - 2020-04-03T03:50:46.792Z] Session [4a063d80-755e-11ea-9fc4-0db056883229] - page.onError - stack:
+  defineProperty (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  handler (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  dispatchEvent (:0)
+  dispatch (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+[INFO  - 2020-04-03T03:50:48.416Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T04:04:08.747Z] GhostDriver - Main - running on port 18948
+[INFO  - 2020-04-03T04:04:09.291Z] Session [2b5a9b90-7560-11ea-9309-35e6ef607a83] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T04:04:09.291Z] Session [2b5a9b90-7560-11ea-9309-35e6ef607a83] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T04:04:09.291Z] Session [2b5a9b90-7560-11ea-9309-35e6ef607a83] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T04:04:09.292Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 2b5a9b90-7560-11ea-9309-35e6ef607a83
+[ERROR - 2020-04-03T04:04:11.631Z] Session [2b5a9b90-7560-11ea-9309-35e6ef607a83] - page.onError - msg: TypeError: undefined is not an object (evaluating 'navigator.languages.length')
+[ERROR - 2020-04-03T04:04:11.631Z] Session [2b5a9b90-7560-11ea-9309-35e6ef607a83] - page.onError - stack:
+  Kt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  Bt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  dispatchEvent (:0)
+  mn (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  success (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+[ERROR - 2020-04-03T04:04:12.266Z] Session [2b5a9b90-7560-11ea-9309-35e6ef607a83] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:04:12.266Z] Session [2b5a9b90-7560-11ea-9309-35e6ef607a83] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T04:04:13.225Z] Session [2b5a9b90-7560-11ea-9309-35e6ef607a83] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:04:13.225Z] Session [2b5a9b90-7560-11ea-9309-35e6ef607a83] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[INFO  - 2020-04-03T04:04:13.600Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T04:05:46.439Z] GhostDriver - Main - running on port 10965
+[INFO  - 2020-04-03T04:05:46.977Z] Session [65944ef0-7560-11ea-8a97-bb9104c86eef] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T04:05:46.977Z] Session [65944ef0-7560-11ea-8a97-bb9104c86eef] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T04:05:46.978Z] Session [65944ef0-7560-11ea-8a97-bb9104c86eef] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T04:05:46.978Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 65944ef0-7560-11ea-8a97-bb9104c86eef
+[ERROR - 2020-04-03T04:05:48.266Z] Session [65944ef0-7560-11ea-8a97-bb9104c86eef] - page.onError - msg: TypeError: undefined is not an object (evaluating 'navigator.languages.length')
+[ERROR - 2020-04-03T04:05:48.266Z] Session [65944ef0-7560-11ea-8a97-bb9104c86eef] - page.onError - stack:
+  Kt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  Bt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  dispatchEvent (:0)
+  mn (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  success (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+[ERROR - 2020-04-03T04:05:48.877Z] Session [65944ef0-7560-11ea-8a97-bb9104c86eef] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:05:48.878Z] Session [65944ef0-7560-11ea-8a97-bb9104c86eef] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T04:05:49.877Z] Session [65944ef0-7560-11ea-8a97-bb9104c86eef] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:05:49.877Z] Session [65944ef0-7560-11ea-8a97-bb9104c86eef] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T04:05:50.877Z] Session [65944ef0-7560-11ea-8a97-bb9104c86eef] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:05:50.877Z] Session [65944ef0-7560-11ea-8a97-bb9104c86eef] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[INFO  - 2020-04-03T04:05:51.544Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T04:08:48.191Z] GhostDriver - Main - running on port 4384
+[INFO  - 2020-04-03T04:08:48.742Z] Session [d1eb4b30-7560-11ea-98a6-7b7d6a64c74f] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T04:08:48.742Z] Session [d1eb4b30-7560-11ea-98a6-7b7d6a64c74f] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T04:08:48.743Z] Session [d1eb4b30-7560-11ea-98a6-7b7d6a64c74f] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T04:08:48.745Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: d1eb4b30-7560-11ea-98a6-7b7d6a64c74f
+[ERROR - 2020-04-03T04:08:50.117Z] Session [d1eb4b30-7560-11ea-98a6-7b7d6a64c74f] - page.onError - msg: TypeError: undefined is not an object (evaluating 'navigator.languages.length')
+[ERROR - 2020-04-03T04:08:50.117Z] Session [d1eb4b30-7560-11ea-98a6-7b7d6a64c74f] - page.onError - stack:
+  Kt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  Bt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  dispatchEvent (:0)
+  mn (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  success (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+[ERROR - 2020-04-03T04:08:50.618Z] Session [d1eb4b30-7560-11ea-98a6-7b7d6a64c74f] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:08:50.618Z] Session [d1eb4b30-7560-11ea-98a6-7b7d6a64c74f] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T04:08:51.598Z] Session [d1eb4b30-7560-11ea-98a6-7b7d6a64c74f] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:08:51.598Z] Session [d1eb4b30-7560-11ea-98a6-7b7d6a64c74f] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[INFO  - 2020-04-03T04:08:52.055Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T04:20:11.844Z] GhostDriver - Main - running on port 20955
+[INFO  - 2020-04-03T04:20:12.374Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T04:20:12.374Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T04:20:12.374Z] Session [69654230-7562-11ea-8da9-b533d281778a] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T04:20:12.374Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 69654230-7562-11ea-8da9-b533d281778a
+[ERROR - 2020-04-03T04:20:13.646Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - msg: TypeError: undefined is not an object (evaluating 'navigator.languages.length')
+[ERROR - 2020-04-03T04:20:13.647Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - stack:
+  Kt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  Bt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  dispatchEvent (:0)
+  mn (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  success (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+[ERROR - 2020-04-03T04:20:14.239Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:20:14.240Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T04:20:15.212Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:20:15.212Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T04:20:16.211Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:20:16.211Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T04:20:17.212Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:20:17.212Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T04:20:17.321Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - msg: TypeError: Attempting to configurable attribute of unconfigurable property.
+[ERROR - 2020-04-03T04:20:17.321Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - stack:
+  defineProperty (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  handler (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  dispatchEvent (:0)
+  dispatch (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  getUserEventData (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  _sendRequests (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  unifyUser (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  initialize (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  initializeHitAPI (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (:0)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (:0)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (:0)
+[ERROR - 2020-04-03T04:20:17.329Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - msg: TypeError: Attempting to configurable attribute of unconfigurable property.
+[ERROR - 2020-04-03T04:20:17.329Z] Session [69654230-7562-11ea-8da9-b533d281778a] - page.onError - stack:
+  defineProperty (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  handler (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  dispatchEvent (:0)
+  dispatch (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+  (anonymous function) (https://batdongsan.api.useinsider.com/ins.js?id=10002512:1)
+[INFO  - 2020-04-03T04:20:19.209Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T04:21:29.483Z] GhostDriver - Main - running on port 29258
+[INFO  - 2020-04-03T04:21:30.039Z] Session [97b02650-7562-11ea-907d-79f0c309fe28] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T04:21:30.039Z] Session [97b02650-7562-11ea-907d-79f0c309fe28] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T04:21:30.039Z] Session [97b02650-7562-11ea-907d-79f0c309fe28] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T04:21:30.039Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 97b02650-7562-11ea-907d-79f0c309fe28
+[ERROR - 2020-04-03T04:21:31.441Z] Session [97b02650-7562-11ea-907d-79f0c309fe28] - page.onError - msg: TypeError: undefined is not an object (evaluating 'navigator.languages.length')
+[ERROR - 2020-04-03T04:21:31.442Z] Session [97b02650-7562-11ea-907d-79f0c309fe28] - page.onError - stack:
+  Kt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  Bt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  dispatchEvent (:0)
+  mn (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  success (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+[ERROR - 2020-04-03T04:21:32.112Z] Session [97b02650-7562-11ea-907d-79f0c309fe28] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:21:32.112Z] Session [97b02650-7562-11ea-907d-79f0c309fe28] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T04:21:33.086Z] Session [97b02650-7562-11ea-907d-79f0c309fe28] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:21:33.086Z] Session [97b02650-7562-11ea-907d-79f0c309fe28] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[INFO  - 2020-04-03T04:21:33.444Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T04:23:33.559Z] GhostDriver - Main - running on port 6515
+[INFO  - 2020-04-03T04:23:34.117Z] Session [e1a4cc20-7562-11ea-86cc-b399550f2d6b] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T04:23:34.117Z] Session [e1a4cc20-7562-11ea-86cc-b399550f2d6b] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T04:23:34.117Z] Session [e1a4cc20-7562-11ea-86cc-b399550f2d6b] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T04:23:34.117Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: e1a4cc20-7562-11ea-86cc-b399550f2d6b
+[ERROR - 2020-04-03T04:23:35.502Z] Session [e1a4cc20-7562-11ea-86cc-b399550f2d6b] - page.onError - msg: TypeError: undefined is not an object (evaluating 'navigator.languages.length')
+[ERROR - 2020-04-03T04:23:35.502Z] Session [e1a4cc20-7562-11ea-86cc-b399550f2d6b] - page.onError - stack:
+  Kt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  Bt (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  dispatchEvent (:0)
+  mn (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  success (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+  (anonymous function) (https://stc.za.zaloapp.com/v3/za.js?18355:1)
+[ERROR - 2020-04-03T04:23:36.201Z] Session [e1a4cc20-7562-11ea-86cc-b399550f2d6b] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:23:36.201Z] Session [e1a4cc20-7562-11ea-86cc-b399550f2d6b] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[ERROR - 2020-04-03T04:23:37.166Z] Session [e1a4cc20-7562-11ea-86cc-b399550f2d6b] - page.onError - msg: TypeError: JSON.stringify cannot serialize cyclic structures.
+[ERROR - 2020-04-03T04:23:37.166Z] Session [e1a4cc20-7562-11ea-86cc-b399550f2d6b] - page.onError - stack:
+  stringify (https://sp.zalo.me/plugins/sdk.js:2)
+  exports (https://sp.zalo.me/plugins/sdk.js:2)
+  value (https://sp.zalo.me/plugins/sdk.js:2)
+  (anonymous function) (https://sp.zalo.me/plugins/sdk.js:2)
+[INFO  - 2020-04-03T04:23:37.383Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T04:36:28.944Z] GhostDriver - Main - running on port 19071
+[INFO  - 2020-04-03T04:36:29.492Z] Session [afcda210-7564-11ea-9c48-f1572c510d5e] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T04:36:29.492Z] Session [afcda210-7564-11ea-9c48-f1572c510d5e] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T04:36:29.492Z] Session [afcda210-7564-11ea-9c48-f1572c510d5e] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T04:36:29.492Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: afcda210-7564-11ea-9c48-f1572c510d5e
+[INFO  - 2020-04-03T04:36:32.201Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T09:53:01.677Z] GhostDriver - Main - running on port 4926
+[INFO  - 2020-04-03T09:53:02.197Z] Session [e8564610-7590-11ea-809e-d1dcf352b6da] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T09:53:02.197Z] Session [e8564610-7590-11ea-809e-d1dcf352b6da] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T09:53:02.200Z] Session [e8564610-7590-11ea-809e-d1dcf352b6da] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T09:53:02.200Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: e8564610-7590-11ea-809e-d1dcf352b6da
+[INFO  - 2020-04-03T09:53:06.708Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T09:53:49.291Z] GhostDriver - Main - running on port 7080
+[INFO  - 2020-04-03T09:53:49.919Z] Session [04c839c0-7591-11ea-9b08-c544a4733482] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T09:53:49.919Z] Session [04c839c0-7591-11ea-9b08-c544a4733482] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T09:53:49.920Z] Session [04c839c0-7591-11ea-9b08-c544a4733482] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T09:53:49.920Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 04c839c0-7591-11ea-9b08-c544a4733482
+[INFO  - 2020-04-03T09:53:56.447Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2020-04-03T10:04:47.920Z] GhostDriver - Main - running on port 2010
+[INFO  - 2020-04-03T10:04:48.479Z] Session [8d50a8d0-7592-11ea-b12c-7da9e8027ac9] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-03T10:04:48.480Z] Session [8d50a8d0-7592-11ea-b12c-7da9e8027ac9] - page.customHeaders:  - {}
+[INFO  - 2020-04-03T10:04:48.480Z] Session [8d50a8d0-7592-11ea-b12c-7da9e8027ac9] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-03T10:04:48.480Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 8d50a8d0-7592-11ea-b12c-7da9e8027ac9

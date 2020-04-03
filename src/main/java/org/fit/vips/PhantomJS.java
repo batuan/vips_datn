@@ -19,18 +19,20 @@ public class PhantomJS {
 
      public String readStringHTML(String url) {
          this.webDriver.get(url);
-         String rs = this.webDriver.getPageSource().replace("<!DOCTYPE html>", "").replace("&nbsp;", " ");
+         String rs = this.webDriver.getPageSource();
          webDriver.quit();
         return rs;
      }
 
     public static void main(String[] args) {
         // Creating a new instance of the HTML unit driver
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setJavascriptEnabled(true);
-        capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, "phantomjs");
-        WebDriver webDriver = new PhantomJSDriver(capabilities);
-        webDriver.get("https://www.muabannhadat.vn/tin-dang/mua-ban-nha-pho-4-phong-ngu-quan-binh-thanh-9423664");
-        System.out.println(webDriver.getPageSource());
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setJavascriptEnabled(true);
+//        capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, "phantomjs");
+//        WebDriver webDriver = new PhantomJSDriver(capabilities);
+//        webDriver.get("https://www.muabannhadat.vn/tin-dang/mua-ban-nha-pho-4-phong-ngu-quan-binh-thanh-9423664");
+//        System.out.println(webDriver.getPageSource());
+        String a = ".com/css?family=Muli:300,400,600,700&subset=".replaceAll("&(?!amp;|lt;|gt;)", "&amp;");
+        System.out.println(a);
     }
 }

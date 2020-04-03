@@ -41,7 +41,7 @@ public class VipsTester {
 			vips.enableOutputToFolder(false);
 			// set permitted degree of coherence
 			vips.setPredefinedDoC(6);
-			vips.setNumberOfIterations(5);
+			vips.setNumberOfIterations(10);
 			// start segmentation on page
 			vips.startSegmentation(url);
 		} catch (Exception e)

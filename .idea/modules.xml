@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/test.iml" filepath="$PROJECT_DIR$/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/images-python/vips.iml" filepath="$PROJECT_DIR$/images-python/vips.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vips-image.iml" filepath="$PROJECT_DIR$/vips-image.iml" />
       <module fileurl="file://$PROJECT_DIR$/vips-java.iml" filepath="$PROJECT_DIR$/vips-java.iml" />
     </modules>
   </component>

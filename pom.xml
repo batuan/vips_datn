@@ -58,7 +58,11 @@
           <artifactId>slf4j-api</artifactId>
           <version>1.5.5</version>
       </dependency>
-
+      <dependency>
+          <groupId>net.sourceforge.nekohtml</groupId>
+          <artifactId>nekohtml</artifactId>
+          <version>1.9.21</version>
+      </dependency>
       <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-htmlunit-driver -->
       <!--<dependency>
           <groupId>org.seleniumhq.selenium</groupId>

@@ -12,7 +12,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: net.sf.cssbox:cssbox:4.14" level="project" />
-    <orderEntry type="library" name="Maven: net.sourceforge.nekohtml:nekohtml:1.9.22" level="project" />
     <orderEntry type="library" name="Maven: xerces:xercesImpl:2.11.0" level="project" />
     <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.4.01" level="project" />
     <orderEntry type="library" name="Maven: net.sf.cssbox:jstyleparser:3.2" level="project" />
@@ -108,5 +107,6 @@
     <orderEntry type="library" name="Maven: org.ow2.asm:asm:6.1.1" level="project" />
     <orderEntry type="library" name="Maven: com.thoughtworks.qdox:qdox:2.0-M7" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.5.5" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.nekohtml:nekohtml:1.9.21" level="project" />
   </component>
 </module>
