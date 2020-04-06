@@ -40,8 +40,8 @@ public class VipsTester {
 			// disable output to separate folder (no necessary, it's default value is false)
 			vips.enableOutputToFolder(false);
 			// set permitted degree of coherence
-			vips.setPredefinedDoC(6);
-			vips.setNumberOfIterations(10);
+			vips.setPredefinedDoC(7);
+			vips.setNumberOfIterations(3);
 			// start segmentation on page
 			vips.startSegmentation(url);
 		} catch (Exception e)

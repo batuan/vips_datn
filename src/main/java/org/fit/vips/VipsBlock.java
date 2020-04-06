@@ -150,7 +150,19 @@ public class VipsBlock {
 		    if (parent == null) {
 		        return "/" + node.getNodeName();
 		    }
-		    return xPath(parent) + "/" + node.getNodeName();
+		    int _index = 0;
+		    int size = parent.getChildNodes().getLength();
+		    for (int index = 0; index < size; index++) {
+		    	Node tmp = parent.getChildNodes().item(index);
+		    	if (tmp.equals(node)) {
+		    		break;
+				}
+				if (!tmp.getNodeName().equals("#text")) {
+					_index++;
+				}
+			}
+		    String tmp = "[" + _index + "]/";
+		    return xPath(parent) + tmp + node.getNodeName();
 		}
 		return "";
 	}

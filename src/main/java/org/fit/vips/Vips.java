@@ -389,8 +389,8 @@ public class Vips {
 			getViewport();
 			restoreOut();
 
-			Utils.setEvincedIds(_domAnalyzer.getBody());
-			Utils.writeHtmlToFile(_domAnalyzer.getRoot(), _dirName + "/" + "html-with-evinced-ids.html");
+//			Utils.setEvincedIds(_domAnalyzer.getBody());
+//			Utils.writeHtmlToFile(_domAnalyzer.getRoot(), _dirName + "/" + "html-with-evinced-ids.html");
 
 			String outputFolder = "";
 			String oldWorkingDirectory = "";
@@ -417,15 +417,15 @@ public class Vips {
 			if (_outputToFolder)
 				System.setProperty("user.dir", oldWorkingDirectory);
 
-			System.out.println("Writing results as HTML");
-			Document xmlDoc = Utils.loadXmlDocumentFromFile(_dirName + "/" + _filename + ".xml");
-			Document htmlDoc = Utils.xmlToHtml(xmlDoc);
-			Utils.writeHtmlToFile(htmlDoc.getDocumentElement(), _dirName + "/" + _filename + ".html");
-			System.out.println("DONE writing results as HTML");
-
-			System.out.println("Generating evinced script: " + _dirName + "/evinced-mark-VIPS-blocks.js");
-			Utils.generateEvincedScript(htmlDoc, _dirName + "/evinced-mark-VIPS-blocks.js");
-			System.out.println("DONE writing EvincedIDs to file");
+//			System.out.println("Writing results as HTML");
+//			Document xmlDoc = Utils.loadXmlDocumentFromFile(_dirName + "/" + _filename + ".xml");
+//			Document htmlDoc = Utils.xmlToHtml(xmlDoc);
+//			Utils.writeHtmlToFile(htmlDoc.getDocumentElement(), _dirName + "/" + _filename + ".html");
+//			System.out.println("DONE writing results as HTML");
+//
+//			System.out.println("Generating evinced script: " + _dirName + "/evinced-mark-VIPS-blocks.js");
+//			Utils.generateEvincedScript(htmlDoc, _dirName + "/evinced-mark-VIPS-blocks.js");
+//			System.out.println("DONE writing EvincedIDs to file");
 		}
 		catch (Exception e)
 		{

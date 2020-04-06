@@ -9,6 +9,8 @@ package org.fit.vips;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.StringWriter;
+import java.text.Normalizer;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -19,11 +21,13 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.fit.cssbox.layout.Box;
 import org.fit.cssbox.layout.ElementBox;
 import org.fit.cssbox.layout.Viewport;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+
 /**
  * Class, that handles output of VIPS algorithm.
  * @author Tomas Popela
@@ -119,11 +123,11 @@ public final class VipsOutput {
 
 						if (!elementBox.getNode().getNodeName().equals("Xdiv") &&
 								!elementBox.getNode().getNodeName().equals("Xspan"))
-							src += getSource(elementBox.getElement());
+							src += Normalizer.normalize(StringEscapeUtils.unescapeHtml4(getSource(elementBox.getElement())), Normalizer.Form.NFKC);
 						else
-							src += elementBox.getText();
+							src += Normalizer.normalize(StringEscapeUtils.unescapeHtml4(elementBox.getText()), Normalizer.Form.NFKC);
 
-						content += elementBox.getText() + " ";
+						content += Normalizer.normalize(StringEscapeUtils.unescapeHtml4(getText(elementBox.getSubBoxList())), Normalizer.Form.NFKC) + " ";
 
 						originalNodeIds += Utils.getEvincedId(elementBox);
 					}
@@ -156,11 +160,11 @@ public final class VipsOutput {
 
 					if (!elementBox.getNode().getNodeName().equals("Xdiv") &&
 							!elementBox.getNode().getNodeName().equals("Xspan"))
-						src += getSource(elementBox.getElement());
+						src += Normalizer.normalize(StringEscapeUtils.unescapeHtml4(getSource(elementBox.getElement())), Normalizer.Form.NFKC);
 					else
-						src += elementBox.getText();
+						src += Normalizer.normalize(StringEscapeUtils.unescapeHtml4(elementBox.getText()), Normalizer.Form.NFKC);
 
-					content += elementBox.getText() + " ";
+					content += Normalizer.normalize(StringEscapeUtils.unescapeHtml4(getText(elementBox.getSubBoxList())), Normalizer.Form.NFKC) + " ";
 
 					originalNodeIds += Utils.getEvincedId(elementBox);
 				}
@@ -172,6 +176,22 @@ public final class VipsOutput {
 			}
 			parentNode.appendChild(layoutNode);
 		}
+	}
+
+	public String getText(List<Box> list) {
+		String ret = "";
+		for (Box box: list) {
+			if (box.getText().equals("")) {
+				continue;
+			}
+			if (box.getNode().getNodeName().equals("Xspan")) {
+				ret += box.getText() + " ";
+			} else {
+				ret += box.getNode().getTextContent();
+			}
+			/*ret += box.getText() + " ";*/
+		}
+		return ret.replaceAll("\\s+", " ").trim();
 	}
 
 	/**
@@ -192,7 +212,7 @@ public final class VipsOutput {
 			String pageTitle = pageViewport.getRootElement().getOwnerDocument().getElementsByTagName("title").item(0).getTextContent();
 
 			vipsElement.setAttribute("Url", pageViewport.getRootBox().getBase().toString());
-			vipsElement.setAttribute("PageTitle", pageTitle);
+			vipsElement.setAttribute("PageTitle", Normalizer.normalize(StringEscapeUtils.unescapeHtml4(pageTitle), Normalizer.Form.NFKC));
 			vipsElement.setAttribute("WindowWidth", String.valueOf(pageViewport.getContentWidth()));
 			vipsElement.setAttribute("WindowHeight", String.valueOf(pageViewport.getContentHeight()));
 			vipsElement.setAttribute("PageRectTop", String.valueOf(pageViewport.getAbsoluteContentY()));
@@ -228,7 +248,7 @@ public final class VipsOutput {
 				result = result.replaceAll("&quot;", "\"");
 
 				FileWriter fstream = new FileWriter(_filename + ".xml");
-				fstream.write(result);
+				fstream.write(StringEscapeUtils.escapeXml10(result));
 				fstream.close();
 			}
 		}
@@ -249,6 +269,7 @@ public final class VipsOutput {
 	}
 
 	/**
+	 *
 	 * Sets permitted degree of coherence pDoC
 	 * @param pDoC pDoC value
 	 */
