@@ -151,8 +151,9 @@ public class VipsBlock {
 		        return "/" + node.getNodeName();
 		    }
 		    int _index = 0;
+		    int index = 0;
 		    int size = parent.getChildNodes().getLength();
-		    for (int index = 0; index < size; index++) {
+		    for (index = 0; index < size; index++) {
 		    	Node tmp = parent.getChildNodes().item(index);
 		    	if (tmp.equals(node)) {
 		    		break;
@@ -161,7 +162,10 @@ public class VipsBlock {
 					_index++;
 				}
 			}
-		    String tmp = "[" + _index + "]/";
+		    if (parent.getNodeName().equals("body") || parent.getNodeName().equals("html") || parent.getNodeName().equals("#document")) {
+		    	return xPath(parent) + "/" + node.getNodeName();
+			}
+			String tmp = "[" + _index + "]/";
 		    return xPath(parent) + tmp + node.getNodeName();
 		}
 		return "";

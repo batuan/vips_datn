@@ -1,5 +1,11 @@
 package org.prepare.data;
 
+import com.google.gson.JsonObject;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class PagesRoot {
@@ -18,6 +24,7 @@ public class PagesRoot {
     DataBlock blockBody;
     ArrayList<DataBlock> elements;
     ArrayList<DataStandard> elementStandard;
+    String xpahtPositive;
 
     public PagesRoot() {
     }
@@ -39,8 +46,38 @@ public class PagesRoot {
 
     }
 
-    public void properties() {
+    public void writeToFile(String pathFile, boolean modeWriteAppend) throws IOException {
+        File file = new File(pathFile);
+        if (!file.exists()) {
+            System.out.println("File do not exists !!!");
+            System.exit(0);
+        }
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, modeWriteAppend));
+        int size = elementStandard.size();
+        StringBuffer strings = new StringBuffer();
+        for (int i = 0 ;i < size; i++) {
+            JsonObject object = elementStandard.get(i).convertToJsonObject();
+            strings.append(object.toString());
+            if (i != (size - 1)) {
+                strings.append("\n");
+            }
+        }
+        bufferedWriter.write(strings.toString());
+        bufferedWriter.close();
+    }
 
+    public void setLabelPositive(String xpathMatch) {
+        for (DataBlock it: elements) {
+            String xpath = it.getXpath();
+            if (xpath.contains(xpathMatch)) {
+                it.setLabel("1");
+            }
+        }
+    }
+
+    public void properties() {
+        this.setLabelPositive(this.xpahtPositive);
+        this.elementStandard = this.calculatorDataStandara(this.elements);
     }
 
     public ArrayList<DataStandard> calculatorDataStandara(ArrayList<DataBlock> elements) {
@@ -59,14 +96,23 @@ public class PagesRoot {
             } else {
                 blockCenterY = 1 - (blockBody.getObjectRectHeight() - blockCenterY) / (2 * FOOTER_HEIGHT);
             }
-            Double fontSize = it.getFontsize() / blockBody.getFontsize();
+            Double fontSizeAbsolute = it.getFontsize() / blockBody.getFontsize();
+            Double fontSize = it.getFontsize();
             Double linkNum = it.getLinkNum() / blockBody.getLinkNum();
             Double interactionSize = (it.getObjectRectHeight() * it.getObjectRectWidth()) * (blockBody.getObjectRectHeight() * blockBody.getObjectRectWidth());
             Double innerTextLength = it.getTextLen();
             Double imgSize = it.getIsImage() == 1.0 ? (it.getObjectRectHeight() * it.getObjectRectWidth())/(PageRectHeight * PageRectWidth) : 0.0;
-            Double imgNum = it.getContainImg();
+            Double imgNum = it.getContainImg() / blockBody.getContainImg();
             Double fontWeight = it.getFontWeight();
+            Double innerHTMLLength = Double.valueOf(it.getSrc().length());
+            String xpath = it.getXpath();
+            String label = it.getLabel();
 
+            DataStandard dataStandard = new DataStandard(xpath, label, fontSizeAbsolute, linkNum,
+                    interactionSize, innerTextLength, imgSize, blockRectWidth, blockRectHeigh,
+                    fontSize, imgNum, blockCenterX, blockCenterY, fontWeight, innerHTMLLength, 0.0);
+
+            dataStandards.add(dataStandard);
         }
         return dataStandards;
     }
@@ -151,6 +197,21 @@ public class PagesRoot {
         this.url = url;
     }
 
+    public ArrayList<DataStandard> getElementStandard() {
+        return elementStandard;
+    }
+
+    public void setElementStandard(ArrayList<DataStandard> elementStandard) {
+        this.elementStandard = elementStandard;
+    }
+
+    public String getXpahtPositive() {
+        return xpahtPositive;
+    }
+
+    public void setXpahtPositive(String xpahtPositive) {
+        this.xpahtPositive = xpahtPositive;
+    }
 
     @Override
     public String toString() {
@@ -165,6 +226,7 @@ public class PagesRoot {
                 ", WindowWidth=" + WindowWidth +
                 ", blockBody=" + blockBody +
                 ", elements=" + elements +
+                ", standrad=" + elementStandard +
                 '}';
     }
 }

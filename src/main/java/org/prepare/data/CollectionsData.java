@@ -15,12 +15,12 @@ public class CollectionsData {
         // we've just one argument -  web address of page
         /* read list links */
         String batdongsan = "data-link/batdongsan";
-        String alonhadat = "data-link/batdongsan";
+        String alonhadat = "data-link/alonhadat";
         String dothi = "data-link/dothi";
 
         String folder = "";
         String filename = "";
-        int _case = 0;
+        int _case = 2;
         if (_case == 0) {
             folder = batdongsan;
             filename = "batdongsan";
@@ -28,7 +28,7 @@ public class CollectionsData {
             folder = alonhadat;
             filename = "alonhadat";
         } else  {
-            folder = "dothi";
+            folder = dothi;
             filename = "dothi";
         }
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(folder + "/links.txt")));
@@ -41,19 +41,19 @@ public class CollectionsData {
         }
         bufferedReader.close();
         /* construction */
-        Vips vips = new Vips();
-        vips.setOutputDirectoryName("data-link/batdongsan");
-        // disable graphics output
-        vips.setSizeDimensionWidth(1420);
-        vips.setSizeDimensionHeight(980);
-        vips.enableGraphicsOutput(false);
-        // disable output to separate folder (no necessary, it's default value is false)
-        vips.enableOutputToFolder(false);
-        // set permitted degree of coherence
-        vips.setPredefinedDoC(7);
-        vips.setNumberOfIterations(3);
         int count  = 1;
         for (String url: urls) {
+            Vips vips = new Vips();
+            vips.setOutputDirectoryName(folder);
+            // disable graphics output
+            vips.setSizeDimensionWidth(1420);
+            vips.setSizeDimensionHeight(980);
+            vips.enableGraphicsOutput(false);
+            // disable output to separate folder (no necessary, it's default value is false)
+            vips.enableOutputToFolder(false);
+            // set permitted degree of coherence
+            vips.setPredefinedDoC(7);
+            vips.setNumberOfIterations(3);
             String tmp = url.split("\\s+")[0];
             System.out.println(count + " : " + tmp);
             vips.setOutputFileName(filename + "-" + count);

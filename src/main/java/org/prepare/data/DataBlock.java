@@ -197,6 +197,7 @@ public class DataBlock {
                 ", textLen=" + textLen +
                 ", isImage=" + isImage +
                 ", content='" + content + '\'' +
+                ", src='" + src + '\'' +
                 ", label='" + label + '\'' +
                 '}';
     }

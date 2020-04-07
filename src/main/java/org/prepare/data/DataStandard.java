@@ -1,8 +1,12 @@
 package org.prepare.data;
 
+
+import com.google.gson.JsonObject;
+
 public class DataStandard {
 
     String xpath;
+    String label;
     Double fontSizeAbsolute;
     Double linkNumAbsolute;
     Double interactionSize;
@@ -21,12 +25,13 @@ public class DataStandard {
     public DataStandard() {
     }
 
-    public DataStandard(String xpath, Double fontSizeAbsolute, Double linkNumAbsolute,
+    public DataStandard(String xpath, String label,  Double fontSizeAbsolute, Double linkNumAbsolute,
                         Double interactionSize, Double innerTextLength, Double imgSize,
-                        Double blockRectWidth, Double fontSize, Double imgNum, Double blockCenterX,
-                        Double blockRectHeight, Double blockCenterY,
+                        Double blockRectWidth, Double blockRectHeight, Double fontSize, Double imgNum,
+                        Double blockCenterX, Double blockCenterY,
                         Double fontWeight, Double innerHTMLLength,  Double jaccard) {
         this.xpath = xpath;
+        this.label = label;
         this.fontSizeAbsolute = fontSizeAbsolute;
         this.linkNumAbsolute = linkNumAbsolute;
         this.interactionSize = interactionSize;
@@ -161,5 +166,55 @@ public class DataStandard {
 
     public void setInnerHTMLLength(Double innerHTMLLength) {
         this.innerHTMLLength = innerHTMLLength;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public JsonObject convertToJsonObject() {
+        JsonObject object = new JsonObject();
+        object.addProperty("xpath", xpath);
+        object.addProperty("label", label);
+        object.addProperty("fontSizeAbsolute", fontSizeAbsolute);
+        object.addProperty("linkNumAbsolute", linkNumAbsolute);
+        object.addProperty("interactionSize", interactionSize);
+        object.addProperty("innerTextLength", innerTextLength);
+        object.addProperty("innerHTMLLength", innerHTMLLength);
+        object.addProperty("imgSize", imgSize);
+        object.addProperty("fontSize", fontSize);
+        object.addProperty("imgNum", imgNum);
+        object.addProperty("blockCenterX", blockCenterX);
+        object.addProperty("blockCenterY", blockCenterY);
+        object.addProperty("blockRectHeight", blockRectHeight);
+        object.addProperty("blockRectWidth", blockRectWidth);
+        object.addProperty("fontWeight", fontWeight);
+        return object;
+    }
+
+    @Override
+    public String toString() {
+        return "DataStandard{" +
+                "xpath='" + xpath + '\'' +
+                ", label='" + label + '\'' +
+                ", fontSizeAbsolute=" + fontSizeAbsolute +
+                ", linkNumAbsolute=" + linkNumAbsolute +
+                ", interactionSize=" + interactionSize +
+                ", innerTextLength=" + innerTextLength +
+                ", innerHTMLLength=" + innerHTMLLength +
+                ", imgSize=" + imgSize +
+                ", fontSize=" + fontSize +
+                ", imgNum=" + imgNum +
+                ", blockCenterX=" + blockCenterX +
+                ", blockCenterY=" + blockCenterY +
+                ", blockRectHeight=" + blockRectHeight +
+                ", blockRectWidth=" + blockRectWidth +
+                ", fontWeight=" + fontWeight +
+                ", jaccard=" + jaccard +
+                '}';
     }
 }
