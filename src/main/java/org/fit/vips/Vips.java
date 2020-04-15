@@ -318,7 +318,7 @@ public class Vips {
 		}
 
 		//		constructor.normalizeSeparatorsSoftMax();
-		constructor.normalizeSeparatorsMinMax();
+//		constructor.normalizeSeparatorsMinMax();
 
 		VipsOutput vipsOutput = new VipsOutput(_pDoC);
 		vipsOutput.setEscapeOutput(_outputEscaping);

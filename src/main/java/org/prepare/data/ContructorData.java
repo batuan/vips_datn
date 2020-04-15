@@ -143,20 +143,56 @@ public class ContructorData {
     /* batdongsan: /#document/html/body/form[4]/div[3]/div[1]/div[0]/div[0] */
     /* dothi: /#document/html/body/form[9]/div[0]/div[0]/div[1]/div[2] */
     /* alonhadat: /#document/html/body/div[1]/div[2]/div[0]/div[0] */
+
     public static void main(String args[]) throws IOException, SAXException, ParserConfigurationException {
-        int _case = 1;
+        int _case = 6;
         String folder_name = "";
-        String xpath = "";
+        String[] xpath = null;
         if (_case == 0) {
             folder_name =  "batdongsan";
-            xpath = "/#document/html/body/form[4]/div[3]/div[1]/div[0]/div[0]";
+            xpath = new String[]{"/#document/html/body/form[4]/div[3]/div[1]/div[0]/div[0]"};
         } else if (_case == 1) {
             folder_name = "alonhadat";
-            xpath = "/#document/html/body/div[1]/div[2]/div[0]/div[0]";
-        } else {
+            xpath = new String[]{"/#document/html/body/div[1]/div[2]/div[0]/div[0]"};
+        } else if (_case == 2) {
             folder_name = "dothi";
-            xpath = "/#document/html/body/form[9]/div[0]/div[0]/div[1]/div[2]";
+            xpath = new String[]{"/#document/html/body/form[9]/div[0]/div[0]/div[1]/div[2]"};
+        } else if (_case == 3) {
+            folder_name = "123nhadatviet";
+            xpath = new String[]{"/#document/html/body/div[1]/div[2]/div[0]/div[0]"};
+        } else if (_case == 4) {
+            folder_name = "bds123";
+            xpath = new String[]{"/#document/html/body/div[1]/div[0]/div[0]/section[1]/div[0]/article"};
+        } else if (_case == 5) {
+            folder_name = "chothuenha";
+            xpath = new String[]{"/#document/html/body/div[3]/main[0]/section[2]/section[0]/article[0]", "/#document/html/body/div[3]/main[0]/section[2]/section[0]/article[1]",
+            "/#document/html/body/div[3]/main[0]/section[2]/section[0]/article[3]", "/#document/html/body/div[3]/main[0]/section[2]/section[0]/article[5]", "/#document/html/body/div[3]/main[0]/section[2]/section[0]/article[7]",
+            "/#document/html/body/div[3]/main[0]/section[2]/section[0]/article[11]"};
+        } else if (_case == 6) {
+            folder_name = "test";
+            xpath = new String[] {
+                    /* anphu */
+                    "/#document/html/body/div[0]/form[11]/section[0]/div[0]/div[2]",
+                    /* bannha */
+                    "/#document/html/body/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[0]",
+                    "/#document/html/body/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[4]",
+                    "/#document/html/body/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[5]/div[0]",
+                    /* nha data 24*/
+                    "/#document/html/body/form[10]/div[1]/div[0]/div[2]/div[0]/div[0]", "/#document/html/body/div[0]/div[1]/div[2]/div[0]/div[4]",
+                    /* 123nhadat */
+                    "/#document/html/body/div[4]/div[0]/div[0]/div[1]", "/#document/html/body/div[4]/div[0]/div[0]/div[2]", "/#document/html/body/div[4]/div[0]/div[0]/div[22]",
+                    "/#document/html/body/div[4]/div[0]/div[0]/div[24]",
+                    /* diaoc online */
+                    "/#document/html/body/div[8]/div[0]/div[1]/div[1]/div[0]/div[1]",
+                    /* kenhbds */
+                    "/#document/html/body/div[1]/div[3]/div[0]/",
+                    /* homedy */
+                    "/#document/html/body/div[7]/div[1]/div[0]/div[0]", "/#document/html/body/div[7]/div[1]/div[0]/div[1]/div[0]/div[0]/div[1]",
+                    /* dinhgia */
+                    "/#document/html/body/div[0]/div[1]/div[2]/div[0]/div[4]"
+            };
         }
+
         File folder = new File("data-link/" + folder_name);
         ArrayList<String> listPath = new ArrayList<>();
         for(File it: folder.listFiles()) {
@@ -165,8 +201,6 @@ public class ContructorData {
         }
         int count = 0;
         for(String it: listPath) {
-            count++;
-            System.out.println(count);
             ContructorData app = new ContructorData();
             app.readXMLData("data-link/" + folder_name + "/" + it);
             app.getPagesRoot().setXpahtPositive(xpath);

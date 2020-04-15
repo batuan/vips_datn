@@ -24,6 +24,8 @@ public class Test
                 "</employees>";
 
         //Use method to convert XML string content to XML Document object
+        String a = xmlStr.replaceAll("&#5[0-9]*;", " ");
+        System.out.println(a);
         Document doc = convertStringToXMLDocument( xmlStr );
 
         //Verify XML document is build correctly
@@ -31,6 +33,7 @@ public class Test
     }
 
     private static Document convertStringToXMLDocument(String xmlString) throws UnsupportedEncodingException {
+        System.out.println(StringEscapeUtils.unescapeJava(xmlString));
         xmlString = StringEscapeUtils.unescapeXml(xmlString);
         xmlString = new String(xmlString.getBytes(), "UTF-8");
         //Parser that produces DOM object trees from XML content

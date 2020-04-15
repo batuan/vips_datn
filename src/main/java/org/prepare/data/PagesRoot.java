@@ -24,7 +24,7 @@ public class PagesRoot {
     DataBlock blockBody;
     ArrayList<DataBlock> elements;
     ArrayList<DataStandard> elementStandard;
-    String xpahtPositive;
+    String[] xpahtPositive;
 
     public PagesRoot() {
     }
@@ -66,11 +66,14 @@ public class PagesRoot {
         bufferedWriter.close();
     }
 
-    public void setLabelPositive(String xpathMatch) {
+    public void setLabelPositive(String ...xpathMatch) {
         for (DataBlock it: elements) {
             String xpath = it.getXpath();
-            if (xpath.contains(xpathMatch)) {
-                it.setLabel("1");
+            for (String match: xpathMatch) {
+                if (xpath.contains(match)) {
+                    it.setLabel("1");
+                    break;
+                }
             }
         }
     }
@@ -78,12 +81,16 @@ public class PagesRoot {
     public void properties() {
         this.setLabelPositive(this.xpahtPositive);
         this.elementStandard = this.calculatorDataStandara(this.elements);
+        /*System.out.println(this.elements);*/
     }
 
     public ArrayList<DataStandard> calculatorDataStandara(ArrayList<DataBlock> elements) {
         ArrayList<DataStandard> dataStandards = new ArrayList<>();
         for (DataBlock it: elements) {
-            DataStandard data = new DataStandard();
+            if (it.getContent().trim().equals("")) {
+                continue;
+            }
+
             Double blockCenterX = (it.getObjectRectLeft() + it.getObjectRectWidth())/(2 * blockBody.getObjectRectWidth());
             Double blockRectWidth = it.getObjectRectWidth() / blockBody.getObjectRectWidth();
             Double blockRectHeigh = it.getObjectRectHeight() / WindowHeight;
@@ -99,16 +106,17 @@ public class PagesRoot {
             Double fontSizeAbsolute = it.getFontsize() / blockBody.getFontsize();
             Double fontSize = it.getFontsize();
             Double linkNum = it.getLinkNum() / blockBody.getLinkNum();
-            Double interactionSize = (it.getObjectRectHeight() * it.getObjectRectWidth()) * (blockBody.getObjectRectHeight() * blockBody.getObjectRectWidth());
-            Double innerTextLength = it.getTextLen();
+            Double interactionSize = (it.getObjectRectHeight() * it.getObjectRectWidth()) / (blockBody.getObjectRectHeight() * blockBody.getObjectRectWidth());
+            Double innerTextLength = it.getTextLen() / blockBody.getTextLen();
             Double imgSize = it.getIsImage() == 1.0 ? (it.getObjectRectHeight() * it.getObjectRectWidth())/(PageRectHeight * PageRectWidth) : 0.0;
             Double imgNum = it.getContainImg() / blockBody.getContainImg();
             Double fontWeight = it.getFontWeight();
-            Double innerHTMLLength = Double.valueOf(it.getSrc().length());
+            Double innerHTMLLength = Double.valueOf(it.getSrc().length())/* / Double.valueOf(blockBody.getSrc().length())*/;
             String xpath = it.getXpath();
             String label = it.getLabel();
+            String content = StandardStringUtility.getStringFeatures(it.getContent());
 
-            DataStandard dataStandard = new DataStandard(xpath, label, fontSizeAbsolute, linkNum,
+            DataStandard dataStandard = new DataStandard(xpath, label, content, fontSizeAbsolute, linkNum,
                     interactionSize, innerTextLength, imgSize, blockRectWidth, blockRectHeigh,
                     fontSize, imgNum, blockCenterX, blockCenterY, fontWeight, innerHTMLLength, 0.0);
 
@@ -205,11 +213,11 @@ public class PagesRoot {
         this.elementStandard = elementStandard;
     }
 
-    public String getXpahtPositive() {
+    public String[] getXpahtPositive() {
         return xpahtPositive;
     }
 
-    public void setXpahtPositive(String xpahtPositive) {
+    public void setXpahtPositive(String ...xpahtPositive) {
         this.xpahtPositive = xpahtPositive;
     }
 

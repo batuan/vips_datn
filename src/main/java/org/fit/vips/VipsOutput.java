@@ -187,7 +187,9 @@ public final class VipsOutput {
 			if (box.getNode().getNodeName().equals("Xspan")) {
 				ret += box.getText() + " ";
 			} else {
-				ret += box.getNode().getTextContent();
+				if (!ret.contains(box.getNode().getTextContent())) {
+					ret += box.getNode().getTextContent();
+				}
 			}
 			/*ret += box.getText() + " ";*/
 		}
@@ -234,19 +236,25 @@ public final class VipsOutput {
 
 			if (_escapeOutput)
 			{
-				StreamResult result = new StreamResult(new File(_filename + ".xml"));
-				transformer.transform(source, result);
+				/*StreamResult result = new StreamResult(new File(_filename + ".xml"));
+				transformer.transform(source, result);*/
+				StringWriter writer = new StringWriter();
+				transformer.transform(source, new StreamResult(writer));
+				String result = writer.toString();
+				result = result.replaceAll("&#[0-9]*;", " ");
+				FileWriter fstream = new FileWriter(_filename + ".xml");
+				fstream.write(result);
+				fstream.close();
 			}
 			else
 			{
 				StringWriter writer = new StringWriter();
 				transformer.transform(source, new StreamResult(writer));
 				String result = writer.toString();
-				result = StringEscapeUtils.escapeXml10(result);
 				result = result.replaceAll("&gt;", ">");
 				result = result.replaceAll("&lt;", "<");
 				result = result.replaceAll("&quot;", "\"");
-
+				result = result.replaceAll("&#[0-9]*;", " ");
 				FileWriter fstream = new FileWriter(_filename + ".xml");
 				fstream.write(result);
 				fstream.close();

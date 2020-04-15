@@ -7,6 +7,7 @@ public class DataStandard {
 
     String xpath;
     String label;
+    String content;
     Double fontSizeAbsolute;
     Double linkNumAbsolute;
     Double interactionSize;
@@ -25,13 +26,14 @@ public class DataStandard {
     public DataStandard() {
     }
 
-    public DataStandard(String xpath, String label,  Double fontSizeAbsolute, Double linkNumAbsolute,
+    public DataStandard(String xpath, String label, String content,  Double fontSizeAbsolute, Double linkNumAbsolute,
                         Double interactionSize, Double innerTextLength, Double imgSize,
                         Double blockRectWidth, Double blockRectHeight, Double fontSize, Double imgNum,
                         Double blockCenterX, Double blockCenterY,
                         Double fontWeight, Double innerHTMLLength,  Double jaccard) {
         this.xpath = xpath;
         this.label = label;
+        this.content = content;
         this.fontSizeAbsolute = fontSizeAbsolute;
         this.linkNumAbsolute = linkNumAbsolute;
         this.interactionSize = interactionSize;
@@ -193,7 +195,17 @@ public class DataStandard {
         object.addProperty("blockRectHeight", blockRectHeight);
         object.addProperty("blockRectWidth", blockRectWidth);
         object.addProperty("fontWeight", fontWeight);
+        object.addProperty("content", content);
+        
         return object;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     @Override
@@ -201,6 +213,7 @@ public class DataStandard {
         return "DataStandard{" +
                 "xpath='" + xpath + '\'' +
                 ", label='" + label + '\'' +
+                ", content='" + content + '\'' +
                 ", fontSizeAbsolute=" + fontSizeAbsolute +
                 ", linkNumAbsolute=" + linkNumAbsolute +
                 ", interactionSize=" + interactionSize +

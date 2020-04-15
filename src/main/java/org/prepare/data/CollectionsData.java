@@ -17,20 +17,38 @@ public class CollectionsData {
         String batdongsan = "data-link/batdongsan";
         String alonhadat = "data-link/alonhadat";
         String dothi = "data-link/dothi";
+        String nhadatviet = "data-link/123nhadatviet";
+        String bds123 = "data-link/bds123";
+        String chothuenha = "data-link/chothuenha";
+        String anphu = "data-link/test";
 
         String folder = "";
         String filename = "";
-        int _case = 2;
+        int _case = 6;
+
         if (_case == 0) {
             folder = batdongsan;
             filename = "batdongsan";
-        } else if (_case == 1){
+        } else if (_case == 1) {
             folder = alonhadat;
             filename = "alonhadat";
-        } else  {
+        } else if (_case == 2)  {
             folder = dothi;
             filename = "dothi";
+        } else if (_case == 3) {
+            folder = nhadatviet;
+            filename = "123nhadatviet";
+        } else if (_case == 4) {
+            folder = bds123;
+            filename = "bds123";
+        } else if (_case == 5) {
+            folder = chothuenha;
+            filename = "chothuenha";
+        } else if (_case == 6) {
+            folder = anphu;
+            filename = "test";
         }
+
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(folder + "/links.txt")));
         ArrayList<String> urls = new ArrayList<>();
         String line = bufferedReader.readLine();
@@ -48,9 +66,12 @@ public class CollectionsData {
             // disable graphics output
             vips.setSizeDimensionWidth(1420);
             vips.setSizeDimensionHeight(980);
+           /* vips.setSizeTresholdHeight(500);
+            vips.setSizeTresholdWidth(450);*/
             vips.enableGraphicsOutput(false);
             // disable output to separate folder (no necessary, it's default value is false)
             vips.enableOutputToFolder(false);
+            vips.enableOutputEscaping(true);
             // set permitted degree of coherence
             vips.setPredefinedDoC(7);
             vips.setNumberOfIterations(3);

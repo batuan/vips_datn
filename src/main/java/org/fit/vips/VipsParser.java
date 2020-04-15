@@ -122,7 +122,7 @@ public class VipsParser {
 	private void constructVipsBlockTree(Box element, VipsBlock node)
 	{
 		node.setBox(element);
-		String xpath = node.getXPath();
+		node.updateXPath(node);
 		if (! (element instanceof TextBox))
 		{
 			for (Box box: ((ElementBox) element).getSubBoxList())
@@ -287,7 +287,7 @@ public class VipsParser {
 	/**
 	 * Checks, if node is a text node.
 	 * 
-	 * @param node
+	 * @param box
 	 *            Input node
 	 * 
 	 * @return True, if node is a text node, otherwise false.
@@ -1089,7 +1089,7 @@ public class VipsParser {
 	 * VIPS Rule Nine
 	 * <p>
 	 * If the child of the node with maximum size are small than
-	 * a threshold (relative size), do not divide this node. <br>
+ 	 * a threshold (relative size), do not divide this node. <br>
 	 * Set the DoC based on the html tag and size of this node.
 	 * @param node
 	 *            Input node
@@ -1249,7 +1249,6 @@ public class VipsParser {
 	 * Finds previous sibling node's VIPS block.
 	 * @param node Node
 	 * @param vipsBlock Actual VIPS block
-	 * @param foundBlock VIPS block for given node
 	 */
 	private void findPreviousSiblingNodeVipsBlock(Node node, VipsBlock vipsBlock)
 	{
