@@ -41,10 +41,10 @@ public class VipsTester {
 			vips.enableOutputToFolder(false);
 			vips.enableOutputEscaping(true);
 			// set permitted degree of coherence
-		/*	vips.setSizeTresholdWidth(500);
-			vips.setSizeTresholdHeight(400);*/
+		/*	vips.setSizeTresholdWidth(300);
+			vips.setSizeTresholdHeight(350);*/
 			vips.setPredefinedDoC(7);
-			vips.setNumberOfIterations(3);
+			vips.setNumberOfIterations(5);
 			// start segmentation on page
 			vips.startSegmentation(url);
 		} catch (Exception e)

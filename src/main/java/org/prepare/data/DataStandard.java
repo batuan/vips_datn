@@ -21,7 +21,7 @@ public class DataStandard {
     Double blockRectHeight;
     Double blockRectWidth;
     Double fontWeight;
-    Double jaccard;
+    String jaccard;
 
     public DataStandard() {
     }
@@ -30,7 +30,7 @@ public class DataStandard {
                         Double interactionSize, Double innerTextLength, Double imgSize,
                         Double blockRectWidth, Double blockRectHeight, Double fontSize, Double imgNum,
                         Double blockCenterX, Double blockCenterY,
-                        Double fontWeight, Double innerHTMLLength,  Double jaccard) {
+                        Double fontWeight, Double innerHTMLLength,  String jaccard) {
         this.xpath = xpath;
         this.label = label;
         this.content = content;
@@ -154,11 +154,11 @@ public class DataStandard {
         this.fontWeight = fontWeight;
     }
 
-    public Double getJaccard() {
+    public String getJaccard() {
         return jaccard;
     }
 
-    public void setJaccard(Double jaccard) {
+    public void setJaccard(String jaccard) {
         this.jaccard = jaccard;
     }
 
@@ -182,6 +182,7 @@ public class DataStandard {
         JsonObject object = new JsonObject();
         object.addProperty("xpath", xpath);
         object.addProperty("label", label);
+        object.addProperty("jaccard", jaccard);
         object.addProperty("fontSizeAbsolute", fontSizeAbsolute);
         object.addProperty("linkNumAbsolute", linkNumAbsolute);
         object.addProperty("interactionSize", interactionSize);

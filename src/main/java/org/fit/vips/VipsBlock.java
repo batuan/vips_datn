@@ -162,7 +162,7 @@ public class VipsBlock {
 					_index++;
 				}
 			}
-		    if (parent.getNodeName().equals("body") || parent.getNodeName().equals("html") || parent.getNodeName().equals("#document")) {
+		    if (/*parent.getNodeName().equals("body") || */parent.getNodeName().equals("html") || parent.getNodeName().equals("#document")) {
 		    	return xPath(parent) + "/" + node.getNodeName();
 			}
 			String tmp = "[" + _index + "]/";

@@ -7,6 +7,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PagesRoot {
 
@@ -24,9 +27,29 @@ public class PagesRoot {
     DataBlock blockBody;
     ArrayList<DataBlock> elements;
     ArrayList<DataStandard> elementStandard;
+    Set<String> idParentMainSimilarJacard;
     String[] xpahtPositive;
 
     public PagesRoot() {
+    }
+
+    public PagesRoot(PagesRoot content) {
+        this(content.getPageRectHeight(), content.getPageRectLeft(),  content.getPageRectTop(),
+                content.getPageRectWidth(), content.getTitle(), content.getWindowHeight(), content.getUrl(),
+                content.getWindowWidth(),  content.getBlockBody(), (ArrayList<DataBlock>) content.getElements().clone());
+    }
+
+    public Object clone() {
+        PagesRoot pagesRoot = null;
+        try {
+            pagesRoot = (PagesRoot) super.clone();
+        } catch (CloneNotSupportedException e) {
+            pagesRoot = new PagesRoot(
+                    this.getPageRectHeight(), this.getPageRectLeft(), this.getPageRectTop(),
+                    this.getPageRectWidth(), this.getTitle(), this.getWindowHeight(), this.getUrl(),
+                    this.getWindowWidth(), this.getBlockBody(), this.getElements());
+        }
+        return pagesRoot;
     }
 
     public PagesRoot(Double pageRectHeight, Double pageRectLeft, Double pageRectTop,
@@ -44,6 +67,19 @@ public class PagesRoot {
         this.blockBody = blockBody;
         this.elements = elements;
 
+    }
+
+    public void cleanBlock(ArrayList<DataBlock> block) {
+        int size2 = block.size();
+        for (int i = 0; i < size2; i++) {
+            int size1 = this.elements.size();
+            for (int j = 0; j < size1; j++) {
+                if (block.get(i).isEqual(elements.get(j))) {
+                    elements.remove(j);
+                    break;
+                }
+            }
+        }
     }
 
     public void writeToFile(String pathFile, boolean modeWriteAppend) throws IOException {
@@ -90,11 +126,19 @@ public class PagesRoot {
             if (it.getContent().trim().equals("")) {
                 continue;
             }
+            String [] xpaths = it.getXpath().split("/");
+            if (xpaths[xpaths.length - 1].equals("img")) {
+                continue;
+            }
+            if (it.getXpath().contains("/a[0]/#text")) {
+                continue;
+            }
 
-            Double blockCenterX = (it.getObjectRectLeft() + it.getObjectRectWidth())/(2 * blockBody.getObjectRectWidth());
+            Double blockCenterX = (it.getObjectRectLeft() + it.getObjectRectWidth()) / (2 * blockBody.getObjectRectWidth());
             Double blockRectWidth = it.getObjectRectWidth() / blockBody.getObjectRectWidth();
             Double blockRectHeigh = it.getObjectRectHeight() / WindowHeight;
-            Double blockCenterY = (it.getObjectRectTop() + it.getObjectRectHeight())/(2 * blockBody.getObjectRectHeight());;
+            Double blockCenterY = (it.getObjectRectTop() + it.getObjectRectHeight()) / (2 * blockBody.getObjectRectHeight());
+            ;
             if (blockCenterY < HEADER_HEIGHT) {
                 blockCenterY = blockCenterY / (2 * HEADER_HEIGHT);
             } else if ((HEADER_HEIGHT < blockCenterY) &&
@@ -104,25 +148,56 @@ public class PagesRoot {
                 blockCenterY = 1 - (blockBody.getObjectRectHeight() - blockCenterY) / (2 * FOOTER_HEIGHT);
             }
             Double fontSizeAbsolute = it.getFontsize() / blockBody.getFontsize();
-            Double fontSize = it.getFontsize();
+            Double fontSize = it.getFontsize() / blockBody.getFontsize();
             Double linkNum = it.getLinkNum() / blockBody.getLinkNum();
             Double interactionSize = (it.getObjectRectHeight() * it.getObjectRectWidth()) / (blockBody.getObjectRectHeight() * blockBody.getObjectRectWidth());
             Double innerTextLength = it.getTextLen() / blockBody.getTextLen();
-            Double imgSize = it.getIsImage() == 1.0 ? (it.getObjectRectHeight() * it.getObjectRectWidth())/(PageRectHeight * PageRectWidth) : 0.0;
+            Double imgSize = it.getIsImage() == 1.0 ? (it.getObjectRectHeight() * it.getObjectRectWidth()) / (PageRectHeight * PageRectWidth) : 0.0;
             Double imgNum = it.getContainImg() / blockBody.getContainImg();
             Double fontWeight = it.getFontWeight();
             Double innerHTMLLength = Double.valueOf(it.getSrc().length())/* / Double.valueOf(blockBody.getSrc().length())*/;
             String xpath = it.getXpath();
             String label = it.getLabel();
-            String content = StandardStringUtility.getStringFeatures(it.getContent());
+            String jaccard = "None";
+            if (idParentMainSimilarJacard == null) {
+                this.idParentMainSimilarJacard = new HashSet<>();
+            }
+            if (this.idParentMainSimilarJacard.contains(it.getIdParent())) {
+                jaccard = "main";
+            } else {
+                double score = this.simpleJaccard(title, it.content);
+                if (score > 0.82) {
+                    jaccard = "main";
+                    this.idParentMainSimilarJacard.add(it.getIdParent());
+                }
+            }
 
+            String content = StandardStringUtility.getStringFeatures(it.getContent());
             DataStandard dataStandard = new DataStandard(xpath, label, content, fontSizeAbsolute, linkNum,
                     interactionSize, innerTextLength, imgSize, blockRectWidth, blockRectHeigh,
-                    fontSize, imgNum, blockCenterX, blockCenterY, fontWeight, innerHTMLLength, 0.0);
+                    fontSize, imgNum, blockCenterX, blockCenterY, fontWeight, innerHTMLLength, jaccard);
 
             dataStandards.add(dataStandard);
         }
         return dataStandards;
+    }
+
+    public double simpleJaccard(String in1, String in2) {
+        String listIn1[] = in1.trim().toLowerCase().split("\\s+");
+        String listIn2[] = in2.trim().toLowerCase().split("\\s+");
+        Set<String> set = new HashSet<>();
+        set.addAll(Arrays.asList(listIn1));
+        set.addAll(Arrays.asList(listIn2));
+        int size = set.size();
+        int count = 0;
+        for (String it1: listIn1) {
+            for (String it2: listIn2) {
+                if (it2.equals(it1)) {
+                    count++;
+                }
+            }
+        }
+        return (double)count/(double) size;
     }
 
     public Double getPageRectHeight() {
@@ -217,7 +292,7 @@ public class PagesRoot {
         return xpahtPositive;
     }
 
-    public void setXpahtPositive(String ...xpahtPositive) {
+    public void setXpathPositive(String ...xpahtPositive) {
         this.xpahtPositive = xpahtPositive;
     }
 

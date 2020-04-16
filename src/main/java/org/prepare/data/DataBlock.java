@@ -1,6 +1,7 @@
 package org.prepare.data;
 
 public class DataBlock {
+    String idParent;
     String xpath;
     Double fontsize;
     Double linkTextLen;
@@ -51,6 +52,29 @@ public class DataBlock {
         this.src = src;
         this.label = label;
     }
+
+    public boolean isEqual(DataBlock data) {
+        if (checkSize(objectRectWidth - data.getObjectRectWidth(),objectRectHeight - data.getObjectRectHeight())
+                && content.trim().equals(data.getContent().trim())) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkSize(double minusWidth, double minusHeight) {
+        if (Math.abs(minusWidth) > 20 || Math.abs(minusHeight) > 20) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean checkPoision(Double minusLeft, Double minusTop) {
+        if (Math.abs(minusLeft) > 150 || Math.abs(minusTop) > 150 ) {
+            return false;
+        }
+        return true;
+    }
+
 
     public String getXpath() {
         return xpath;
@@ -178,6 +202,14 @@ public class DataBlock {
 
     public void setSrc(String src) {
         this.src = src;
+    }
+
+    public String getIdParent() {
+        return idParent;
+    }
+
+    public void setIdParent(String idParent) {
+        this.idParent = idParent;
     }
 
     @Override

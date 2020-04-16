@@ -1,5 +1,6 @@
 package org.prepare.data;
 
+import com.google.gson.JsonObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -8,20 +9,27 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 
 public class ContructorData {
-    PagesRoot pagesRoot;
 
-    public ContructorData() {
-        pagesRoot = new PagesRoot();
+    ArrayList<PagesRoot> pagesRoot;
+    ArrayList<DataStandard> data;
+
+    public ContructorData(int numberPages) {
+        pagesRoot = new ArrayList<>();
+        data = new ArrayList<>();
     }
 
-    public void readXMLData(String filename) throws ParserConfigurationException, IOException, SAXException {
-
+    public void readXMLData(String filename, int index) throws ParserConfigurationException, IOException, SAXException {
+        if (this.pagesRoot.size() < index + 1) {
+            this.pagesRoot.add(new PagesRoot());
+        }
         File file = new File(filename);
         /* if file not exists then exit */
         if (!file.exists()) {
@@ -34,14 +42,14 @@ public class ContructorData {
         Document doc = dBuilder.parse(file);
 
         doc.getDocumentElement().normalize();
-        this.pagesRoot.setPageRectHeight(Double.valueOf(doc.getDocumentElement().getAttribute("PageRectHeight")));
-        this.pagesRoot.setPageRectWidth(Double.valueOf(doc.getDocumentElement().getAttribute("PageRectWidth")));
-        this.pagesRoot.setPageRectTop(Double.valueOf(doc.getDocumentElement().getAttribute("PageRectTop")));
-        this.pagesRoot.setPageRectLeft(Double.valueOf(doc.getDocumentElement().getAttribute("PageRectLeft")));
-        this.pagesRoot.setTitle(doc.getDocumentElement().getAttribute("PageTitle"));
-        this.pagesRoot.setWindowHeight(Double.valueOf(doc.getDocumentElement().getAttribute("WindowHeight")));
-        this.pagesRoot.setWindowWidth(Double.valueOf(doc.getDocumentElement().getAttribute("WindowWidth")));
-        this.pagesRoot.setUrl(doc.getDocumentElement().getAttribute("Url"));
+        this.pagesRoot.get(index).setPageRectHeight(Double.valueOf(doc.getDocumentElement().getAttribute("PageRectHeight")));
+        this.pagesRoot.get(index).setPageRectWidth(Double.valueOf(doc.getDocumentElement().getAttribute("PageRectWidth")));
+        this.pagesRoot.get(index).setPageRectTop(Double.valueOf(doc.getDocumentElement().getAttribute("PageRectTop")));
+        this.pagesRoot.get(index).setPageRectLeft(Double.valueOf(doc.getDocumentElement().getAttribute("PageRectLeft")));
+        this.pagesRoot.get(index).setTitle(doc.getDocumentElement().getAttribute("PageTitle"));
+        this.pagesRoot.get(index).setWindowHeight(Double.valueOf(doc.getDocumentElement().getAttribute("WindowHeight")));
+        this.pagesRoot.get(index).setWindowWidth(Double.valueOf(doc.getDocumentElement().getAttribute("WindowWidth")));
+        this.pagesRoot.get(index).setUrl(doc.getDocumentElement().getAttribute("Url"));
         /* Node layout body */
         Node nodeLayOutBody = doc.getDocumentElement().getChildNodes().item(1);
         String xpath = "";
@@ -55,6 +63,7 @@ public class ContructorData {
         Double objectRectHeight =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("ObjectRectHeight").getNodeValue());
         Double objectRectWidth =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("ObjectRectWidth").getNodeValue());
         Double fontWeight =  Double.valueOf(100);
+        String id = nodeLayOutBody.getAttributes().getNamedItem("ID").getNodeValue();
         String fw = nodeLayOutBody.getAttributes().getNamedItem("FontWeight").getNodeValue();
         if ( fw != null && !Utility.isNumericRegex(fw)) {
             if (fw.equals("normal")) {
@@ -73,8 +82,9 @@ public class ContructorData {
         DataBlock blockBody = new DataBlock("", fontSize, linkTextLen, linkNum, containImg, containP, objectRectLeft,
                     objectRectTop, objectRectHeight, objectRectWidth, fontWeight, textLen, isImage, "", src, "");
 
-        this.pagesRoot.setBlockBody(blockBody);
-        this.pagesRoot.setElements(blocksData(nodeLayOutBody));
+        blockBody.setIdParent(id);
+        this.pagesRoot.get(index).setBlockBody(blockBody);
+        this.pagesRoot.get(index).setElements(blocksData(nodeLayOutBody));
 
     }
 
@@ -108,6 +118,7 @@ public class ContructorData {
         Double objectRectHeight =  Double.valueOf(node.getAttributes().getNamedItem("ObjectRectHeight").getNodeValue());
         Double objectRectWidth =  Double.valueOf(node.getAttributes().getNamedItem("ObjectRectWidth").getNodeValue());
         Double fontWeight =  Double.valueOf(100);
+        String idParent = node.getParentNode().getAttributes().getNamedItem("ID").getNodeValue();
         String fw = node.getAttributes().getNamedItem("FontWeight").getNodeValue();
         if ( fw != null && !Utility.isNumericRegex(fw)) {
             if (fw.equals("normal")) {
@@ -127,25 +138,70 @@ public class ContructorData {
 
         DataBlock block = new DataBlock(xpath, fontSize, linkTextLen, linkNum, containImg, containP, objectRectLeft,
                 objectRectTop, objectRectHeight, objectRectWidth, fontWeight, textLen, isImage, content, src, label);
+        block.setIdParent(idParent);
 
         return block;
     }
 
 
-    public PagesRoot getPagesRoot() {
+    public ArrayList<PagesRoot> getPagesRoot() {
         return pagesRoot;
     }
 
-    public void setPagesRoot(PagesRoot pagesRoot) {
+
+    public void setPagesRoot(ArrayList<PagesRoot> pagesRoot) {
         this.pagesRoot = pagesRoot;
     }
 
     /* batdongsan: /#document/html/body/form[4]/div[3]/div[1]/div[0]/div[0] */
     /* dothi: /#document/html/body/form[9]/div[0]/div[0]/div[1]/div[2] */
     /* alonhadat: /#document/html/body/div[1]/div[2]/div[0]/div[0] */
+    public void writeToFile(String pathFile, boolean modeWriteAppend) throws IOException {
+        File file = new File(pathFile);
+        if (!file.exists()) {
+            System.out.println("File do not exists !!!");
+            System.exit(0);
+        }
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, modeWriteAppend));
+        int size = data.size();
+        StringBuffer strings = new StringBuffer();
+        for (int i = 0 ;i < size; i++) {
+            JsonObject object = data.get(i).convertToJsonObject();
+            strings.append(object.toString());
+            if (i != (size - 1)) {
+                strings.append("\n");
+            }
+        }
+        bufferedWriter.write(strings.toString());
+        bufferedWriter.close();
+    }
+
+    public void cleanData() {
+        boolean isDone = false;
+        int index = 0;
+        int size = data.size();
+        while (index < size && !isDone) {
+            boolean check = false;
+            for (int j = index + 1; j < size - 1; j++) {
+                if (data.get(index).content.equals(data.get(j).content)) {
+                    check = true;
+                    data.remove(j);
+                    size = data.size();
+                }
+            }
+            if (check) {
+                data.remove(index);
+            } else {
+                index++;
+            }
+            /*if (index == size) {
+                isDone = true;
+            }*/
+        }
+    }
 
     public static void main(String args[]) throws IOException, SAXException, ParserConfigurationException {
-        int _case = 6;
+        int _case = 2;
         String folder_name = "";
         String[] xpath = null;
         if (_case == 0) {
@@ -200,12 +256,39 @@ public class ContructorData {
                 listPath.add(it.getName());
         }
         int count = 0;
-        for(String it: listPath) {
-            ContructorData app = new ContructorData();
-            app.readXMLData("data-link/" + folder_name + "/" + it);
-            app.getPagesRoot().setXpahtPositive(xpath);
-            app.getPagesRoot().properties();
-            app.getPagesRoot().writeToFile("data-link/" + folder_name + "/result.json", true);
+        int size = listPath.size();
+        ContructorData app = new ContructorData(size);
+        for(int i = 0; i < size; i++) {
+            app.readXMLData("data-link/" + folder_name + "/" + listPath.get(i), i);
+           /* app.getPagesRoot().setXpathPositive(xpath);*/
+         /*   app.getPagesRoot().properties();
+            app.getPagesRoot().writeToFile("data-link/" + folder_name + "/result-1.json", true);*/
         }
+
+        PagesRoot page1 = new PagesRoot(app.getPagesRoot().get(0));
+        int sizePages = app.getPagesRoot().size();
+        for (int i = 0; i < sizePages - 1; i++) {
+            app.getPagesRoot().get(i).cleanBlock(app.getPagesRoot().get(i + 1).getElements());
+        }
+        app.getPagesRoot().get(sizePages - 1).cleanBlock(page1.getElements());
+
+        for (int i = 0; i < sizePages; i++) {
+            app.getPagesRoot().get(i).setXpathPositive(xpath);
+            app.getPagesRoot().get(i).properties();
+            for (DataStandard it: app.getPagesRoot().get(i).getElementStandard()) {
+                app.getData().add(it);
+            }
+//            app.getPagesRoot().get(i).writeToFile("data-link/" + folder_name + "/result-1.json", true);
+        }
+        app.cleanData();
+        app.writeToFile("data-link/" + folder_name + "/result-1.json", true);
+    }
+
+    public ArrayList<DataStandard> getData() {
+        return data;
+    }
+
+    public void setData(ArrayList<DataStandard> data) {
+        this.data = data;
     }
 }
