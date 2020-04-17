@@ -24,6 +24,16 @@ public class DataBlock {
     Double textLen;
     Double isImage;
     String content;
+
+    public Integer getOrder() {
+        return order;
+    }
+
+    public void setOrder(Integer order) {
+        this.order = order;
+    }
+
+    Integer order;
     String label;
 
 

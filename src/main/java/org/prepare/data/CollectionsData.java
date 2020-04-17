@@ -74,7 +74,7 @@ public class CollectionsData {
             vips.enableOutputEscaping(true);
             // set permitted degree of coherence
             vips.setPredefinedDoC(7);
-            vips.setNumberOfIterations(5);
+            vips.setNumberOfIterations(4);
             String tmp = url.split("\\s+")[0];
             System.out.println(count + " : " + tmp);
             vips.setOutputFileName(filename + "-" + count);

@@ -62,6 +62,7 @@ public class ContructorData {
         Double objectRectTop =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("ObjectRectTop").getNodeValue());
         Double objectRectHeight =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("ObjectRectHeight").getNodeValue());
         Double objectRectWidth =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("ObjectRectWidth").getNodeValue());
+        Integer order =  Integer.valueOf(nodeLayOutBody.getAttributes().getNamedItem("order").getNodeValue());
         Double fontWeight =  Double.valueOf(100);
         String id = nodeLayOutBody.getAttributes().getNamedItem("ID").getNodeValue();
         String fw = nodeLayOutBody.getAttributes().getNamedItem("FontWeight").getNodeValue();
@@ -81,7 +82,7 @@ public class ContructorData {
 
         DataBlock blockBody = new DataBlock("", fontSize, linkTextLen, linkNum, containImg, containP, objectRectLeft,
                     objectRectTop, objectRectHeight, objectRectWidth, fontWeight, textLen, isImage, "", src, "");
-
+        blockBody.setOrder(order);
         blockBody.setIdParent(id);
         this.pagesRoot.get(index).setBlockBody(blockBody);
         this.pagesRoot.get(index).setElements(blocksData(nodeLayOutBody));
@@ -119,6 +120,7 @@ public class ContructorData {
         Double objectRectWidth =  Double.valueOf(node.getAttributes().getNamedItem("ObjectRectWidth").getNodeValue());
         Double fontWeight =  Double.valueOf(100);
         String idParent = node.getParentNode().getAttributes().getNamedItem("ID").getNodeValue();
+        Integer order = Integer.valueOf(node.getAttributes().getNamedItem("order").getNodeValue());
         String fw = node.getAttributes().getNamedItem("FontWeight").getNodeValue();
         if ( fw != null && !Utility.isNumericRegex(fw)) {
             if (fw.equals("normal")) {
@@ -139,7 +141,7 @@ public class ContructorData {
         DataBlock block = new DataBlock(xpath, fontSize, linkTextLen, linkNum, containImg, containP, objectRectLeft,
                 objectRectTop, objectRectHeight, objectRectWidth, fontWeight, textLen, isImage, content, src, label);
         block.setIdParent(idParent);
-
+        block.setOrder(order);
         return block;
     }
 
@@ -200,13 +202,39 @@ public class ContructorData {
         }
     }
 
+    public void updateProperty() {
+        double maxFontWeight = 0;
+        double maxHTML = 0;
+        double maxOrder = 0;
+        int size = this.data.size();
+        for (int i = 0; i < size; i++) {
+            if (maxFontWeight < this.data.get(i).getFontWeight()) {
+                maxFontWeight = this.data.get(i).getFontWeight();
+            }
+            if (maxHTML < this.data.get(i).getInnerHTMLLength()) {
+                maxHTML = this.data.get(i).getInnerHTMLLength();
+            }
+            if (maxOrder < this.data.get(i).getOrder()) {
+                maxOrder = this.data.get(i).getOrder();
+            }
+        }
+        for (int i = 0; i < size; i++) {
+            double order = this.data.get(i).getOrder();
+            double html = this.data.get(i).getInnerHTMLLength();
+            double fontWeight =this.data.get(i).getFontWeight();
+            this.data.get(i).setOrder(order/maxOrder);
+            this.data.get(i).setInnerHTMLLength(html/maxHTML);
+            this.data.get(i).setFontWeight(fontWeight/maxFontWeight);
+        }
+    }
+
     public static void main(String args[]) throws IOException, SAXException, ParserConfigurationException {
-        int _case = 2;
+        int _case = 0;
         String folder_name = "";
         String[] xpath = null;
         if (_case == 0) {
             folder_name =  "batdongsan";
-            xpath = new String[]{"/#document/html/body/form[4]/div[3]/div[1]/div[0]/div[0]"};
+            xpath = new String[]{"/form[4]/div[3]/div[1]/div[0]/div[0]"};
         } else if (_case == 1) {
             folder_name = "alonhadat";
             xpath = new String[]{"/#document/html/body/div[1]/div[2]/div[0]/div[0]"};
@@ -228,11 +256,11 @@ public class ContructorData {
             folder_name = "test";
             xpath = new String[] {
                     /* anphu */
-                    "/#document/html/body/div[0]/form[11]/section[0]/div[0]/div[2]",
+                    "/div[0]/form[11]/section[0]/div[0]/div[2]",
                     /* bannha */
-                    "/#document/html/body/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[0]",
-                    "/#document/html/body/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[4]",
-                    "/#document/html/body/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[5]/div[0]",
+                    "/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[0]",
+                    "/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[4]",
+                    "/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[5]/div[0]",
                     /* nha data 24*/
                     "/#document/html/body/form[10]/div[1]/div[0]/div[2]/div[0]/div[0]", "/#document/html/body/div[0]/div[1]/div[2]/div[0]/div[4]",
                     /* 123nhadat */
@@ -281,7 +309,8 @@ public class ContructorData {
 //            app.getPagesRoot().get(i).writeToFile("data-link/" + folder_name + "/result-1.json", true);
         }
         app.cleanData();
-        app.writeToFile("data-link/" + folder_name + "/result-1.json", true);
+        app.updateProperty();
+        app.writeToFile("data-link/" + folder_name + "/result-2.json", true);
     }
 
     public ArrayList<DataStandard> getData() {

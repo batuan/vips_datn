@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PagesRoot {
 
@@ -82,6 +84,7 @@ public class PagesRoot {
         }
     }
 
+
     public void writeToFile(String pathFile, boolean modeWriteAppend) throws IOException {
         File file = new File(pathFile);
         if (!file.exists()) {
@@ -117,6 +120,7 @@ public class PagesRoot {
     public void properties() {
         this.setLabelPositive(this.xpahtPositive);
         this.elementStandard = this.calculatorDataStandara(this.elements);
+        this.setElementIterator();
         /*System.out.println(this.elements);*/
     }
 
@@ -127,7 +131,8 @@ public class PagesRoot {
                 continue;
             }
             String [] xpaths = it.getXpath().split("/");
-            if (xpaths[xpaths.length - 1].equals("img")) {
+            if (xpaths[xpaths.length - 1].equals("img") || xpaths[xpaths.length - 1].equals("input") || xpaths[xpaths.length - 1].equals("select") ||
+                    xpaths[xpaths.length - 1].equals("option") ) {
                 continue;
             }
             if (it.getXpath().contains("/a[0]/#text")) {
@@ -158,28 +163,85 @@ public class PagesRoot {
             Double innerHTMLLength = Double.valueOf(it.getSrc().length())/* / Double.valueOf(blockBody.getSrc().length())*/;
             String xpath = it.getXpath();
             String label = it.getLabel();
-            String jaccard = "None";
+
+            String jaccard = "none-main";
             if (idParentMainSimilarJacard == null) {
                 this.idParentMainSimilarJacard = new HashSet<>();
             }
             if (this.idParentMainSimilarJacard.contains(it.getIdParent())) {
                 jaccard = "main";
             } else {
-                double score = this.simpleJaccard(title, it.content);
-                if (score > 0.82) {
+                boolean check = false;
+                for (String iterator: this.idParentMainSimilarJacard) {
+                    if (it.getIdParent().contains(iterator)) {
+                        check = true;
+                    }
+                }
+                if (check) {
                     jaccard = "main";
-                    this.idParentMainSimilarJacard.add(it.getIdParent());
+                } else {
+                    double score = this.simpleJaccard(title, it.content);
+                    if (score > 0.82) {
+                        jaccard = "main";
+                        this.idParentMainSimilarJacard.add(it.getIdParent());
+                    }
                 }
             }
 
             String content = StandardStringUtility.getStringFeatures(it.getContent());
+
             DataStandard dataStandard = new DataStandard(xpath, label, content, fontSizeAbsolute, linkNum,
                     interactionSize, innerTextLength, imgSize, blockRectWidth, blockRectHeigh,
                     fontSize, imgNum, blockCenterX, blockCenterY, fontWeight, innerHTMLLength, jaccard);
 
+            Pattern pattern = Pattern.compile("(featurephone)|(featureEmail)|(featureLH)");
+            Matcher matcher = pattern.matcher(content);
+            if (matcher.find()) {
+                dataStandard.setContact("True");
+            }
+            pattern = Pattern.compile("(featurePhong)|(featureupstair)");
+            matcher = pattern.matcher(content);
+            if (matcher.find()) {
+                dataStandard.setArchitecture("True");
+            }
+            pattern = Pattern.compile("(featureAddress)");
+            matcher = pattern.matcher(content);
+            if (matcher.find()) {
+                dataStandard.setAddress("True");
+            }
+            pattern = Pattern.compile("(featureTime)");
+            matcher = pattern.matcher(content);
+            if (matcher.find()) {
+                dataStandard.setTime("True");
+            }
+            pattern = Pattern.compile("(featuresuface)");
+            matcher = pattern.matcher(content);
+            if (matcher.find()) {
+                dataStandard.setSuface("True");
+            }
+            pattern = Pattern.compile("(featurePrice)");
+            matcher = pattern.matcher(content);
+            if (matcher.find()) {
+                dataStandard.setPrice("True");
+            }
+            dataStandard.setOrder(Double.valueOf(it.getOrder().toString()));
             dataStandards.add(dataStandard);
         }
         return dataStandards;
+    }
+
+    public void setElementIterator() {
+        int size = this.elementStandard.size();
+        for (int i = 0; i < size; i++) {
+            if (this.elementStandard.get(i).getIterator().equals("False")) {
+                for (int j = i + 1; j < size; j++) {
+                    if (this.elementStandard.get(i).isIterator(this.elementStandard.get(j))) {
+                        this.elementStandard.get(i).setIterator("True");
+                        this.elementStandard.get(j).setIterator("True");
+                    }
+                }
+            }
+        }
     }
 
     public double simpleJaccard(String in1, String in2) {
@@ -312,4 +374,5 @@ public class PagesRoot {
                 ", standrad=" + elementStandard +
                 '}';
     }
+
 }

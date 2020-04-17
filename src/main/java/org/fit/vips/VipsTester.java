@@ -43,7 +43,7 @@ public class VipsTester {
 			// set permitted degree of coherence
 		/*	vips.setSizeTresholdWidth(300);
 			vips.setSizeTresholdHeight(350);*/
-			vips.setPredefinedDoC(7);
+			vips.setPredefinedDoC(8);
 			vips.setNumberOfIterations(5);
 			// start segmentation on page
 			vips.startSegmentation(url);

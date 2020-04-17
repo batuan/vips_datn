@@ -21,6 +21,14 @@ public class DataStandard {
     Double blockRectHeight;
     Double blockRectWidth;
     Double fontWeight;
+    String contact = "False";
+    String architecture  = "False";
+    String price  = "False";
+    String address  = "False";
+    String suface  = "False";
+    String time  = "False";
+    String iterator = "False";
+    Double order;
     String jaccard;
 
     public DataStandard() {
@@ -49,6 +57,22 @@ public class DataStandard {
         this.innerHTMLLength = innerHTMLLength;
         this.jaccard = jaccard;
     }
+
+    public boolean isIterator(DataStandard data) {
+        if (fontSizeAbsolute == data.getFontSizeAbsolute()
+                && checkrErorSize(blockCenterX, data.blockCenterX) && checkrErorSize(blockRectWidth, blockRectWidth) && (Math.abs(order - data.order) < 5)) {
+                return true;
+        }
+        return false;
+    }
+
+    public boolean checkrErorSize(double a, double b) {
+        if (Math.abs(a - b) <=  0.0012) {
+            return true;
+        }
+        return false;
+    }
+
 
     public String getXpath() {
         return xpath;
@@ -178,6 +202,70 @@ public class DataStandard {
         this.label = label;
     }
 
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getArchitecture() {
+        return architecture;
+    }
+
+    public void setArchitecture(String architecture) {
+        this.architecture = architecture;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getSuface() {
+        return suface;
+    }
+
+    public void setSuface(String suface) {
+        this.suface = suface;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getIterator() {
+        return iterator;
+    }
+
+    public void setIterator(String iterator) {
+        this.iterator = iterator;
+    }
+
+    public Double getOrder() {
+        return order;
+    }
+
+    public void setOrder(Double order) {
+        this.order = order;
+    }
+
     public JsonObject convertToJsonObject() {
         JsonObject object = new JsonObject();
         object.addProperty("xpath", xpath);
@@ -196,6 +284,14 @@ public class DataStandard {
         object.addProperty("blockRectHeight", blockRectHeight);
         object.addProperty("blockRectWidth", blockRectWidth);
         object.addProperty("fontWeight", fontWeight);
+        object.addProperty("contact", contact);
+        object.addProperty("architecture", architecture);
+        object.addProperty("address", address);
+        object.addProperty("suface", suface);
+        object.addProperty("time", time);
+        object.addProperty("price", price);
+        object.addProperty("iterator", iterator);
+        object.addProperty("order", order);
         object.addProperty("content", content);
         
         return object;
@@ -231,4 +327,6 @@ public class DataStandard {
                 ", jaccard=" + jaccard +
                 '}';
     }
+
+
 }
