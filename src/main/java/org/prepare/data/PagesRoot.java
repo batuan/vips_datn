@@ -71,6 +71,10 @@ public class PagesRoot {
 
     }
 
+    /**
+     * hàm dưới đây xoá bỏ đi các element trùng nhau của 1 domain :)
+     * @param block
+     */
     public void cleanBlock(ArrayList<DataBlock> block) {
         int size2 = block.size();
         for (int i = 0; i < size2; i++) {
@@ -105,6 +109,10 @@ public class PagesRoot {
         bufferedWriter.close();
     }
 
+    /**
+     * Hàm dưới đây đánh label cho một layoutnode, nếu layout có chứa main xpath, thì được đánh là 1.
+     * @param xpathMatch
+     */
     public void setLabelPositive(String ...xpathMatch) {
         for (DataBlock it: elements) {
             String xpath = it.getXpath();

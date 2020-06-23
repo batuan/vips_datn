@@ -52,7 +52,7 @@ public class ContructorData {
         this.pagesRoot.get(index).setUrl(doc.getDocumentElement().getAttribute("Url"));
         /* Node layout body */
         Node nodeLayOutBody = doc.getDocumentElement().getChildNodes().item(1);
-        String xpath = "";
+        String xpath = "";//nodeLayOutBody.getAttributes().getNamedItem("xPath").getNodeValue();
         Double fontSize = Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("FontSize").getNodeValue());
         Double linkTextLen = Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("LinkTextLen").getNodeValue());
         Double linkNum = Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("LinkNum").getNodeValue());
@@ -78,7 +78,7 @@ public class ContructorData {
         }
         Double textLen = Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("TextLen").getNodeValue());
         Double isImage = Boolean.valueOf(nodeLayOutBody.getAttributes().getNamedItem("TextLen").getNodeValue()) ? 1.0 : 0.0;
-        String src = /*nodeLayOutBody.getAttributes().getNamedItem("SRC").getNodeValue();*/ "";
+        String src = "";/*nodeLayOutBody.getAttributes().getNamedItem("SRC").getNodeValue();*/
 
         DataBlock blockBody = new DataBlock("", fontSize, linkTextLen, linkNum, containImg, containP, objectRectLeft,
                     objectRectTop, objectRectHeight, objectRectWidth, fontWeight, textLen, isImage, "", src, "");
@@ -232,51 +232,66 @@ public class ContructorData {
         int _case = 0;
         String folder_name = "";
         String[] xpath = null;
-        if (_case == 0) {
-            folder_name =  "batdongsan";
-            xpath = new String[]{"/form[4]/div[3]/div[1]/div[0]/div[0]"};
-        } else if (_case == 1) {
-            folder_name = "alonhadat";
-            xpath = new String[]{"/#document/html/body/div[1]/div[2]/div[0]/div[0]"};
-        } else if (_case == 2) {
-            folder_name = "dothi";
-            xpath = new String[]{"/#document/html/body/form[9]/div[0]/div[0]/div[1]/div[2]"};
-        } else if (_case == 3) {
-            folder_name = "123nhadatviet";
-            xpath = new String[]{"/#document/html/body/div[1]/div[2]/div[0]/div[0]"};
-        } else if (_case == 4) {
-            folder_name = "bds123";
-            xpath = new String[]{"/#document/html/body/div[1]/div[0]/div[0]/section[1]/div[0]/article"};
-        } else if (_case == 5) {
-            folder_name = "chothuenha";
-            xpath = new String[]{"/#document/html/body/div[3]/main[0]/section[2]/section[0]/article[0]", "/#document/html/body/div[3]/main[0]/section[2]/section[0]/article[1]",
-            "/#document/html/body/div[3]/main[0]/section[2]/section[0]/article[3]", "/#document/html/body/div[3]/main[0]/section[2]/section[0]/article[5]", "/#document/html/body/div[3]/main[0]/section[2]/section[0]/article[7]",
-            "/#document/html/body/div[3]/main[0]/section[2]/section[0]/article[11]"};
-        } else if (_case == 6) {
-            folder_name = "test";
-            xpath = new String[] {
-                    /* anphu */
-                    "/div[0]/form[11]/section[0]/div[0]/div[2]",
-                    /* bannha */
-                    "/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[0]",
-                    "/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[4]",
-                    "/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[5]/div[0]",
-                    /* nha data 24*/
-                    "/#document/html/body/form[10]/div[1]/div[0]/div[2]/div[0]/div[0]", "/#document/html/body/div[0]/div[1]/div[2]/div[0]/div[4]",
-                    /* 123nhadat */
-                    "/#document/html/body/div[4]/div[0]/div[0]/div[1]", "/#document/html/body/div[4]/div[0]/div[0]/div[2]", "/#document/html/body/div[4]/div[0]/div[0]/div[22]",
-                    "/#document/html/body/div[4]/div[0]/div[0]/div[24]",
-                    /* diaoc online */
-                    "/#document/html/body/div[8]/div[0]/div[1]/div[1]/div[0]/div[1]",
-                    /* kenhbds */
-                    "/#document/html/body/div[1]/div[3]/div[0]/",
-                    /* homedy */
-                    "/#document/html/body/div[7]/div[1]/div[0]/div[0]", "/#document/html/body/div[7]/div[1]/div[0]/div[1]/div[0]/div[0]/div[1]",
-                    /* dinhgia */
-                    "/#document/html/body/div[0]/div[1]/div[2]/div[0]/div[4]"
-            };
+        for (_case = 0; _case < 8; _case ++){
+            if (_case == 0) {
+                folder_name =  "batdongsan";
+                xpath = new String[]{"/html[1]/body[1]/form[1]/div[3]/div[4]/div[2]"};
+                runContructorData(folder_name, xpath);
+            } else if (_case == 1) {
+                folder_name = "alonhadat";
+                xpath = new String[]{"/html[1]/body[1]/div[1]/div[2]/div[3]/div[1]/div[1]"};
+                runContructorData(folder_name, xpath);
+            } else if (_case == 2) {
+                folder_name = "dothi";
+                xpath = new String[]{"/html[1]/body[1]/form[1]/div[5]/div[1]/div[1]/div[1]/div[1]"};
+                runContructorData(folder_name, xpath);
+            } else if (_case == 3) {
+                folder_name = "123nhadatviet";
+                xpath = new String[]{"/html[1]/body[1]/div[1]/div[2]/div[3]/div[1]/div[1]"};
+                runContructorData(folder_name, xpath);
+            } else if (_case == 4) {
+                folder_name = "bds123";
+                xpath = new String[]{"/html[1]/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/article[1]"};
+                runContructorData(folder_name, xpath);
+            } else if (_case == 5) {
+                folder_name = "chothuenha";
+                xpath = new String[]{"/html[1]/body[1]/div[1]/main[1]/section[1]/section[2]/article[1]/ul[2]",
+                        "/html[1]/body[1]/div[1]/main[1]/section[1]/section[2]/article[1]/div[6]",
+                        "/html[1]/body[1]/div[1]/main[1]/section[1]/section[2]/article[1]/ul[1]"};
+                runContructorData(folder_name, xpath);
+            } else if (_case == 7) {
+                folder_name = "homedy";
+                xpath = new String[] {"/html[1]/body[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]",
+                        "/html[1]/body[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]\t"};
+                runContructorData(folder_name, xpath);
+            } else if (_case == 6) {
+                folder_name = "test";
+                xpath = new String[] {
+                        /* anphu */
+                        "/div[0]/form[11]/section[0]/div[0]/div[2]",
+                        /* bannha */
+                        "/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[0]",
+                        "/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[4]",
+                        "/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[5]/div[0]",
+                        /* nha data 24*/
+                        "/#document/html/body/form[10]/div[1]/div[0]/div[2]/div[0]/div[0]", "/#document/html/body/div[0]/div[1]/div[2]/div[0]/div[4]",
+                        /* 123nhadat */
+                        "/#document/html/body/div[4]/div[0]/div[0]/div[1]", "/#document/html/body/div[4]/div[0]/div[0]/div[2]", "/#document/html/body/div[4]/div[0]/div[0]/div[22]",
+                        "/#document/html/body/div[4]/div[0]/div[0]/div[24]",
+                        /* diaoc online */
+                        "/#document/html/body/div[8]/div[0]/div[1]/div[1]/div[0]/div[1]",
+                        /* kenhbds */
+                        "/#document/html/body/div[1]/div[3]/div[0]/",
+                        /* homedy */
+                        "/#document/html/body/div[7]/div[1]/div[0]/div[0]", "/#document/html/body/div[7]/div[1]/div[0]/div[1]/div[0]/div[0]/div[1]",
+                        /* dinhgia */
+                        "/#document/html/body/div[0]/div[1]/div[2]/div[0]/div[4]"
+                };
+            }
         }
+    }
 
+    public static void runContructorData(String folder_name, String[] xpath) throws IOException, SAXException, ParserConfigurationException {
         File folder = new File("data-link/" + folder_name);
         ArrayList<String> listPath = new ArrayList<>();
         for(File it: folder.listFiles()) {
@@ -288,7 +303,7 @@ public class ContructorData {
         ContructorData app = new ContructorData(size);
         for(int i = 0; i < size; i++) {
             app.readXMLData("data-link/" + folder_name + "/" + listPath.get(i), i);
-           /* app.getPagesRoot().setXpathPositive(xpath);*/
+            /* app.getPagesRoot().setXpathPositive(xpath);*/
          /*   app.getPagesRoot().properties();
             app.getPagesRoot().writeToFile("data-link/" + folder_name + "/result-1.json", true);*/
         }
@@ -308,9 +323,9 @@ public class ContructorData {
             }
 //            app.getPagesRoot().get(i).writeToFile("data-link/" + folder_name + "/result-1.json", true);
         }
-        app.cleanData();
+        //app.cleanData();
         app.updateProperty();
-        app.writeToFile("data-link/" + folder_name + "/result-2.json", true);
+        app.writeToFile("data-link/" + folder_name + "/result-3.json", true);
     }
 
     public ArrayList<DataStandard> getData() {

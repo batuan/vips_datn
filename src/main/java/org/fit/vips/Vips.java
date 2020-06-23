@@ -26,6 +26,7 @@ import org.fit.cssbox.io.DocumentSource;
 import org.fit.cssbox.layout.BrowserCanvas;
 import org.fit.cssbox.layout.Viewport;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
@@ -37,6 +38,7 @@ import org.xml.sax.SAXException;
 public class Vips {
 	private URL _url = null;
 	private DOMAnalyzer _domAnalyzer = null;
+	private Document _document = null;
 	private BrowserCanvas _browserCanvas = null;
 	private Viewport _viewport = null;
 
@@ -141,6 +143,7 @@ public class Vips {
 			DOMSource parser = new DefaultDOMSource(docSource);
 
 			Document domTree = parser.parse();
+			this._document = domTree;
 			_domAnalyzer = new DOMAnalyzer(domTree, _url);
 			_domAnalyzer.attributesToStyles();
 			_domAnalyzer.addStyleSheet(null, CSSNorm.stdStyleSheet(), DOMAnalyzer.Origin.AGENT);
@@ -409,6 +412,9 @@ public class Vips {
 					oldWorkingDirectory = System.getProperty("user.dir");
 					newWorkingDirectory += oldWorkingDirectory + "/" + outputFolder + "/";
 					System.setProperty("user.dir", newWorkingDirectory);
+					new File(newWorkingDirectory + "/" + "images" + "/").mkdir();
+					new File(newWorkingDirectory + "/" + _dirName + "/").mkdir();
+					System.setProperty("user.dir.data", newWorkingDirectory + "/" + _dirName + "/");
 				}
 			}
 

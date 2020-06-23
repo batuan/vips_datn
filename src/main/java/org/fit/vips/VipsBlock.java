@@ -15,6 +15,8 @@ import org.fit.cssbox.layout.TextBox;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import static org.joox.JOOX.$;
+
 /**
  * Class that represents block on page.
  * @author Tomas Popela
@@ -61,7 +63,15 @@ public class VipsBlock {
 	// LinkNum of
 	private int LinkNum = 0;
 
-	private String _xpath = "";
+	private String _xPath = "";
+
+	public String get_xPath() {
+		return _xPath;
+	}
+
+	public void set_xPath(String _xPath) {
+		this._xPath = _xPath;
+	}
 
 	public VipsBlock() {
 		this._children = new ArrayList<VipsBlock>();
@@ -100,7 +110,8 @@ public class VipsBlock {
 		checkIsImg();
 		checkContainImg(this);
 		/* new custom */
-		updateXPath(this);
+		//updateXPath(this);
+		//testXpath(this);
 		/*---------------*/
 		checkContainTable(this);
 		checkContainP(this);
@@ -171,16 +182,23 @@ public class VipsBlock {
 		return "";
 	}
 
+	public void testXpath(VipsBlock vipsBlock) {
+		if (vipsBlock.getBox().getNode() != null) {
+			Element element = (Element) vipsBlock.getBox().getNode();
+			_xPath = $(element).tag();
+		}
+	}
+
 	public void updateXPath(VipsBlock vipsBlock) {
 		if (vipsBlock.getBox().getNode() != null) {
-			this._xpath = this.xPath(vipsBlock.getBox().getNode());
+			this._xPath = this.xPath(vipsBlock.getBox().getNode());
 		}
 		for (VipsBlock chVipsBlock: vipsBlock.getChildren())
 			updateXPath(chVipsBlock);
 	}
 	
 	public String getXPath() {
-		return _xpath;
+		return _xPath;
 	}
 
 	/**

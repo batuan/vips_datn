@@ -134,7 +134,7 @@ public final class VipsOutput {
 					layoutNode.setAttribute("SRC", src);
 					layoutNode.setAttribute("Content", content);
 //					layoutNode.setAttribute("EvincedId", originalNodeIds);
-					String xPath = visualStructure.getNestedBlocks().get(0).getXPath();
+					String xPath = visualStructure.getNestedBlocks().get(0).get_xPath();
 					layoutNode.setAttribute("xPath", String.valueOf(xPath));
 					String ObjectX = String.valueOf(visualStructure.getNestedBlocks().get(0).getBox().getAbsoluteContentX());
 					String ObjectY = String.valueOf(visualStructure.getNestedBlocks().get(0).getBox().getAbsoluteContentY());
@@ -179,7 +179,7 @@ public final class VipsOutput {
 				layoutNode.setAttribute("SRC", src);
 				layoutNode.setAttribute("Content", content);
 //				layoutNode.setAttribute("EvincedId", originalNodeIds);
-				String xPath = visualStructure.getNestedBlocks().get(0).getXPath();
+				String xPath = visualStructure.getNestedBlocks().get(0).get_xPath();
 				layoutNode.setAttribute("xPath", String.valueOf(xPath));
 				String ObjectX = String.valueOf(visualStructure.getNestedBlocks().get(0).getBox().getAbsoluteContentX());
 				String ObjectY = String.valueOf(visualStructure.getNestedBlocks().get(0).getBox().getAbsoluteContentY());
@@ -258,7 +258,7 @@ public final class VipsOutput {
 				transformer.transform(source, new StreamResult(writer));
 				String result = writer.toString();
 				result = result.replaceAll("&#[0-9]*;", " ");
-				FileWriter fstream = new FileWriter(_filename + ".xml");
+				FileWriter fstream = new FileWriter(_filename + ".xml");//System.getProperty("user.dir") + "/" + _filename + ".xml");
 				fstream.write(result);
 				fstream.close();
 			}

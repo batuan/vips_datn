@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="org.jooq:joox-java-6:1.6.2" type="repository">
+    <properties maven-id="org.jooq:joox-java-6:1.6.2" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jooq/joox-java-6/1.6.2/joox-java-6-1.6.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

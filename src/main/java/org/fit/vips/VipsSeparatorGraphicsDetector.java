@@ -50,7 +50,7 @@ public class VipsSeparatorGraphicsDetector extends JPanel implements VipsSeparat
 
 //		this._image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR);
 		try {
-			this._image = ImageIO.read(new File("page.png"));
+			this._image = ImageIO.read(new File(System.getProperty("user.dir") + "/page.png"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -14,6 +14,9 @@ import org.fit.cssbox.layout.ElementBox;
 import org.fit.cssbox.layout.TextBox;
 import org.fit.cssbox.layout.Viewport;
 import org.w3c.dom.Node;
+
+import static org.joox.JOOX.$;
+
 /**
  * Class that parses blocks on page and finds visual blocks.
  * @author Tomas Popela
@@ -122,7 +125,16 @@ public class VipsParser {
 	private void constructVipsBlockTree(Box element, VipsBlock node)
 	{
 		node.setBox(element);
-		node.updateXPath(node);
+
+		try {
+			String path = $(element.getNode()).xpath();
+			node.set_xPath(path);
+		} catch (NullPointerException e) {
+			//System.out.println("No path: " + element.getNode().getNodeName() + " and " + element.getNode().getTextContent());
+			node.set_xPath("No Xpath");
+		}
+		//node.testXpath(node);
+		//node.updateXPath(node);
 		if (! (element instanceof TextBox))
 		{
 			for (Box box: ((ElementBox) element).getSubBoxList())
