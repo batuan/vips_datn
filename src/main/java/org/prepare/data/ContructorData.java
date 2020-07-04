@@ -26,6 +26,75 @@ public class ContructorData {
         data = new ArrayList<>();
     }
 
+    public void readXMLData(String fileName) throws ParserConfigurationException, IOException, SAXException {
+        PagesRoot pagesRoot = new PagesRoot();
+        File file = new File(fileName);
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(file);
+        doc.getDocumentElement().normalize();
+        pagesRoot.setPageRectHeight(Double.valueOf(doc.getDocumentElement().getAttribute("PageRectHeight")));
+        pagesRoot.setPageRectWidth(Double.valueOf(doc.getDocumentElement().getAttribute("PageRectWidth")));
+        pagesRoot.setPageRectTop(Double.valueOf(doc.getDocumentElement().getAttribute("PageRectTop")));
+        pagesRoot.setPageRectLeft(Double.valueOf(doc.getDocumentElement().getAttribute("PageRectLeft")));
+        pagesRoot.setTitle(doc.getDocumentElement().getAttribute("PageTitle"));
+        pagesRoot.setWindowHeight(Double.valueOf(doc.getDocumentElement().getAttribute("WindowHeight")));
+        pagesRoot.setWindowWidth(Double.valueOf(doc.getDocumentElement().getAttribute("WindowWidth")));
+        pagesRoot.setUrl(doc.getDocumentElement().getAttribute("Url"));
+        /* Node layout body */
+        Node nodeLayOutBody = doc.getDocumentElement().getChildNodes().item(1);
+        String xpath = "";//nodeLayOutBody.getAttributes().getNamedItem("xPath").getNodeValue();
+        Double fontSize = Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("FontSize").getNodeValue());
+        Double linkTextLen = Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("LinkTextLen").getNodeValue());
+        Double linkNum = Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("LinkNum").getNodeValue());
+        Double containImg = Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("ContainImg").getNodeValue());
+        Double containP = Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("ContainP").getNodeValue());
+        Double objectRectLeft =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("ObjectRectLeft").getNodeValue());
+        Double objectRectTop =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("ObjectRectTop").getNodeValue());
+        Double objectRectHeight =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("ObjectRectHeight").getNodeValue());
+        Double objectRectWidth =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("ObjectRectWidth").getNodeValue());
+        Integer order =  Integer.valueOf(nodeLayOutBody.getAttributes().getNamedItem("order").getNodeValue());
+        Double fontWeight =  Double.valueOf(100);
+        String id = nodeLayOutBody.getAttributes().getNamedItem("ID").getNodeValue();
+        String fw = nodeLayOutBody.getAttributes().getNamedItem("FontWeight").getNodeValue();
+        if ( fw != null && !Utility.isNumericRegex(fw)) {
+            if (fw.equals("normal")) {
+                fontWeight = 400.0;
+            }
+            if (fw.equals("bold")) {
+                fontWeight = 700.0;
+            }
+        } else {
+            fontWeight = Double.valueOf(fontWeight);
+        }
+        Double textLen = Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("TextLen").getNodeValue());
+        Double isImage = Boolean.valueOf(nodeLayOutBody.getAttributes().getNamedItem("TextLen").getNodeValue()) ? 1.0 : 0.0;
+        String src = "";/*nodeLayOutBody.getAttributes().getNamedItem("SRC").getNodeValue();*/
+
+        Double optionNum =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("OptionNum").getNodeValue());
+        Double optionTextLength =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("OptionTextLength").getNodeValue());
+        Double formNum =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("FormNum").getNodeValue());
+        Double formSize =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("FormSize").getNodeValue());
+        Double interactionNum =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("InteractionNum").getNodeValue());
+        Double interactionSize =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("InteractionSize").getNodeValue());
+        Double tableNum =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("TableNum").getNodeValue());
+        Double paraNum =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("ParaNum").getNodeValue());
+
+        DataBlock blockBody = new DataBlock("", fontSize, linkTextLen, linkNum, src, containImg, containP,
+                objectRectLeft, objectRectTop, objectRectHeight, objectRectWidth, fontWeight,
+                textLen, isImage, "", formNum, formSize, interactionNum, interactionSize, optionNum,
+                optionTextLength, paraNum, tableNum);
+        blockBody.setOrder(order);
+        blockBody.setIdParent(id);
+        pagesRoot.setBlockBody(blockBody);
+        pagesRoot.setElements(blocksData(nodeLayOutBody));
+        for (DataStandard it: pagesRoot.getElementStandard()) {
+            this.getData().add(it);
+        }
+        this.updateProperty();
+        this.writeToFile("data-link/" + "testjson" + "/result-4.json", true);
+    }
+
     public void readXMLData(String filename, int index) throws ParserConfigurationException, IOException, SAXException {
         if (this.pagesRoot.size() < index + 1) {
             this.pagesRoot.add(new PagesRoot());
@@ -80,13 +149,24 @@ public class ContructorData {
         Double isImage = Boolean.valueOf(nodeLayOutBody.getAttributes().getNamedItem("TextLen").getNodeValue()) ? 1.0 : 0.0;
         String src = "";/*nodeLayOutBody.getAttributes().getNamedItem("SRC").getNodeValue();*/
 
-        DataBlock blockBody = new DataBlock("", fontSize, linkTextLen, linkNum, containImg, containP, objectRectLeft,
-                    objectRectTop, objectRectHeight, objectRectWidth, fontWeight, textLen, isImage, "", src, "");
+        Double optionNum =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("OptionNum").getNodeValue());
+        Double optionTextLength =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("OptionTextLength").getNodeValue());
+        Double formNum =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("FormNum").getNodeValue());
+        Double formSize =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("FormSize").getNodeValue());
+        Double interactionNum =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("InteractionNum").getNodeValue());
+        Double interactionSize =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("InteractionSize").getNodeValue());
+        Double tableNum =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("TableNum").getNodeValue());
+        Double paraNum =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("ParaNum").getNodeValue());
+
+        //DataBlock blockBody = new DataBlock("", fontSize, linkTextLen, linkNum, containImg, containP, objectRectLeft,
+        //            objectRectTop, objectRectHeight, objectRectWidth, fontWeight, textLen, isImage, "", src, "");
+        //DataBlock(String xpath, Double fontsize, Double linkTextLen, Double linkNum, String src, Double containImg, Double containP, Double objectRectLeft, Double objectRectTop, Double objectRectHeight, Double objectRectWidth, Double fontWeight, Double textLen, Double isImage, String content, Double formNUm, Double formSize, Double interactionNum, Double interactionSize, Double optionNum, Double optionTextLength, Double paraNum, Double tableNum, String label) {
+
+        DataBlock blockBody = new DataBlock("", fontSize, linkTextLen, linkNum, src, containImg, containP, objectRectLeft, objectRectTop, objectRectHeight, objectRectWidth, fontWeight, textLen, isImage, "", formNum, formSize, interactionNum, interactionSize, optionNum, optionTextLength, paraNum, tableNum, "" );
         blockBody.setOrder(order);
         blockBody.setIdParent(id);
         this.pagesRoot.get(index).setBlockBody(blockBody);
         this.pagesRoot.get(index).setElements(blocksData(nodeLayOutBody));
-
     }
 
     public ArrayList<DataBlock> blocksData(Node node) {
@@ -122,12 +202,13 @@ public class ContructorData {
         String idParent = node.getParentNode().getAttributes().getNamedItem("ID").getNodeValue();
         Integer order = Integer.valueOf(node.getAttributes().getNamedItem("order").getNodeValue());
         String fw = node.getAttributes().getNamedItem("FontWeight").getNodeValue();
-        if ( fw != null && !Utility.isNumericRegex(fw)) {
+        if ( fw != null ) { //&& !Utility.isNumericRegex(fw)
             if (fw.equals("normal")) {
                 fontWeight = 400.0;
-            }
-            if (fw.equals("bold")) {
+            } else if (fw.equals("bold") || fw.equals("bolder")) {
                 fontWeight = 700.0;
+            } else {
+                fontWeight = Double.valueOf(fw);
             }
         } else {
             fontWeight = Double.valueOf(fontWeight);
@@ -138,11 +219,22 @@ public class ContructorData {
         String src = node.getAttributes().getNamedItem("SRC").getNodeValue();
         String label = node.getAttributes().getNamedItem("Label") != null ? node.getAttributes().getNamedItem("Label").getNodeValue() : "-1";
 
-        DataBlock block = new DataBlock(xpath, fontSize, linkTextLen, linkNum, containImg, containP, objectRectLeft,
-                objectRectTop, objectRectHeight, objectRectWidth, fontWeight, textLen, isImage, content, src, label);
-        block.setIdParent(idParent);
-        block.setOrder(order);
-        return block;
+        Double optionNum =  Double.valueOf(node.getAttributes().getNamedItem("OptionNum").getNodeValue());
+        Double optionTextLength =  Double.valueOf(node.getAttributes().getNamedItem("OptionTextLength").getNodeValue());
+        Double formNum =  Double.valueOf(node.getAttributes().getNamedItem("FormNum").getNodeValue());
+        Double formSize =  Double.valueOf(node.getAttributes().getNamedItem("FormSize").getNodeValue());
+        Double interactionNum =  Double.valueOf(node.getAttributes().getNamedItem("InteractionNum").getNodeValue());
+        Double interactionSize =  Double.valueOf(node.getAttributes().getNamedItem("InteractionSize").getNodeValue());
+        Double tableNum =  Double.valueOf(node.getAttributes().getNamedItem("TableNum").getNodeValue());
+        Double paraNum =  Double.valueOf(node.getAttributes().getNamedItem("ParaNum").getNodeValue());
+
+        DataBlock blockBody = new DataBlock(xpath, fontSize, linkTextLen, linkNum, src, containImg, containP,
+                objectRectLeft, objectRectTop, objectRectHeight, objectRectWidth, fontWeight,
+                textLen, isImage, content, formNum, formSize, interactionNum, interactionSize, optionNum,
+                optionTextLength, paraNum, tableNum, label);
+        blockBody.setIdParent(idParent);
+        blockBody.setOrder(order);
+        return blockBody;
     }
 
 
@@ -162,7 +254,8 @@ public class ContructorData {
         File file = new File(pathFile);
         if (!file.exists()) {
             System.out.println("File do not exists !!!");
-            System.exit(0);
+            System.out.println("Create File");
+            file.getParentFile().mkdir();
         }
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, modeWriteAppend));
         int size = data.size();
@@ -232,7 +325,34 @@ public class ContructorData {
         int _case = 0;
         String folder_name = "";
         String[] xpath = null;
-        for (_case = 0; _case < 8; _case ++){
+
+        folder_name = "test";
+        xpath = new String[] {
+                /* anphu */
+                "/html[1]/body[1]/div[1]/form[1]/section[1]/div[1]/div[1]/div[3]",
+                "/html[1]/body[1]/div[1]/form[1]/section[1]/div[1]/div[1]/div[4]",
+                /* http://123nhadat.vn/ */
+                "/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[1]",
+                "/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]",
+                "/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[3]",
+                "/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[4]",
+                "/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[5]",
+                "/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[6]",
+                /* bannha.net*/
+                "/html[1]/body[1]/div[1]/div[2]/div[3]/div[1]/div[1]/main[1]/div[1]",
+                "/html[1]/body[1]/div[1]/div[2]/div[3]/div[1]/div[1]/main[1]/div[2]",
+                "/html[1]/body[1]/div[1]/div[2]/div[3]/div[1]/div[1]/main[1]/section[1]",
+                "/html[1]/body[1]/div[1]/div[2]/div[3]/div[1]/div[1]/main[1]/section[2]",
+                "/html[1]/body[1]/form[1]/div[3]/div[4]/div[2]",
+                "/html[1]/body[1]/div[1]/div[2]/div[3]/div[1]/div[1]"
+        };
+        runContructorData(folder_name, xpath);
+        folder_name =  "batdongsan";
+        xpath = new String[]{"/html[1]/body[1]/form[1]/div[3]/div[4]/div[2]"};
+        runContructorData(folder_name, xpath);
+
+
+        for (_case = 0; _case < 1; _case ++){
             if (_case == 0) {
                 folder_name =  "batdongsan";
                 xpath = new String[]{"/html[1]/body[1]/form[1]/div[3]/div[4]/div[2]"};
@@ -259,40 +379,47 @@ public class ContructorData {
                         "/html[1]/body[1]/div[1]/main[1]/section[1]/section[2]/article[1]/div[6]",
                         "/html[1]/body[1]/div[1]/main[1]/section[1]/section[2]/article[1]/ul[1]"};
                 runContructorData(folder_name, xpath);
-            } else if (_case == 7) {
-                folder_name = "homedy";
-                xpath = new String[] {"/html[1]/body[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]",
-                        "/html[1]/body[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]\t"};
-                runContructorData(folder_name, xpath);
             } else if (_case == 6) {
+                folder_name = "bannha";
+                xpath = new String[] {
+                        "/html[1]/body[1]/div[1]/div[2]/div[3]/div[1]/div[1]/main[1]/div[1]",
+                        "/html[1]/body[1]/div[1]/div[2]/div[3]/div[1]/div[1]/main[1]/div[2]",
+                        "/html[1]/body[1]/div[1]/div[2]/div[3]/div[1]/div[1]/main[1]/section[1]"};
+                runContructorData(folder_name, xpath);
+            } else if (_case == 7) {
                 folder_name = "test";
                 xpath = new String[] {
-                        /* anphu */
-                        "/div[0]/form[11]/section[0]/div[0]/div[2]",
-                        /* bannha */
-                        "/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[0]",
-                        "/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[4]",
-                        "/div[3]/div[0]/div[1]/div[0]/div[0]/main[0]/div[0]/div[0]/section[5]/div[0]",
-                        /* nha data 24*/
-                        "/#document/html/body/form[10]/div[1]/div[0]/div[2]/div[0]/div[0]", "/#document/html/body/div[0]/div[1]/div[2]/div[0]/div[4]",
-                        /* 123nhadat */
-                        "/#document/html/body/div[4]/div[0]/div[0]/div[1]", "/#document/html/body/div[4]/div[0]/div[0]/div[2]", "/#document/html/body/div[4]/div[0]/div[0]/div[22]",
-                        "/#document/html/body/div[4]/div[0]/div[0]/div[24]",
-                        /* diaoc online */
-                        "/#document/html/body/div[8]/div[0]/div[1]/div[1]/div[0]/div[1]",
-                        /* kenhbds */
-                        "/#document/html/body/div[1]/div[3]/div[0]/",
-                        /* homedy */
-                        "/#document/html/body/div[7]/div[1]/div[0]/div[0]", "/#document/html/body/div[7]/div[1]/div[0]/div[1]/div[0]/div[0]/div[1]",
-                        /* dinhgia */
-                        "/#document/html/body/div[0]/div[1]/div[2]/div[0]/div[4]"
+                        /* diachinhadat */
+                        "/html[1]/body[1]/div[2]/div[1]/div[2]/div[3]/article[1]/div[1]",
+                        "/html[1]/body[1]/div[2]/div[1]/div[2]/div[2]",
+                        "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]",
+                        /* timnhadata.net.vn */
+                        "/html[1]/body[1]/div[1]/div[2]/div[4]/div[2]/div[1]",
+                        /* http://123nhadat.vn/ */
+                        "/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[1]",
+                        "/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]",
+                        "/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[3]",
+                        "/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[4]",
+                        "/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[5]",
+                        "/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[6]",
+                        /* timmuanhadat.com.vn */
+                        "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]",
+                        "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[7]",
+                        "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[8]"
                 };
             }
         }
     }
 
+
+    public static void buildData(String fileName) throws IOException, SAXException, ParserConfigurationException {
+        ContructorData app = new ContructorData(1);
+        app.readXMLData(fileName, 1);
+
+    }
     public static void runContructorData(String folder_name, String[] xpath) throws IOException, SAXException, ParserConfigurationException {
         File folder = new File("data-link/" + folder_name);
+        System.out.println("Run into: " + folder_name);
         ArrayList<String> listPath = new ArrayList<>();
         for(File it: folder.listFiles()) {
             if (it.getName().contains(folder_name))
@@ -303,11 +430,15 @@ public class ContructorData {
         ContructorData app = new ContructorData(size);
         for(int i = 0; i < size; i++) {
             app.readXMLData("data-link/" + folder_name + "/" + listPath.get(i), i);
-            /* app.getPagesRoot().setXpathPositive(xpath);*/
-         /*   app.getPagesRoot().properties();
-            app.getPagesRoot().writeToFile("data-link/" + folder_name + "/result-1.json", true);*/
         }
 
+        int counBlock = 0;
+        for (int i=0; i < app.getPagesRoot().size(); i++) {
+            int num = app.getPagesRoot().get(i).elements.size();
+            counBlock += num;
+        }
+
+        System.out.println("Number of block: " + folder_name + " " + counBlock);
         PagesRoot page1 = new PagesRoot(app.getPagesRoot().get(0));
         int sizePages = app.getPagesRoot().size();
         for (int i = 0; i < sizePages - 1; i++) {
@@ -321,11 +452,10 @@ public class ContructorData {
             for (DataStandard it: app.getPagesRoot().get(i).getElementStandard()) {
                 app.getData().add(it);
             }
-//            app.getPagesRoot().get(i).writeToFile("data-link/" + folder_name + "/result-1.json", true);
         }
         //app.cleanData();
         app.updateProperty();
-        app.writeToFile("data-link/" + folder_name + "/result-3.json", true);
+        app.writeToFile("data-link/" + folder_name + "/ketqua_2.json", true);
     }
 
     public ArrayList<DataStandard> getData() {

@@ -131,7 +131,7 @@ public class VipsParser {
 			node.set_xPath(path);
 		} catch (NullPointerException e) {
 			//System.out.println("No path: " + element.getNode().getNodeName() + " and " + element.getNode().getTextContent());
-			node.set_xPath("No Xpath");
+			node.set_xPath(element.getNode().getNodeName());
 		}
 		//node.testXpath(node);
 		//node.updateXPath(node);

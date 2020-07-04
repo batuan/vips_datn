@@ -25,6 +25,15 @@ public class DataBlock {
     Double isImage;
     String content;
 
+    Double formNUm;
+    Double formSize;
+    Double InteractionNum;
+    Double InteractionSize;
+    Double OptionNum;
+    Double OptionTextLength;
+    Double ParaNum;
+    Double TableNum;
+
     public Integer getOrder() {
         return order;
     }
@@ -38,6 +47,70 @@ public class DataBlock {
 
 
     public DataBlock() {
+    }
+
+    public DataBlock(String xpath, Double fontsize, Double linkTextLen,
+                     Double linkNum, String src, Double containImg, Double containP,
+                     Double objectRectLeft, Double objectRectTop, Double objectRectHeight,
+                     Double objectRectWidth, Double fontWeight, Double textLen,
+                     Double isImage, String content, Double formNUm, Double formSize,
+                     Double interactionNum, Double interactionSize, Double optionNum,
+                     Double optionTextLength, Double paraNum, Double tableNum, String label) {
+        this.xpath = xpath;
+        this.fontsize = fontsize;
+        this.linkTextLen = linkTextLen;
+        this.linkNum = linkNum;
+        this.src = src;
+        this.containImg = containImg;
+        this.containP = containP;
+        this.objectRectLeft = objectRectLeft;
+        this.objectRectTop = objectRectTop;
+        this.objectRectHeight = objectRectHeight;
+        this.objectRectWidth = objectRectWidth;
+        this.fontWeight = fontWeight;
+        this.textLen = textLen;
+        this.isImage = isImage;
+        this.content = content;
+        this.formNUm = formNUm;
+        this.formSize = formSize;
+        InteractionNum = interactionNum;
+        InteractionSize = interactionSize;
+        OptionNum = optionNum;
+        OptionTextLength = optionTextLength;
+        ParaNum = paraNum;
+        TableNum = tableNum;
+        this.label = label;
+    }
+
+    public DataBlock(String xpath, Double fontsize, Double linkTextLen, Double linkNum, String src,
+                     Double containImg, Double containP, Double objectRectLeft, Double objectRectTop,
+                     Double objectRectHeight, Double objectRectWidth, Double fontWeight, Double textLen,
+                     Double isImage, String content, Double formNUm, Double formSize,
+                     Double interactionNum, Double interactionSize, Double optionNum,
+                     Double optionTextLength, Double paraNum, Double tableNum) {
+        this.xpath = xpath;
+        this.fontsize = fontsize;
+        this.linkTextLen = linkTextLen;
+        this.linkNum = linkNum;
+        this.src = src;
+        this.containImg = containImg;
+        this.containP = containP;
+        this.objectRectLeft = objectRectLeft;
+        this.objectRectTop = objectRectTop;
+        this.objectRectHeight = objectRectHeight;
+        this.objectRectWidth = objectRectWidth;
+        this.fontWeight = fontWeight;
+        this.textLen = textLen;
+        this.isImage = isImage;
+        this.content = content;
+        this.formNUm = formNUm;
+        this.formSize = formSize;
+        InteractionNum = interactionNum;
+        InteractionSize = interactionSize;
+        OptionNum = optionNum;
+        OptionTextLength = optionTextLength;
+        ParaNum = paraNum;
+        TableNum = tableNum;
     }
 
     public DataBlock(String xpath, Double fontsize, Double linkTextLen,
@@ -220,6 +293,70 @@ public class DataBlock {
 
     public void setIdParent(String idParent) {
         this.idParent = idParent;
+    }
+
+    public Double getFormNUm() {
+        return formNUm;
+    }
+
+    public void setFormNUm(Double formNUm) {
+        this.formNUm = formNUm;
+    }
+
+    public Double getFormSize() {
+        return formSize;
+    }
+
+    public void setFormSize(Double formSize) {
+        this.formSize = formSize;
+    }
+
+    public Double getInteractionNum() {
+        return InteractionNum;
+    }
+
+    public void setInteractionNum(Double interactionNum) {
+        InteractionNum = interactionNum;
+    }
+
+    public Double getInteractionSize() {
+        return InteractionSize;
+    }
+
+    public void setInteractionSize(Double interactionSize) {
+        InteractionSize = interactionSize;
+    }
+
+    public Double getOptionNum() {
+        return OptionNum;
+    }
+
+    public void setOptionNum(Double optionNum) {
+        OptionNum = optionNum;
+    }
+
+    public Double getOptionTextLength() {
+        return OptionTextLength;
+    }
+
+    public void setOptionTextLength(Double optionTextLength) {
+        OptionTextLength = optionTextLength;
+    }
+
+    public Double getParaNum() {
+        return ParaNum;
+    }
+
+    public void setParaNum(Double paraNum) {
+        ParaNum = paraNum;
+    }
+
+    public Double getTableNum() {
+        return TableNum;
+    }
+
+    public void setTableNum(Double tableNum) {
+        TableNum = tableNum;
     }
 
     @Override

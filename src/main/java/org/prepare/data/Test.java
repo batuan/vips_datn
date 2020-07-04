@@ -1,17 +1,22 @@
 package org.prepare.data;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 public class Test
 {
-    public static void main(String[] args) throws UnsupportedEncodingException {
+    public static void main1(String[] args) throws UnsupportedEncodingException {
         final String xmlStr = "<employees>" +
                 "   <employee id=\"101\" content=\"&#55356;\">" +
                 "        <name>Lokesh Gupta</name>" +
@@ -30,6 +35,17 @@ public class Test
 
         //Verify XML document is build correctly
         System.out.println(doc.getFirstChild().getNodeName());
+    }
+
+    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
+        File file = new File("/Users/batuan/Documents/hoctap/datn/vips_java/segmentation-Layout-Content-website/data-link/123nhadatviet/123nhadatviet-1.xml");
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(file);
+        doc.getDocumentElement().normalize();
+        //Node node = doc.getElementsByTagName("LayoutNode").getLength()
+        doc.getDocumentElement().getChildNodes().item(2).getNodeName();
+        System.out.println(doc.getElementsByTagName("LayoutNode").getLength());
     }
 
     private static Document convertStringToXMLDocument(String xmlString) throws UnsupportedEncodingException {

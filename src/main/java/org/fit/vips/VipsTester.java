@@ -33,7 +33,7 @@ public class VipsTester {
 		{
 			Vips vips = new Vips();
 			vips.setOutputDirectoryName("data");
-			vips.setOutputFileName("homedy81");
+			vips.setOutputFileName("bds123");
 			// disable graphics output
 			vips.setSizeDimensionWidth(1420);
 			vips.setSizeDimensionHeight(980);
@@ -45,7 +45,7 @@ public class VipsTester {
 		/*	vips.setSizeTresholdWidth(300);
 			vips.setSizeTresholdHeight(350);*/
 			vips.setPredefinedDoC(8);
-			vips.setNumberOfIterations(1);
+			vips.setNumberOfIterations(3);
 			// start segmentation on page
 			vips.startSegmentation(url);
 		} catch (Exception e)

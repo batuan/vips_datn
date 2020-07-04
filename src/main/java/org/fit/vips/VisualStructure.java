@@ -34,6 +34,108 @@ public class VisualStructure {
 	private int _textLength = -1;
 	private int _linkTextLength = -1;
 	private int _linkNum = -1;
+
+	private int _formNum = -1;
+	private int _formSize = -1;
+
+	private int _optionNum = -1;
+	private int _optionTextLength = -1;
+	private int _iterationNum = -1;
+	private int _iterationSize = -1;
+	private int _paraNum = -1;
+	private int _tableNum = -1;
+
+	public String get_xPath() {
+		String justText = "JustText";
+		int max = Integer.MAX_VALUE;
+		String XPath = "";
+		for (VipsBlock vipsBlock: this.getNestedBlocks()) {
+			String path = vipsBlock.get_xPath();
+			if (path.equals(justText)) continue;
+			if (path.length() < max) {
+				XPath = path;
+				max = path.length();
+			}
+		}
+		return XPath;
+	}
+
+
+	public int get_formNum() {
+		if (_formNum != -1)
+			return _linkNum;
+		_formNum = 0;
+		for (VipsBlock vipsBlock: _nestedBlocks) {
+			_formNum += vipsBlock.get_formNum();
+		}
+		return _formNum;
+	}
+
+	public int get_formSize() {
+		if (_formSize != -1) return _formSize;
+		_formSize = 0;
+		for (VipsBlock vipsBlock: _nestedBlocks) {
+			int size = vipsBlock.get_formSize();
+			if (size > _formSize) _formSize = size;
+		}
+		return _formSize;
+	}
+
+	public int get_optionNum() {
+		if (_optionNum != -1) return _optionNum;
+		_optionNum = 0;
+		for (VipsBlock vipsBlock: _nestedBlocks) {
+			_optionNum += vipsBlock.get_optionNum();
+		}
+		return _optionNum;
+	}
+
+	public int get_optionTextLength() {
+		if (_optionTextLength != -1) return _optionTextLength;
+		_optionTextLength = 0;
+		for (VipsBlock vipsBlock: _nestedBlocks) {
+			_optionTextLength += vipsBlock.get_optionTextLength();
+		}
+		return _optionTextLength;
+	}
+
+	public int get_iterationNum() {
+		if (_iterationNum != -1) return _iterationNum;
+		_iterationNum = 0;
+		for (VipsBlock vipsBlock: _nestedBlocks) {
+			_iterationNum += vipsBlock.get_iterationNum();
+		}
+		return _iterationNum;
+	}
+
+	public int get_iterationSize() {
+		if (_iterationSize != -1) return _iterationSize;
+		_iterationSize = 0;
+		for (VipsBlock vipsBlock: _nestedBlocks) {
+			int size = vipsBlock.get_iterationSize();
+			if (size > _iterationSize) _iterationSize = size;
+		}
+		return _iterationSize;
+	}
+
+	public int get_tableNum() {
+		if (_tableNum != -1) return _tableNum;
+		_tableNum = 0;
+		for (VipsBlock vipsBlock: _nestedBlocks) {
+			_optionTextLength += vipsBlock.get_tableNum();
+		}
+		return _tableNum;
+	}
+
+	public int get_paraNum() {
+		if (_paraNum != -1) return _tableNum;
+		_paraNum = 0;
+		for (VipsBlock vipsBlock: _nestedBlocks) {
+			_paraNum += vipsBlock.get_paraNum();
+		}
+		return _paraNum;
+	}
+
 	private int _order;
 	private boolean _containTable = false;
 	private String _id = null;

@@ -62,6 +62,23 @@ public class VipsBlock {
 	private int _linkTextLen = 0;
 	// LinkNum of
 	private int LinkNum = 0;
+	// FormNum
+	private int _formNum = 0;
+	//FormSize
+	private int _formSize = 0;
+	//OptionNum
+	private int _optionNum = 0;
+	//OptionTextLength
+	private int _optionTextLength = 0;
+	//InterationNUm
+	private int _iterationNum = 0;
+	//InterractionSize
+	private int _iterationSize = 0;
+
+	//TableNum
+	private int _tableNum = 0;
+	//ParaNum
+	private int _paraNum = 0;
 
 	private String _xPath = "";
 
@@ -118,10 +135,93 @@ public class VipsBlock {
 		_linkTextLen = 0;
 		LinkNum = 0;
 		_textLen = 0;
+
+		_formNum = 0;
+		_formSize = 0;
+		countFormNum(this);
+
+		_optionNum = 0;
+		_optionTextLength = 0;
+		countOptionNum(this);
+
+		_iterationNum = 0;
+		_iterationSize = 0;
+		countIterationNum(this);
+
+		_tableNum = 0;
+		countTabelNum(this);
+
+		_paraNum = 0;
+		countParaNum(this);
 		countTextLength(this);
 		countLinkTextLength(this);
 		countLinkNum(this);
 		setSourceIndex(this.getBox().getNode().getOwnerDocument());
+	}
+
+	private void countParaNum(VipsBlock vipsBlock) {
+		if (vipsBlock.getBox().getNode().getNodeName().equals("p") || vipsBlock.getBox().getNode().getNodeName().equals("br")) {
+			_paraNum += 1;
+		}
+		for (VipsBlock childVipsBlock: vipsBlock.getChildren())
+			countLinkNum(childVipsBlock);
+	}
+
+	private void countTabelNum(VipsBlock vipsBlock) {
+		if (vipsBlock.getBox().getNode().getNodeName().equals("table") ||
+				vipsBlock.getBox().getNode().getNodeName().equals("tr") ||
+				vipsBlock.getBox().getNode().getNodeName().equals("td"))
+			this._tableNum += 1;
+		else {
+			if (vipsBlock.getBox().getNode().getAttributes() != null && vipsBlock.getBox().getNode().getAttributes().getNamedItem("class") != null) {
+				String _class = vipsBlock.getBox().getNode().getAttributes().getNamedItem("class").getNodeValue();
+				if (_class.contains("table") || _class.contains("bang") || _class.contains("tr") ||
+						_class.contains("td")) {
+					this._tableNum += 1;
+				}
+			}
+		}
+		for (VipsBlock childVipsBlock : vipsBlock.getChildren())
+			checkContainTable(childVipsBlock);
+	}
+
+	private void countIterationNum(VipsBlock vipsBlock) {
+		if (vipsBlock.getBox().getNode().getNodeName().equals("input") ||
+				vipsBlock.getBox().getNode().getNodeName().equals("select")) {
+			_iterationNum += 1;
+			try {
+				_iterationSize = Integer.parseInt(vipsBlock.getElementBox().getElement().getAttribute("size"));
+			} catch (NumberFormatException e) {
+				_iterationSize = 20; //gia tri mac dinh
+			}
+		}
+		for (VipsBlock childVipsBlock: vipsBlock.getChildren())
+			countOptionNum(childVipsBlock);
+	}
+
+	private void countOptionNum(VipsBlock vipsBlock) {
+		if (vipsBlock.getBox().getNode().getNodeName().equals("option")) {
+			_optionNum += 1;
+			_optionTextLength = vipsBlock.getBox().getNode().getTextContent().length();
+		}
+		for (VipsBlock childVipsBlock: vipsBlock.getChildren())
+			countOptionNum(childVipsBlock);
+	}
+
+	private void countFormNum(VipsBlock vipsBlock) {
+		if (vipsBlock.getBox().getNode().getNodeName().equals("form")) {
+			_formNum += 1;
+			try {
+				int size = Integer.parseInt(vipsBlock.getElementBox().getElement().getAttribute("size"));
+				if (size > _formSize) {
+					_formSize = size;
+				}
+			} catch (NumberFormatException e) {
+				_formSize = 20;
+			}
+		}
+		for (VipsBlock childVipsBlock: vipsBlock.getChildren())
+			countFormNum(childVipsBlock);
 	}
 
 	/**
@@ -229,7 +329,7 @@ public class VipsBlock {
 	 */
 	private void checkContainP(VipsBlock vipsBlock)
 	{
-		if (vipsBlock.getBox().getNode().getNodeName().equals("p"))
+		if (vipsBlock.getBox().getNode().getNodeName().equals("p")||vipsBlock.getBox().getNode().getNodeName().equals("br"))
 			this._containP++;
 
 		for (VipsBlock childVipsBlock : vipsBlock.getChildren())
@@ -373,6 +473,38 @@ public class VipsBlock {
 	public void setIsDividable(boolean isDividable)
 	{
 		this._isDividable = isDividable;
+	}
+
+	public int get_formNum() {
+		return _formNum;
+	}
+
+	public int get_formSize() {
+		return _formSize;
+	}
+
+	public int get_optionNum() {
+		return _optionNum;
+	}
+
+	public int get_optionTextLength() {
+		return _optionTextLength;
+	}
+
+	public int get_iterationNum() {
+		return _iterationNum;
+	}
+
+	public int get_iterationSize() {
+		return _iterationSize;
+	}
+
+	public int get_tableNum() {
+		return _tableNum;
+	}
+
+	public int get_paraNum() {
+		return _paraNum;
 	}
 
 	/**

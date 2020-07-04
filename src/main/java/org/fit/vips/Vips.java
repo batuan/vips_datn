@@ -412,8 +412,8 @@ public class Vips {
 					oldWorkingDirectory = System.getProperty("user.dir");
 					newWorkingDirectory += oldWorkingDirectory + "/" + outputFolder + "/";
 					System.setProperty("user.dir", newWorkingDirectory);
-					new File(newWorkingDirectory + "/" + "images" + "/").mkdir();
-					new File(newWorkingDirectory + "/" + _dirName + "/").mkdir();
+					//new File(newWorkingDirectory + "/" + "images" + "/").mkdir();
+					//new File(newWorkingDirectory + "/" + _dirName + "/").mkdir();
 					System.setProperty("user.dir.data", newWorkingDirectory + "/" + _dirName + "/");
 				}
 			}

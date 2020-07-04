@@ -58,10 +58,9 @@ public final class VipsOutput {
 		String content = "";
 		try
 		{
-			TransformerFactory transFactory = TransformerFactory.newInstance();
-			Transformer transformer = transFactory.newTransformer();
+			Transformer transformer = TransformerFactory.newInstance().newTransformer();
 			StringWriter buffer = new StringWriter();
-			transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			transformer.transform(new DOMSource(node), new StreamResult(buffer));
 			content = buffer.toString().replaceAll("\n", "");
 		} catch (TransformerException e) {
@@ -94,6 +93,14 @@ public final class VipsOutput {
 		layoutNode.setAttribute("DOMCldNum", String.valueOf(parentBox.getNode().getChildNodes().getLength()));
 		layoutNode.setAttribute("FontSize", String.valueOf(visualStructure.getFontSize()));
 		layoutNode.setAttribute("FontWeight", String.valueOf(visualStructure.getFontWeight()));
+		layoutNode.setAttribute("InteractionNum", String.valueOf(visualStructure.get_iterationNum()));
+		layoutNode.setAttribute("InteractionSize", String.valueOf(visualStructure.get_iterationSize()));
+		layoutNode.setAttribute("FormNum", String.valueOf(visualStructure.get_formNum()));
+		layoutNode.setAttribute("FormSize", String.valueOf(visualStructure.get_formSize()));
+		layoutNode.setAttribute("OptionNum", String.valueOf(visualStructure.get_optionNum()));
+		layoutNode.setAttribute("OptionTextLength", String.valueOf(visualStructure.get_optionTextLength()));
+		layoutNode.setAttribute("TableNum", String.valueOf(visualStructure.get_tableNum()));
+		layoutNode.setAttribute("ParaNum", String.valueOf(visualStructure.get_paraNum()));
 		layoutNode.setAttribute("BgColor", visualStructure.getBgColor());
 		layoutNode.setAttribute("ObjectRectLeft", String.valueOf(visualStructure.getX()));
 		layoutNode.setAttribute("ObjectRectTop", String.valueOf(visualStructure.getY()));
@@ -114,6 +121,8 @@ public final class VipsOutput {
 					String src = "";
 					String content = "";
 					String originalNodeIds = "";
+					String xPath = visualStructure.get_xPath();
+					String totalXpath = "";
 					for (VipsBlock block : visualStructure.getNestedBlocks())
 					{
 						ElementBox elementBox = block.getElementBox();
@@ -130,12 +139,15 @@ public final class VipsOutput {
 						content += Normalizer.normalize(StringEscapeUtils.unescapeHtml4(getText(elementBox.getSubBoxList())), Normalizer.Form.NFKC) + " ";
 
 						originalNodeIds += Utils.getEvincedId(elementBox);
+						String path = block.get_xPath();
+						totalXpath += path += "(+)";
 					}
 					layoutNode.setAttribute("SRC", src);
 					layoutNode.setAttribute("Content", content);
-//					layoutNode.setAttribute("EvincedId", originalNodeIds);
-					String xPath = visualStructure.getNestedBlocks().get(0).get_xPath();
+////					layoutNode.setAttribute("EvincedId", originalNodeIds);
+//					String xPath = visualStructure.getNestedBlocks().get(0).get_xPath();
 					layoutNode.setAttribute("xPath", String.valueOf(xPath));
+					layoutNode.setAttribute("TotalXpath", String.valueOf(xPath));
 					String ObjectX = String.valueOf(visualStructure.getNestedBlocks().get(0).getBox().getAbsoluteContentX());
 					String ObjectY = String.valueOf(visualStructure.getNestedBlocks().get(0).getBox().getAbsoluteContentY());
 					String ObjectHeight = String.valueOf(visualStructure.getNestedBlocks().get(0).getBox().getContentHeight());
@@ -159,6 +171,8 @@ public final class VipsOutput {
 				String src = "";
 				String content = "";
 				String originalNodeIds = "";
+				String xPath = "";
+				String totalXpath = "";
 				for (VipsBlock block : visualStructure.getNestedBlocks())
 				{
 					ElementBox elementBox = block.getElementBox();
@@ -175,12 +189,17 @@ public final class VipsOutput {
 					content += Normalizer.normalize(StringEscapeUtils.unescapeHtml4(getText(elementBox.getSubBoxList())), Normalizer.Form.NFKC) + " ";
 
 					originalNodeIds += Utils.getEvincedId(elementBox);
+					String path = block.get_xPath();
+					totalXpath += path += "(+)";
+					if (path != ("Xspan")&&path != "Xdiv"){
+						xPath = path;
+					}
 				}
 				layoutNode.setAttribute("SRC", src);
 				layoutNode.setAttribute("Content", content);
 //				layoutNode.setAttribute("EvincedId", originalNodeIds);
-				String xPath = visualStructure.getNestedBlocks().get(0).get_xPath();
 				layoutNode.setAttribute("xPath", String.valueOf(xPath));
+				layoutNode.setAttribute("TotalXpath", String.valueOf(totalXpath));
 				String ObjectX = String.valueOf(visualStructure.getNestedBlocks().get(0).getBox().getAbsoluteContentX());
 				String ObjectY = String.valueOf(visualStructure.getNestedBlocks().get(0).getBox().getAbsoluteContentY());
 				String ObjectHeight = String.valueOf(visualStructure.getNestedBlocks().get(0).getBox().getContentHeight());

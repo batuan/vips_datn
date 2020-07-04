@@ -31,14 +31,56 @@ public class DataStandard {
     Double order;
     String jaccard;
 
+    Double formNUm;
+    Double formSize;
+    Double InteractionNum;
+    Double InteractionSize;
+    Double OptionNum;
+    Double OptionTextLength;
+    Double ParaNum;
+    Double TableNum;
+
     public DataStandard() {
     }
 
-    public DataStandard(String xpath, String label, String content,  Double fontSizeAbsolute, Double linkNumAbsolute,
+    public DataStandard(String xpath, String label, String content, Double fontSizeAbsolute, Double linkNumAbsolute,
+                        Double interactionSize, Double innerTextLength, Double innerHTMLLength, Double imgSize,
+                        Double fontSize, Double imgNum, Double blockCenterX, Double blockCenterY,
+                        Double blockRectHeight, Double blockRectWidth, Double fontWeight, String jaccard, Double formNUm, Double formSize,
+                        Double interactionNum, Double interactionSize1, Double optionNum, Double optionTextLength,
+                        Double paraNum, Double tableNum) {
+        this.xpath = xpath;
+        this.label = label;
+        this.content = content;
+        this.fontSizeAbsolute = fontSizeAbsolute;
+        this.linkNumAbsolute = linkNumAbsolute;
+        this.interactionSize = interactionSize;
+        this.innerTextLength = innerTextLength;
+        this.innerHTMLLength = innerHTMLLength;
+        this.imgSize = imgSize;
+        this.fontSize = fontSize;
+        this.imgNum = imgNum;
+        this.blockCenterX = blockCenterX;
+        this.blockCenterY = blockCenterY;
+        this.blockRectHeight = blockRectHeight;
+        this.blockRectWidth = blockRectWidth;
+        this.fontWeight = fontWeight;
+        this.jaccard = jaccard;
+        this.formNUm = formNUm;
+        this.formSize = formSize;
+        InteractionNum = interactionNum;
+        InteractionSize = interactionSize1;
+        OptionNum = optionNum;
+        OptionTextLength = optionTextLength;
+        ParaNum = paraNum;
+        TableNum = tableNum;
+    }
+
+    public DataStandard(String xpath, String label, String content, Double fontSizeAbsolute, Double linkNumAbsolute,
                         Double interactionSize, Double innerTextLength, Double imgSize,
                         Double blockRectWidth, Double blockRectHeight, Double fontSize, Double imgNum,
                         Double blockCenterX, Double blockCenterY,
-                        Double fontWeight, Double innerHTMLLength,  String jaccard) {
+                        Double fontWeight, Double innerHTMLLength, String jaccard) {
         this.xpath = xpath;
         this.label = label;
         this.content = content;
@@ -266,6 +308,62 @@ public class DataStandard {
         this.order = order;
     }
 
+    public Double getFormNUm() {
+        return formNUm;
+    }
+
+    public void setFormNUm(Double formNUm) {
+        this.formNUm = formNUm;
+    }
+
+    public Double getFormSize() {
+        return formSize;
+    }
+
+    public void setFormSize(Double formSize) {
+        this.formSize = formSize;
+    }
+
+    public Double getInteractionNum() {
+        return InteractionNum;
+    }
+
+    public void setInteractionNum(Double interactionNum) {
+        InteractionNum = interactionNum;
+    }
+
+    public Double getOptionNum() {
+        return OptionNum;
+    }
+
+    public void setOptionNum(Double optionNum) {
+        OptionNum = optionNum;
+    }
+
+    public Double getOptionTextLength() {
+        return OptionTextLength;
+    }
+
+    public void setOptionTextLength(Double optionTextLength) {
+        OptionTextLength = optionTextLength;
+    }
+
+    public Double getParaNum() {
+        return ParaNum;
+    }
+
+    public void setParaNum(Double paraNum) {
+        ParaNum = paraNum;
+    }
+
+    public Double getTableNum() {
+        return TableNum;
+    }
+
+    public void setTableNum(Double tableNum) {
+        TableNum = tableNum;
+    }
+
     public JsonObject convertToJsonObject() {
         JsonObject object = new JsonObject();
         object.addProperty("xpath", xpath);
@@ -293,7 +391,16 @@ public class DataStandard {
         object.addProperty("iterator", iterator);
         object.addProperty("order", order);
         object.addProperty("content", content);
-        
+
+        object.addProperty("formNum", formNUm);
+        object.addProperty("formSize", formSize);
+        object.addProperty("interactionNum", InteractionNum);
+        object.addProperty("interactionSize_paper", InteractionSize);
+        object.addProperty("optionNum", OptionNum);
+        object.addProperty("optionTextLength", OptionTextLength);
+        object.addProperty("paraNum", ParaNum);
+        object.addProperty("tableNum", TableNum);
+
         return object;
     }
 

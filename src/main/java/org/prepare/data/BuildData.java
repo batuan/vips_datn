@@ -4,23 +4,23 @@ import java.io.*;
 
 public class BuildData {
     public static void main(String[] args) throws IOException {
-        String fileName = "result-3.json";
+        String fileName = "ketqua_2.json";
         String srcPath = "/Users/batuan/Documents/hoctap/datn/vips_java/segmentation-Layout-Content-website/";
-        String batdongsan = srcPath + "data-link/batdongsan/result-3.json";
-        String alonhadat = srcPath + "data-link/alonhadat/result-3.json";
-        String dothi = srcPath + "data-link/dothi/result-3.json";
-        String nhadatviet = srcPath + "data-link/123nhadatviet/result-3.json";
-        String bds123 = srcPath + "data-link/bds123/result-3.json";
-        String chothuenha = srcPath + "data-link/chothuenha/result-3.json";
-        String anphu = srcPath + "data-link/test/result-3.json";
-        String homedy = srcPath + "data-link/homedy/result-3.json";
+        String batdongsan = srcPath + "data-link/batdongsan/" + fileName;
+        String alonhadat = srcPath + "data-link/alonhadat/" + fileName;
+        String dothi = srcPath + "data-link/dothi/" + fileName;
+        String nhadatviet = srcPath + "data-link/123nhadatviet/" + fileName;
+        String bds123 = srcPath + "data-link/bds123/" + fileName;
+        String chothuenha = srcPath + "data-link/chothuenha/" + fileName;;
+        String anphu = srcPath + "data-link/test/" + fileName;
+        String homedy = srcPath + "data-link/homedy/" + fileName;
+        String bannha = srcPath + "data-link/bannha/" + fileName;
 
+        String[] list = {batdongsan, alonhadat, dothi, nhadatviet, bds123, chothuenha};//, homedy};
+        String[] nlist = {batdongsan, alonhadat, nhadatviet, bds123, chothuenha, dothi, bannha};
+        PrintWriter pw = new PrintWriter("/Users/batuan/Documents/DATN/data/data-main-layout/contentdata_ketqua_2.json");
 
-        String[] list = {batdongsan, alonhadat, dothi, nhadatviet, bds123, chothuenha, homedy};
-
-        PrintWriter pw = new PrintWriter("/Users/batuan/Documents/hoctap/datn/vips_java/segmentation-Layout-Content-website/data-link/contentdata.json");
-
-        for (String path : list) {
+        for (String path : nlist) {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
             String line = bufferedReader.readLine();
             while (line != null) {

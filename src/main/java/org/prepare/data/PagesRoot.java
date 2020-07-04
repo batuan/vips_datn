@@ -115,6 +115,7 @@ public class PagesRoot {
      */
     public void setLabelPositive(String ...xpathMatch) {
         for (DataBlock it: elements) {
+            it.setLabel("0");
             String xpath = it.getXpath();
             for (String match: xpathMatch) {
                 if (xpath.contains(match)) {
@@ -132,21 +133,18 @@ public class PagesRoot {
         /*System.out.println(this.elements);*/
     }
 
+    public void propertiesNoLabel() {
+        this.elementStandard = this.calculatorDataStandara(this.elements);
+        this.setElementIterator();
+    }
+
     public ArrayList<DataStandard> calculatorDataStandara(ArrayList<DataBlock> elements) {
         ArrayList<DataStandard> dataStandards = new ArrayList<>();
         for (DataBlock it: elements) {
-            if (it.getContent().trim().equals("")) {
-                continue;
-            }
-            String [] xpaths = it.getXpath().split("/");
-            if (xpaths[xpaths.length - 1].equals("img") || xpaths[xpaths.length - 1].equals("input") || xpaths[xpaths.length - 1].equals("select") ||
-                    xpaths[xpaths.length - 1].equals("option") ) {
-                continue;
-            }
-            if (it.getXpath().contains("/a[0]/#text")) {
-                continue;
-            }
-
+            //vi sao bo qua doan nay? content ko co nhung co image thi sao :))
+//            if (it.getContent().trim().equals("")) {
+//                continue;
+//            }
             Double blockCenterX = (it.getObjectRectLeft() + it.getObjectRectWidth()) / (2 * blockBody.getObjectRectWidth());
             Double blockRectWidth = it.getObjectRectWidth() / blockBody.getObjectRectWidth();
             Double blockRectHeigh = it.getObjectRectHeight() / WindowHeight;
@@ -165,12 +163,21 @@ public class PagesRoot {
             Double linkNum = it.getLinkNum() / blockBody.getLinkNum();
             Double interactionSize = (it.getObjectRectHeight() * it.getObjectRectWidth()) / (blockBody.getObjectRectHeight() * blockBody.getObjectRectWidth());
             Double innerTextLength = it.getTextLen() / blockBody.getTextLen();
-            Double imgSize = it.getIsImage() == 1.0 ? (it.getObjectRectHeight() * it.getObjectRectWidth()) / (PageRectHeight * PageRectWidth) : 0.0;
+            Double imgSize = it.getContainImg() != 0.0 ? (it.getObjectRectHeight() * it.getObjectRectWidth()) / (PageRectHeight * PageRectWidth) : 0.0;
             Double imgNum = it.getContainImg() / blockBody.getContainImg();
             Double fontWeight = it.getFontWeight();
             Double innerHTMLLength = Double.valueOf(it.getSrc().length())/* / Double.valueOf(blockBody.getSrc().length())*/;
             String xpath = it.getXpath();
             String label = it.getLabel();
+
+            Double formNUm = it.getFormNUm();
+            Double formSize = it.getFormSize();
+            Double InteractionNum = it.getInteractionNum();
+            Double InteractionSize = it.getInteractionSize();
+            Double OptionNum = it.getOptionNum();
+            Double OptionTextLength = it.getOptionTextLength();
+            Double ParaNum = it.getParaNum();
+            Double TableNum = it.getTableNum();
 
             String jaccard = "none-main";
             if (idParentMainSimilarJacard == null) {
@@ -198,9 +205,14 @@ public class PagesRoot {
 
             String content = StandardStringUtility.getStringFeatures(it.getContent());
 
-            DataStandard dataStandard = new DataStandard(xpath, label, content, fontSizeAbsolute, linkNum,
-                    interactionSize, innerTextLength, imgSize, blockRectWidth, blockRectHeigh,
-                    fontSize, imgNum, blockCenterX, blockCenterY, fontWeight, innerHTMLLength, jaccard);
+//            DataStandard dataStandard = new DataStandard(xpath, label, content, fontSizeAbsolute, linkNum,
+//                    interactionSize, innerTextLength, imgSize, blockRectWidth, blockRectHeigh,
+//                    fontSize, imgNum, blockCenterX, blockCenterY, fontWeight, innerHTMLLength, jaccard);
+
+
+            DataStandard dataStandard = new DataStandard(xpath, label, content, fontSizeAbsolute, linkNum, interactionSize,
+                    innerTextLength, innerHTMLLength ,imgSize, blockRectWidth, blockRectHeigh, fontSize, imgNum, blockCenterX, blockCenterY,
+                    fontWeight, jaccard, formNUm, formSize, InteractionNum, InteractionSize, OptionNum, OptionTextLength, ParaNum, TableNum);
 
             Pattern pattern = Pattern.compile("(featurephone)|(featureEmail)|(featureLH)");
             Matcher matcher = pattern.matcher(content);

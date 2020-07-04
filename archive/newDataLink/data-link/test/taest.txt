@@ -1,0 +1,44 @@
+(['xpath', 'label', 'jaccard', 'fontSizeAbsolute', 'linkNumAbsolute',
+       'interactionSize', 'innerTextLength', 'innerHTMLLength', 'imgSize',
+       'fontSize', 'imgNum', 'blockCenterX', 'blockCenterY', 'blockRectHeight',
+       'blockRectWidth', 'fontWeight', 'contact', 'architecture', 'address',
+       'suface', 'time', 'price', 'iterator', 'order', 'content', 'formNum',
+       'formSize', 'interactionNum', 'interactionSize_paper', 'optionNum',
+       'optionTextLength', 'paraNum', 'tableNum'],
+      dtype='object')
+
+      linktextlength chua co trong du lieu
+
+<div class="col-12 col-lg-5" bis_skin_checked="1"><div class="border pt-3 px-3 pb-2 mb-4" bis_skin_checked="1"><h1 class="h5 text-primary mb-3">MT 4 NGUYỄN THÀNH Ý, DAKAO, Q.1</h1><div class="h6 font-weight-normal border-bottom d-flex pb-3 mb-3" bis_skin_checked="1">
+<i class="fas fa-map-marker-alt mr-2"></i><div bis_skin_checked="1">
+<a class="text-body" rel="nofollow" href="https://bannha.net/ban-nha/ho-chi-minh/quan-1/nguyen-thanh-y">Đường Nguyễn Thành Ý</a>, <a class="text-body" rel="nofollow" href="https://bannha.net/ban-nha/ho-chi-minh/quan-1/da-kao">Phường Đa Kao</a>, <a class="text-body" rel="nofollow" href="https://bannha.net/ban-nha/ho-chi-minh/quan-1"> Quận 1</a>, <a class="text-body" rel="nofollow" href="https://bannha.net/ban-nha/ho-chi-minh"> Hồ Chí Minh</a></div></div><p class="row pb-1 mb-2">
+<span class="col-5 text-muted">Giá</span>
+<span class="col-7 fw-medium">92 Tỷ</span></p><p class="row pb-1 mb-2">
+<span class="col-5 text-muted">Diện tích</span>
+<span class="col-7 fw-medium">238 m<sup>2</sup></span></p><p class="row pb-1 mb-2">
+<span class="col-5 text-muted">Loại BĐS</span>
+<span class="col-7 fw-medium">
+<a href="https://bannha.net/ban-nha">
+Bán nhà                                        </a>
+</span></p><p class="row pb-1 mb-2">
+<span class="col-5 text-muted">Ngày đăng</span>
+<span class="col-7 fw-medium">20/06/2020</span></p><p class="row pb-1 mb-2">
+<span class="col-5 text-muted">Ngày hết hạn</span>
+<span class="col-7 fw-medium">20/07/2020</span></p><p class="row pb-1 mb-2">
+<span class="col-5 text-muted">Lượt xem</span>
+<span class="col-7 fw-medium">24</span></p><p class="row pb-1 mb-2">
+<span class="col-5 text-muted">Người đăng</span>
+<span class="col-7 fw-medium">
+<a href="https://bannha.net/author/chau">
+chau
+</a>
+</span></p><p class="row pb-1 mb-2">
+<span class="col-5 text-muted">Số điện thoại</span>
+<span class="col-7 fw-medium">
+<a class="text-danger" href="tel:0328289595">
+0328289595                                        </a>
+</span></p></div></div>
+
+/html/body/div[1]/div[2]/div[3]/div/div/main/div[2]
+<div class="mb-4 entry-content" bis_skin_checked="1"><p class="MsoNormal" style="margin-bottom: .0001pt;line-height: 150%"><b><span style="font-size: 16.0pt;line-height: 150%;color: #3b3d79">Địa chỉ: 4 Nguyễn Thành Ý, P. Đa Kao, Q.1, TP.HCM</span></b></p><p class="MsoListParagraphCxSpFirst" style="text-indent: -18.0pt;line-height: 150%;margin: 0cm 0cm .0001pt 1.0cm"><b><span style="font-size: 15.0pt;line-height: 150%;color: black">1,&nbsp;&nbsp; </span></b><!--[endif]-->Giá bán: 92 tỉ (TL).</p><p class="MsoListParagraphCxSpMiddle" style="text-indent: -18.0pt;line-height: 150%;margin: 0cm 0cm .0001pt 1.0cm"><b><span style="font-size: 15.0pt;line-height: 150%;color: black">2,&nbsp;&nbsp; </span></b><!--[endif]-->Diện tích: 12.55<span style="font-size: 12.0pt;line-height: 150%">x</span>19m (khuôn đất vuông vức, ko lỗi phong thủy).</p><p class="MsoListParagraphCxSpMiddle" style="text-indent: -18.0pt;line-height: 150%;margin: 0cm 0cm .0001pt 1.0cm"><b><span style="font-size: 15.0pt;line-height: 150%;color: black">3,&nbsp;&nbsp; </span></b><!--[endif]-->Sổ hồng: 238m<sup>2</sup> (nhà 2 mặt tiền, mặt hẻm sau 5m).</p><p class="MsoListParagraphCxSpMiddle" style="text-indent: -18.0pt;line-height: 150%;margin: 0cm 0cm .0001pt 1.0cm"><b><span style="font-size: 15.0pt;line-height: 150%;color: black">4,&nbsp;&nbsp; </span></b><!--[endif]-->Hiện trạng: đất trống ==&gt; tiện xây cao ốc văn phòng, căn hộ dịch vụ, spa, …</p><p class="MsoListParagraphCxSpMiddle" style="text-indent: -18.0pt;line-height: 150%;margin: 0cm 0cm .0001pt 1.0cm"><b><span style="font-size: 15.0pt;line-height: 150%;color: black">5,&nbsp;&nbsp; </span></b><!--[endif]-->Gần tuyến đường chính: Đinh Tiên Hoàng, Điện Biên Phủ.</p><p class="MsoListParagraphCxSpMiddle" style="text-indent: -18.0pt;line-height: 150%;margin: 0cm 0cm .0001pt 1.0cm"><b><span style="font-size: 15.0pt;line-height: 150%;color: black">6,&nbsp;&nbsp; </span></b><!--[endif]-->Khu vực tập trung nhiều biệt thự, văn phòng cực kì an ninh, yên tĩnh.</p><p class="MsoListParagraphCxSpLast" style="text-indent: -18.0pt;line-height: 150%;margin: 0cm 0cm .0001pt 1.0cm"><b><span style="font-size: 15.0pt;line-height: 150%;color: black">7,&nbsp;&nbsp; </span></b><!--[endif]-->Pháp lí rõ ràng, sổ hồng chính chủ.</p><p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Liên hệ: 0328289595 – Châu</strong></p><div style="text-align:right" class="yasr-auto-insert-visitor" bis_skin_checked="1"><div id="yasr_visitor_votes_207424" class="yasr-visitor-votes" bis_skin_checked="1"><div class="yasr-container-custom-text-and-visitor-rating" bis_skin_checked="1">
+<span id="yasr-custom-text-before-visitor-rating">Xin đánh giá</span></div><div id="yasr-visitor-votes-rater-acd5cf5ef002b" class="yasr-rater-stars-visitor-votes yasr-star-rating" data-rater-postid="207424" data-rating="5" data-rater-starsize="24" data-rater-readonly="false" data-rater-nonce="82ccab7506" data-issingular="true" data-cpt="" bis_skin_checked="1" style="width: 120px; height: 24px; background-size: 24px;"><div class="yasr-star-value" style="background-size: 24px; width: 100%;" bis_skin_checked="1"></div></div><span id="yasr-visitor-votes-container-after-stars-acd5cf5ef002b" class="yasr-visitor-votes-after-stars-class"><span class="dashicons dashicons-chart-bar yasr-dashicons-visitor-stats" data-postid="207424" id="yasr-total-average-dashicon-207424" tabindex="0"></span><span class="yasr-total-average-container" id="yasr-total-average-text-acd5cf5ef002b">[Có: <span id="yasr-vv-votes-number-container-acd5cf5ef002b">1</span>  Đánh Giá: <span id="yasr-vv-average-container-acd5cf5ef002b">5</span>]</span></span></div></div><script type="application/ld+json">{"@context":"http:\/\/schema.org\/","@type":"Product","name":"MT 4 NGUY\u1ec4N TH\u00c0NH \u00dd, DAKAO, Q.1","description":"\u0110\u1ecba ch\u1ec9: 4 Nguy\u1ec5n Th\u00e0nh \u00dd, P. \u0110a Kao, Q.1, TP.HCM 1,\u00a0\u00a0 Gi\u00e1 b\u00e1n: 92 t\u1ec9 (TL). 2,\u00a0\u00a0 Di\u1ec7n t\u00edch: 12.55x19m (khu\u00f4n \u0111\u1ea5t vu\u00f4ng v\u1ee9c, ko l\u1ed7i phong th\u1ee7y). 3,\u00a0\u00a0 S\u1ed5 h\u1ed3ng: 238m2 (nh\u00e0 2 m\u1eb7t ti\u1ec1n, m\u1eb7t h\u1ebbm sau 5m). 4,\u00a0\u00a0 Hi\u1ec7n tr\u1ea1ng: \u0111\u1ea5t tr\u1ed1ng ==&gt; ti\u1ec7n x\u00e2y cao \u1ed1c v\u0103n ph\u00f2ng, c\u0103n h\u1ed9...","image":{"@type":"ImageObject","url":"https:\/\/bannha.net\/wp-content\/uploads\/2020\/06\/20191003183748-13c4_wm.png","width":680,"height":507},"aggregateRating":{"@type":"AggregateRating","ratingValue":5,"ratingCount":1,"bestRating":5,"worstRating":1},"brand":"","sku":"","":""}</script></div>

@@ -48,12 +48,12 @@ public class VipsSeparatorGraphicsDetector extends JPanel implements VipsSeparat
 	 */
 	public VipsSeparatorGraphicsDetector(int width, int height) {
 
-//		this._image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR);
-		try {
-			this._image = ImageIO.read(new File(System.getProperty("user.dir") + "/page.png"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		this._image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR);
+//		try {
+//			this._image = ImageIO.read(new File(System.getProperty("user.dir") + "/page.png"));
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		this._horizontalSeparators = new ArrayList<Separator>();
 		this._verticalSeparators = new ArrayList<Separator>();
 		this._visualBlocks = new ArrayList<VipsBlock>();
