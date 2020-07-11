@@ -239,10 +239,18 @@ public class VipsBlock {
 	 * Checks if visual block contains image.
 	 * @param vipsBlock Visual block
 	 */
+	double maxImageSize = 0.0;
 	private void checkContainImg(VipsBlock vipsBlock)
 	{
-		if (vipsBlock.getBox().getNode().getNodeName().equals("img"))
+		Node checkImgNode = vipsBlock.getBox().getNode();
+		if (checkImgNode.getNodeName().equals("img"))
 		{
+			try {
+				double size = vipsBlock.getBox().getWidth() * vipsBlock.getBox().getHeight();
+				if (size > maxImageSize) maxImageSize = size;
+			} catch (Exception e){
+				System.out.println(e.toString());
+			}
 			vipsBlock._isImg = true;
 			this._containImg++;
 		}
@@ -358,6 +366,7 @@ public class VipsBlock {
 	 */
 	private void countLinkNum(VipsBlock vipsBlock) {
 		if (vipsBlock.getBox().getNode().getNodeName().equals("a")) {
+			//_linkTextLen += vipsBlock.getBox().getNode().getTextContent().length();
 			LinkNum += 1;
 		}
 		for (VipsBlock childVipsBlock: vipsBlock.getChildren())

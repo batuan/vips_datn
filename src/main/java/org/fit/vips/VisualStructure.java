@@ -60,6 +60,34 @@ public class VisualStructure {
 		return XPath;
 	}
 
+	public int getMaxDocVisualChildren(){
+		int tmp = 0;
+		for (VisualStructure child: this._childrenVisualStructures) {
+			int doc = child.getDoC();
+			if (doc > tmp) tmp = doc;
+		}
+		return tmp;
+	}
+
+	public int getMaxDocVisualBlockChildren() {
+		int tmp = 0;
+		for (VipsBlock vipsBlock: this.getNestedBlocks()) {
+			int doc = vipsBlock.getDoC();
+			if ( doc > tmp) {
+				tmp = doc;
+			}
+		}
+		return tmp;
+	}
+
+	double maxImageSize() {
+		double max = 0.0;
+		for (VipsBlock vipsBlock : _nestedBlocks)
+		{
+			if (vipsBlock.maxImageSize > max) max = vipsBlock.maxImageSize;
+		}
+		return max;
+	}
 
 	public int get_formNum() {
 		if (_formNum != -1)
@@ -134,6 +162,15 @@ public class VisualStructure {
 			_paraNum += vipsBlock.get_paraNum();
 		}
 		return _paraNum;
+	}
+
+	public String getClassName(){
+		String allClass = "";
+		for (VipsBlock vipsBlock: this.getNestedBlocks()) {
+			String className = vipsBlock.getElementBox().getElement().getAttribute("class");
+			allClass += className + ", ";
+		}
+		return allClass;
 	}
 
 	private int _order;

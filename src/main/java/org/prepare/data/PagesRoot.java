@@ -126,6 +126,9 @@ public class PagesRoot {
         }
     }
 
+    //Gán Label
+    // Standar Data
+
     public void properties() {
         this.setLabelPositive(this.xpahtPositive);
         this.elementStandard = this.calculatorDataStandara(this.elements);

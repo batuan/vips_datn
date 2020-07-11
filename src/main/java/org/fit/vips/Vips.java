@@ -36,12 +36,13 @@ import org.xml.sax.SAXException;
  *
  */
 public class Vips {
+	private String urlString = "";
 	private URL _url = null;
 	private DOMAnalyzer _domAnalyzer = null;
 	private Document _document = null;
 	private BrowserCanvas _browserCanvas = null;
 	private Viewport _viewport = null;
-
+	private String outPutFolder;
 	private boolean _graphicsOutput = false;
 	private boolean _outputToFolder = false;
 	private boolean _outputEscaping = true;
@@ -57,6 +58,16 @@ public class Vips {
 	private PrintStream originalOut = null;
 	long startTime = 0;
 	long endTime = 0;
+
+	private String[] listXpath;
+
+	public void setListXpath(String[] listXpath) {
+		this.listXpath = listXpath;
+	}
+
+	public void setOutPutFolder(String outPutFolder) {
+		this.outPutFolder = outPutFolder;
+	}
 
 	/**
 	 * Default constructor
@@ -117,6 +128,7 @@ public class Vips {
 	 */
 	public void setUrl(String url)
 	{
+		this.urlString = url;
 		try
 		{
 			if (url.startsWith("http://") || url.startsWith("https://"))
@@ -149,6 +161,8 @@ public class Vips {
 			_domAnalyzer.addStyleSheet(null, CSSNorm.stdStyleSheet(), DOMAnalyzer.Origin.AGENT);
 			_domAnalyzer.addStyleSheet(null, CSSNorm.userStyleSheet(), DOMAnalyzer.Origin.AGENT);
 			_domAnalyzer.getStyleSheets();
+			_browserCanvas = new BrowserCanvas(_domAnalyzer.getRoot(),
+					_domAnalyzer, new java.awt.Dimension(sizeDimensionWidth, sizeDimensionHeight), _url);
 		}
 		catch (Exception e)
 		{
@@ -158,20 +172,29 @@ public class Vips {
 
 	/**
 	 * Parses a builds DOM tree from page source
-	 * @param html String Input with phantomJS
+	 * @param url String Input with phantomJS
 	 */
-	private void getDomTree(String html) {
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setNamespaceAware(true);
-		try {
-			Document domTree = factory.newDocumentBuilder().parse(new InputSource(new ByteArrayInputStream(html.getBytes())));
-			_domAnalyzer = new DOMAnalyzer(domTree, _url);
+	private void getDomTree(String url) {
+		DocumentSource docSource = null;
+		try
+		{
+			docSource = new DefaultDocumentSource(url);
+			DOMSource parser = new DefaultDOMSource(docSource);
+
+			Document domTree = parser.parse();
+			this._document = domTree;
+			_domAnalyzer = new DOMAnalyzer(domTree, docSource.getURL());
 			_domAnalyzer.attributesToStyles();
 			_domAnalyzer.addStyleSheet(null, CSSNorm.stdStyleSheet(), DOMAnalyzer.Origin.AGENT);
 			_domAnalyzer.addStyleSheet(null, CSSNorm.userStyleSheet(), DOMAnalyzer.Origin.AGENT);
 			_domAnalyzer.getStyleSheets();
-		} catch (Exception e) {
-			System.err.println(e.getMessage());
+			_browserCanvas = new BrowserCanvas(_domAnalyzer.getRoot(),
+					_domAnalyzer, new java.awt.Dimension(sizeDimensionWidth, sizeDimensionHeight), docSource.getURL());
+
+		}
+		catch (Exception e)
+		{
+			System.err.print(e.getMessage());
 		}
 	}
 
@@ -180,8 +203,6 @@ public class Vips {
 	 */
 	private void getViewport()
 	{
-		_browserCanvas = new BrowserCanvas(_domAnalyzer.getRoot(),
-				_domAnalyzer, new java.awt.Dimension(sizeDimensionWidth, sizeDimensionHeight), _url);
 		_viewport = _browserCanvas.getViewport();
 	}
 
@@ -325,8 +346,12 @@ public class Vips {
 
 		VipsOutput vipsOutput = new VipsOutput(_pDoC);
 		vipsOutput.setEscapeOutput(_outputEscaping);
-		vipsOutput.setOutputFileName(_dirName + "/" + _filename);
+		vipsOutput.setOutputFileName(_filename);
 		vipsOutput.writeXML(constructor.getVisualStructure(), _viewport);
+
+		VipsJsonOutput vipsJsonOutput = new VipsJsonOutput(_pDoC, this.listXpath);
+		vipsJsonOutput.set_filename(_filename);
+		vipsJsonOutput.writeJson(constructor.getVisualStructure(), _viewport);
 
 		endTime = System.nanoTime();
 
@@ -386,14 +411,10 @@ public class Vips {
 			_url.openConnection();
 
 			redirectOut();
-		//	getDomTree(phantomJS.readStringHTML(_url.toString()));
-			getDomTree(_url);
+			getDomTree(this.urlString);
 			startTime = System.nanoTime();
 			getViewport();
 			restoreOut();
-
-//			Utils.setEvincedIds(_domAnalyzer.getBody());
-//			Utils.writeHtmlToFile(_domAnalyzer.getRoot(), _dirName + "/" + "html-with-evinced-ids.html");
 
 			String outputFolder = "";
 			String oldWorkingDirectory = "";
@@ -417,21 +438,22 @@ public class Vips {
 					System.setProperty("user.dir.data", newWorkingDirectory + "/" + _dirName + "/");
 				}
 			}
+			else {
+				File setOutputFolder = new File(this.outPutFolder);
+				if (!setOutputFolder.exists()) {
+					if(setOutputFolder.mkdir()){
+						System.out.println("DONE MKDIR");
+					} else {
+						System.out.println("Path is note Exsit");
+					}
+				}
+				System.setProperty("user.dir", this.outPutFolder);
+			}
 
 			performSegmentation();
 
 			if (_outputToFolder)
 				System.setProperty("user.dir", oldWorkingDirectory);
-
-//			System.out.println("Writing results as HTML");
-//			Document xmlDoc = Utils.loadXmlDocumentFromFile(_dirName + "/" + _filename + ".xml");
-//			Document htmlDoc = Utils.xmlToHtml(xmlDoc);
-//			Utils.writeHtmlToFile(htmlDoc.getDocumentElement(), _dirName + "/" + _filename + ".html");
-//			System.out.println("DONE writing results as HTML");
-//
-//			System.out.println("Generating evinced script: " + _dirName + "/evinced-mark-VIPS-blocks.js");
-//			Utils.generateEvincedScript(htmlDoc, _dirName + "/evinced-mark-VIPS-blocks.js");
-//			System.out.println("DONE writing EvincedIDs to file");
 		}
 		catch (Exception e)
 		{

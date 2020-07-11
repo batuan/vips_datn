@@ -277,7 +277,8 @@ public final class VipsOutput {
 				transformer.transform(source, new StreamResult(writer));
 				String result = writer.toString();
 				result = result.replaceAll("&#[0-9]*;", " ");
-				FileWriter fstream = new FileWriter(_filename + ".xml");//System.getProperty("user.dir") + "/" + _filename + ".xml");
+				String userDir = System.getProperty("user.dir") + "/";
+				FileWriter fstream = new FileWriter(userDir + _filename + ".xml");//System.getProperty("user.dir") + "/" + _filename + ".xml");
 				fstream.write(result);
 				fstream.close();
 			}
@@ -290,7 +291,7 @@ public final class VipsOutput {
 				result = result.replaceAll("&lt;", "<");
 				result = result.replaceAll("&quot;", "\"");
 				result = result.replaceAll("&#[0-9]*;", " ");
-				FileWriter fstream = new FileWriter(_filename + ".xml");
+				FileWriter fstream = new FileWriter(_filename + ".xml");//System.getProperty("user.dir") + "/" + _filename + ".xml");
 				fstream.write(result);
 				fstream.close();
 			}

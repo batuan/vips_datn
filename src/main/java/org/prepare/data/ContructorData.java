@@ -68,7 +68,7 @@ public class ContructorData {
             fontWeight = Double.valueOf(fontWeight);
         }
         Double textLen = Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("TextLen").getNodeValue());
-        Double isImage = Boolean.valueOf(nodeLayOutBody.getAttributes().getNamedItem("TextLen").getNodeValue()) ? 1.0 : 0.0;
+                Double isImage = Boolean.valueOf(nodeLayOutBody.getAttributes().getNamedItem("TextLen").getNodeValue()) ? 1.0 : 0.0;
         String src = "";/*nodeLayOutBody.getAttributes().getNamedItem("SRC").getNodeValue();*/
 
         Double optionNum =  Double.valueOf(nodeLayOutBody.getAttributes().getNamedItem("OptionNum").getNodeValue());
@@ -441,13 +441,17 @@ public class ContructorData {
         System.out.println("Number of block: " + folder_name + " " + counBlock);
         PagesRoot page1 = new PagesRoot(app.getPagesRoot().get(0));
         int sizePages = app.getPagesRoot().size();
+
+        // Làm sạch những DataBlock trùng nhau
         for (int i = 0; i < sizePages - 1; i++) {
             app.getPagesRoot().get(i).cleanBlock(app.getPagesRoot().get(i + 1).getElements());
         }
         app.getPagesRoot().get(sizePages - 1).cleanBlock(page1.getElements());
 
         for (int i = 0; i < sizePages; i++) {
+            //Chuẩn bị xpath để đánh label
             app.getPagesRoot().get(i).setXpathPositive(xpath);
+            // Gán label cho từng page
             app.getPagesRoot().get(i).properties();
             for (DataStandard it: app.getPagesRoot().get(i).getElementStandard()) {
                 app.getData().add(it);
